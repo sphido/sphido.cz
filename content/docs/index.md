@@ -1,15 +1,13 @@
 ---
-title: Docs
+title: API Docs
 template: theme/docs.html
 slug: .
 ---
  
-# 🚀 Docs
+# 🚀 API Docs
 
 
-## API Docs
-
-### `Sphido.getPage(file, [...extenders])`
+### `Sphido.getPage(file, [...extenders])` 
 
 Returns a `page` object generated from file.
 
@@ -56,13 +54,11 @@ Array of default Sphido extenders.
 * `excerpt(length)` - generate excerpt as shorten plain text without `<h1>`
 * `url(strip)` - return valid url from directory (`content/dir/dir2/page.md` ==> `/dir/dir2/page/)  
 
-### What's inside...
+### Sphido dependencies
 
-### nunjucks
- 
-[Sphido](https://sphido.org) using [nunjucks](https://mozilla.github.io/nunjucks/) - a rich and powerful templating language for JavaScript from Mozilla.
-  
-### marked
-
-A markdown parser and compiler. Built for speed. https://marked.js.org/
+* [nunjucks](https://mozilla.github.io/nunjucks/) - a rich and powerful templating language for JavaScript from Mozilla.
+* [marked](https://marked.js.org/) - A markdown parser and compiler. Built for speed.
+* [globby](https://github.com/sindresorhus/globby) - User-friendly glob matching
+* [js-yaml](https://github.com/nodeca/js-yaml) - YAML Parser 
+* [js-yaml](https://github.com/nodeca/js-yaml) - YAML Parser 
 
