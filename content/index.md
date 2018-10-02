@@ -3,7 +3,8 @@ title: Sphido | A rocket fast, lightweight, static site generator
 slug: '.' 
 ---
 
-<img src="/img/sphido.svg" alt="Sphido Logo" class="img-fluid w-75 my-5 d-block mx-auto">
+[<img src="/img/sphido.svg" alt="Sphido Logo" class="img-fluid w-75 my-5 d-block mx-auto">](https://github.com/sphido/sphido)
+
 
 # A rocket 🚀 fast, lightweight, static site generator
 

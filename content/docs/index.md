@@ -60,5 +60,5 @@ Array of default Sphido extenders.
 * [marked](https://marked.js.org/) - A markdown parser and compiler. Built for speed.
 * [globby](https://github.com/sindresorhus/globby) - User-friendly glob matching
 * [js-yaml](https://github.com/nodeca/js-yaml) - YAML Parser 
-* [js-yaml](https://github.com/nodeca/js-yaml) - YAML Parser 
+* [slugify](https://github.com/sindresorhus/slugify) - Slugify a string
 
