@@ -5,7 +5,7 @@ slug: '.'
 
 <img src="/img/sphido.svg" alt="Sphido Logo" class="img-fluid w-75 my-5 d-block mx-auto">
 
-# A rocket 🚀 fast, lightweight, flat file CMS for PHP
+# A rocket 🚀 fast, lightweight, static site generator.
 
 ## Installation
 
