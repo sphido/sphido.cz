@@ -67,6 +67,8 @@ const globby = require('globby');
 </urlset>
 ```
 
+Check out your [results](/sitemap.xml)...
+
 #### Modify `theme/page.html` and `theme/pages.html`
 
 Add follow code inside your `<head>` tag:
