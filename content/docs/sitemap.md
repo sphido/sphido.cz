@@ -75,7 +75,7 @@ Add follow code inside your `<head>` tag:
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 ``` 
 
-### Where to submit sitemap?
+### Submit Your Sitemap
 
 * [Google - Search console](https://search.google.com/search-console/about)
 * [Bing - Webmaster Tools](https://www.bing.com/toolbox/webmaster)
