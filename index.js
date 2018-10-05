@@ -23,8 +23,15 @@ const twemoji = require('twemoji');
 			await page.save(page.dir.replace('content', 'public'));
 		}
 
+		// Generate sitemap.xml
+		Sphido.template.toFile(
+				'public/sitemap.xml',
+				'theme/sitemap.xml',
+				{pages: pages,  date: new Date().toISOString(), domain: 'https://sphido.org'}
+		);
+
 		// Copy static content
-		let files = await await globby(['theme/**/*.*', 'content/**/*.*', '!**/*.{md,html}']);
+		let files = await await globby(['theme/**/*.*', 'content/**/*.*', '!**/*.{md,html,xml}']);
 		for await (let file of files) {
 			await fs.copy(file, file.replace(/^[\w]+/, 'public'))
 		}
