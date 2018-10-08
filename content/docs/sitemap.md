@@ -35,7 +35,6 @@ const globby = require('globby');
         'theme/sitemap.xml',
         {
           pages: pages,  
-          date: new Date().toISOString(), 
           domain: 'https://example.com'
         }
     );
@@ -52,18 +51,13 @@ const globby = require('globby');
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>{{domain}}</loc>
-    <lastmod>{{date}}</lastmod>
-    <priority>1.0</priority>
-  </url>
-  {% for page in pages %}
-  <url>
-    <loc>{{domain + page.url() | trim}}</loc>
-    <lastmod>{{page.date.toISOString()}}</lastmod>
-    <priority>0.80</priority>
-  </url>
-  {% endfor %}
+	{% for page in pages %}
+	<url>
+		<loc>{{domain + page.url() | trim}}</loc>
+		<lastmod>{{page.date.toISOString()}}</lastmod>
+		<priority>{{ '1.00' if page.url() === '/' else '0.80'}}</priority>
+	</url>
+	{% endfor %}
 </urlset>
 ```
 
