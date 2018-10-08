@@ -52,7 +52,7 @@ Array of default Sphido extenders.
 
 * `save(dir, [template])` - add save function to page expect target directory
 * `excerpt(length)` - generate excerpt as shorten plain text without `<h1>`
-* `url()` - return valid url from directory (`content/dir/dir2/page.md` ➡️ `/dir/dir2/page/`)  
+* `url()` - return valid url from directory (`content/dir/dir2/page.md` to️ `/dir/dir2/page/`)  
 
 ### Sphido dependencies
 
