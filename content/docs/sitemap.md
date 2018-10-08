@@ -77,6 +77,11 @@ Add follow code inside your `<head>` tag:
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 ``` 
 
+
+### Source code
+
+https://github.com/sphido/sphido/tree/master/examples/sitemap
+
 ### Submit Your Sitemap
 
 * [Google - Search console](https://search.google.com/search-console/about)

@@ -1,4 +1,11 @@
 {
+  "name": "sphido.org",
+  "author": {
+    "name": "Roman Ožana",
+    "email": "roman@omdesign.cz",
+    "url": "https://omdesign.cz/"
+  },
+  "license": "MIT",
   "scripts": {
     "build": "./index.js",
     "watch": "watch './index.js' ./content ./theme",
