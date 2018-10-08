@@ -27,7 +27,7 @@ const twemoji = require('twemoji');
 		Sphido.template.toFile(
 				'public/sitemap.xml',
 				'theme/sitemap.xml',
-				{pages: pages,  date: new Date().toISOString(), domain: 'https://sphido.org'}
+				{pages: pages,  domain: 'https://sphido.org'}
 		);
 
 		// Copy static content
