@@ -70,14 +70,12 @@ yarn-offline-mirror-pruning true
 --install.dev true
 ```
 
-Webhook on GitHub
+**Webhook on GitHub**
 
-<img src="/docs/github.webhook.png" class="img-fluid mx-auto d-block" />
-
-
+<img src="/docs/github.webhook.png" class="img-fluid mx-auto my-2 shadow d-block" />
 
 #### Links:
 
-* [How to install Caddy Server](/docs/caddy)
+* [Install Caddy server (on Debian)](/docs/caddy)
 * [Caddy Server Homepage](https://caddyserver.com/)
 * [Let's Encrypt](https://letsencrypt.org/)
