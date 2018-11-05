@@ -3,14 +3,69 @@ title: Caddy server
 template: theme/docs.html
 ---
 
-# Caddy Server
+# Caddy server
 
-[Caddy](https://caddyserver.com/) is the HTTP/2 web server with automatic HTTPS. Caddy is easy to configure and easy to maintain - 
-specially for small websites generated with Sphido (or something else). It includes native support for Git and [Let's Encrypt](https://letsencrypt.org/) 
-thanks to its plugin-based architecture.
+[Caddy server](https://caddyserver.com/) is the HTTP/2 web server with automatic HTTPS. 
+Caddy is easy to configure and easy to maintain - specially for small websites generated 
+with Sphido (or something else). It includes native support for Git 
+and [Let's Encrypt](https://letsencrypt.org/) thanks to its plugin-based architecture.
 
 The [git plugin](https://caddyserver.com/docs/http.git) makes it possible to deploy your site with a simple git push.
 
+## Combine Caddy and Sphido
+
+Let's have *Caddyfile* with follow content: 
+```
+www.sphido.org {
+	redir https://sphido.org{uri}
+}
+
+https://sphido.org {	
+	tls roman@omdesign.cz
+
+	root /var/www/sphido.org/public
+  log  /var/www/sphido.org/log/access.log
+  errors /var/www/sphido.org/log/errors.log
+
+	git {
+		repo https://github.com/sphido/sphido.org.git
+		path /var/www/sphido.org/
+		hook /update [****]
+		hook_type generic
+    then make
+	}
+
+	gzip
+	header / Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+}
+
+```
+
+Makefile:
+
+```bash
+update:
+	yarn install --dev --no-color
+	rm -rf ./public
+	mkdir -p log public
+	yarn run build
+	
+PHONY: update
+```
+
+.yarnrc
+
+```
+cache-folder ".cache"
+yarn-offline-mirror ".npm"
+yarn-offline-mirror-pruning true
+--install.prefer-offline true
+--install.dev true
+```
+
+Webhook on GitHub
+
+<img src="/docs/caddy-server-github.png" />
 
 ## Install Caddy server (on Debian)
 
@@ -154,55 +209,4 @@ systemctl status caddy
 systemctl stop caddy
 curl https://getcaddy.com | bash -s personal http.git
 systemctl start caddy
-```
-
-## Combine Caddy and Sphido
-
-Let's have *Caddyfile* with follow content: 
-```
-www.sphido.org {
-	redir https://sphido.org{uri}
-}
-
-https://sphido.org {	
-	tls roman@omdesign.cz
-
-	root /var/www/sphido.org/public
-  log  /var/www/sphido.org/log/access.log
-  errors /var/www/sphido.org/log/errors.log
-
-	git {
-		repo https://github.com/sphido/sphido.org.git
-		path /var/www/sphido.org/
-		hook /update [****]
-		hook_type generic
-    then make
-	}
-
-	gzip
-	header / Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-}
-
-```
-
-Makefile:
-
-```bash
-update:
-	yarn install --dev --no-color
-	rm -rf ./public
-	mkdir -p log public
-	yarn run build
-	
-PHONY: update
-```
-
-.yarnrc
-
-```
-cache-folder ".cache"
-yarn-offline-mirror ".npm"
-yarn-offline-mirror-pruning true
---install.prefer-offline true
---install.dev true
 ```
