@@ -1,7 +1,6 @@
 ---
 title: Caddy server
 template: theme/docs.html
-slug: caddy
 ---
 
 # Caddy Server
