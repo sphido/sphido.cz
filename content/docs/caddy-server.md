@@ -65,7 +65,7 @@ yarn-offline-mirror-pruning true
 
 Webhook on GitHub
 
-<img src="/docs/caddy-server-github.png" />
+<img src="/docs/caddy-server-github.png" class="img-fluid mx-auto d-block" />
 
 ## Install Caddy server (on Debian)
 
