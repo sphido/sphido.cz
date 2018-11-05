@@ -12,7 +12,7 @@ and [Let's Encrypt](https://letsencrypt.org/) thanks to its plugin-based archite
 
 The [git plugin](https://caddyserver.com/docs/http.git) makes it possible to deploy your site with a simple git push.
 
-## Combine Caddy and Sphido
+## Caddy and Sphido
 
 Let's have *Caddyfile* with follow content: 
 ```
