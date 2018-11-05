@@ -72,7 +72,7 @@ yarn-offline-mirror-pruning true
 
 **Webhook on GitHub**
 
-<img src="/docs/github.webhook.png" class="img-fluid mx-auto my-2 shadow d-block" />
+<img src="/docs/github.webhook.png" class="img-fluid mx-auto my-2 border d-block" />
 
 #### Links:
 
