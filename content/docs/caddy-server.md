@@ -17,26 +17,26 @@ The [git plugin](https://caddyserver.com/docs/http.git) makes it possible to dep
 Let's have *Caddyfile* with follow content: 
 ```
 www.sphido.org {
-	redir https://sphido.org{uri}
+  redir https://sphido.org{uri}
 }
 
 https://sphido.org {	
-	tls roman@omdesign.cz
+  tls roman@omdesign.cz
 
-	root /var/www/sphido.org/public
+  root /var/www/sphido.org/public
   log  /var/www/sphido.org/log/access.log
   errors /var/www/sphido.org/log/errors.log
 
-	git {
-		repo https://github.com/sphido/sphido.org.git
-		path /var/www/sphido.org/
-		hook /update [****]
-		hook_type generic
+  git {
+    repo https://github.com/sphido/sphido.org.git
+    path /var/www/sphido.org/
+    hook /update [****]
+    hook_type generic
     then make
-	}
+  }
 
-	gzip
-	header / Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  gzip
+  header / Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 }
 
 ```
@@ -45,11 +45,11 @@ Makefile:
 
 ```bash
 update:
-	yarn install --dev --no-color
-	rm -rf ./public
-	mkdir -p log public
-	yarn run build
-	
+  yarn install --dev --no-color
+  rm -rf ./public
+  mkdir -p log public
+  yarn run build
+  
 PHONY: update
 ```
 
