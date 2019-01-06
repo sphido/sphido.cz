@@ -16,33 +16,25 @@ const Sphido = require('sphido');
 const globby = require('globby');
 
 (async () => {
-
-  try {
-    
-    // 1. Get pages from directory
-    const pages = await Sphido.getPages(await globby('content/**/*.md'), ...Sphido.extenders);
-    
-    // 2. save them (with default template)
-    for await (const page of pages) {
-        await page.save(
-          page.dir.replace('content', 'public')
-        );
-    }
-    
-    // 3.  Generate sitemap.xml
-    await Sphido.template.toFile(
-        'public/sitemap.xml',
-        'theme/sitemap.xml',
-        {
-          pages: pages,  
-          domain: 'https://example.com'
-        }
-    );
-
-  } catch (e) {
-    console.error(e);
+  // 1. Get pages from directory
+  const pages = await Sphido.getPages(await globby('content/**/*.md'), ...Sphido.extenders);
+  
+  // 2. save them (with default template)
+  for await (const page of pages) {
+      await page.save(
+        page.dir.replace('content', 'public')
+      );
   }
   
+  // 3.  Generate sitemap.xml
+  await Sphido.template.toFile(
+      'public/sitemap.xml',
+      'theme/sitemap.xml',
+      {
+        pages: pages,  
+        domain: 'https://example.com'
+      }
+  );
 })();
 ```
 

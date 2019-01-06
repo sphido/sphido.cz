@@ -16,10 +16,9 @@ $ yarn add sphido
 ```
 
 [![npm version](https://img.shields.io/npm/v/sphido.svg?style=flat)](https://npmjs.org/package/sphido "View this project on npm")
+[![npm version](https://img.shields.io/npm/l/sphido.svg?style=flat)](https://npmjs.org/package/sphido "View this project on npm")
 
-
-
-## 🥕 Quick Start
+## Quick Start
 
 ```javascript
 const globby = require('globby');
@@ -44,10 +43,6 @@ const Sphido = require('sphido');
 ```
 
 
-## ⭐️ Source codes
+## <img src="/img/github.svg" fill="#fff" width="32px" style="vertical-align: -.1em" alt="Github logo"> Source codes
 
 https://github.com/sphido/sphido
-
-## 🌵 License
-
-[![npm version](https://img.shields.io/npm/l/sphido.svg?style=flat)](https://npmjs.org/package/sphido "View this project on npm")
