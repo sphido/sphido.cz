@@ -11,9 +11,13 @@ slug: '.'
 ## Installation
 
 ```bash 
-$ npm i sphido
+$ npm i sphido # or
+$ yarn add sphido
 ```
-</section>
+
+[![npm version](https://img.shields.io/npm/v/sphido.svg?style=flat)](https://npmjs.org/package/sphido "View this project on npm")
+
+
 
 ## 🥕 Quick Start
 
@@ -46,4 +50,4 @@ https://github.com/sphido/sphido
 
 ## 🌵 License
 
-MIT
+[![npm version](https://img.shields.io/npm/l/sphido.svg?style=flat)](https://npmjs.org/package/sphido "View this project on npm")
