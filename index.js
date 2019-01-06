@@ -6,37 +6,34 @@ const globby = require('globby');
 const twemoji = require('twemoji');
 
 (async () => {
-
 	try {
-
 		// Get pages from directory
 		const pages = await Sphido.getPages(
-				await globby('content/**/*.{md,html}'),
-				...Sphido.extenders,
-				(page) => {
-					page.content = twemoji.parse(page.content); // twemoji
-				}
+			await globby('content/**/*.{md,html}'),
+			page => {
+				page.content = twemoji.parse(page.content); // Twemoji
+			},
+			...Sphido.extenders
 		);
 
 		// Generate single pages...
-		for await (let page of pages) {
+		for await (const page of pages) {
 			await page.save(page.dir.replace('content', 'public'));
 		}
 
 		// Generate sitemap.xml
 		Sphido.template.toFile(
-				'public/sitemap.xml',
-				'theme/sitemap.xml',
-				{pages: pages,  domain: 'https://sphido.org'}
+			'public/sitemap.xml',
+			'theme/sitemap.xml',
+			{pages, domain: 'https://sphido.org'}
 		);
 
 		// Copy static content
-		let files = await await globby(['theme/**/*.*', 'content/**/*.*', '!**/*.{md,html,xml}']);
-		for await (let file of files) {
-			await fs.copy(file, file.replace(/^[\w]+/, 'public'))
+		const files = await await globby(['theme/**/*.*', 'content/**/*.*', '!**/*.{md,html,xml}']);
+		for await (const file of files) {
+			await fs.copy(file, file.replace(/^[\w]+/, 'public'));
 		}
-
-	} catch (e) {
-		console.error(e);
+	} catch (error) {
+		console.error(error);
 	}
 })();
