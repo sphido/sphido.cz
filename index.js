@@ -33,6 +33,9 @@ const twemoji = require('twemoji');
 		for await (const file of files) {
 			await fs.copy(file, file.replace(/^[\w]+/, 'public'));
 		}
+
+		Sphido.template.toFile('public/404.html', 'theme/404.html');
+
 	} catch (error) {
 		console.error(error);
 	}
