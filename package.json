@@ -19,8 +19,6 @@
     "xo": "^0.24.0"
   },
   "dependencies": {
-    "fs-extra": "^7.0.1",
-    "globby": "^9.0.0",
     "sphido": "sphido/sphido#master",
     "twemoji": "^11.2.0"
   }

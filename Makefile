@@ -4,8 +4,8 @@ all:
 	mkdir -p log public
 	yarn run build
 
-autoupdate: 
-	git commit -a -m "autoupdate `date +%F-%T`"
+deploy:
+	git commit --allow-empty -m "autoupdate `date +%F-%T`"
 	git push
 	
-PHONY: all autoupdate
+PHONY: all deploy
