@@ -22,3 +22,11 @@ body.index pre code {
 footer > p {
 	margin-bottom: 0;
 }
+
+pre, code.language-text {
+	display: block;
+	overflow-x: auto;
+	padding: 0.5em;
+	background: rgb(35, 36, 31);
+	color: #f8f8f2;
+}

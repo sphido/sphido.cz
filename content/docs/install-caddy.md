@@ -1,10 +1,10 @@
 ---
-title: Install Caddy Server
+title: Install Caddy Server (on Debian)
 template: theme/docs.html
-slug: caddy
+slug: install-caddy
 ---
 
-## Install Caddy server (on Debian)
+## Install Caddy Server (on Debian)
 
 ```bash
 curl https://getcaddy.com | bash -s personal http.git

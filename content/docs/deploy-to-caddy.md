@@ -1,10 +1,10 @@
 ---
-title: Automatically deploy Sphido website from Github
+title: Automatically deploy Sphido website from GitHub to Caddy server
 template: theme/docs.html
-slug: github
+slug: deploy-to-caddy
 ---
 
-# Automatically deploy Sphido website from Github
+# Automatically deploy Sphido website from GitHub to Caddy server
 
 [Caddy server](https://caddyserver.com/) is the HTTP/2 web server with automatic (free) 
 HTTPS with [Let's Encrypt](https://letsencrypt.org/). It is lightweight, fast, 
@@ -50,7 +50,7 @@ changes, so it is very efficient.
 
 **Makefile**
 
-```bash
+```makefile
 update:
   yarn install --dev --no-color
   rm -rf ./public
@@ -62,7 +62,7 @@ PHONY: update
 
 **.yarnrc** 
 
-```
+```text
 cache-folder ".cache"
 yarn-offline-mirror ".npm"
 yarn-offline-mirror-pruning true
@@ -72,10 +72,10 @@ yarn-offline-mirror-pruning true
 
 **Webhook on GitHub**
 
-<img src="/docs/github.webhook.png" class="img-fluid mx-auto mb-3 border d-block" />
+<img src="/docs/deploy-to-caddy.github.png" class="img-fluid mx-auto mb-3 border d-block" />
 
 #### Links:
 
-* [Install Caddy server (on Debian)](/docs/caddy)
+* [Install Caddy server (on Debian)](/docs/install-caddy)
 * [Caddy Server Homepage](https://caddyserver.com/)
 * [Let's Encrypt](https://letsencrypt.org/)
