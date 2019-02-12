@@ -1,6 +1,5 @@
 ---
 title: Generate sitemap.xml
-template: theme/docs.html
 slug: sitemap
 ---
 

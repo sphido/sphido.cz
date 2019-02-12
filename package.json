@@ -14,12 +14,12 @@
     "test": "xo"
   },
   "devDependencies": {
-    "serve": "^10.1.1",
+    "serve": "^10.1.2",
     "watch": "^1.0.2",
     "xo": "^0.24.0"
   },
   "dependencies": {
     "sphido": "sphido/sphido#master",
-    "twemoji": "^11.2.0"
+    "twemoji": "^11.3.0"
   }
 }

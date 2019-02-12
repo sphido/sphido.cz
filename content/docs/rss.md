@@ -1,6 +1,5 @@
 ---
 title: Generate RSS
-template: theme/docs.html
 slug: rss
 ---
 

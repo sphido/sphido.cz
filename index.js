@@ -9,7 +9,7 @@ const twemoji = require('twemoji');
 	try {
 		// Get pages from directory
 		const pages = await Sphido.getPages(
-			await globby('content/**/*.{md,html}'),
+			await globby('content/**/*.md'),
 			page => {
 				page.content = twemoji.parse(page.content); // Twemoji
 			},
@@ -18,23 +18,23 @@ const twemoji = require('twemoji');
 
 		// Generate single pages...
 		for await (const page of pages) {
-			await page.save(page.dir.replace('content', 'public'));
+			await page.save(page.dir.replace('content', 'public'), 'content/page.html');
 		}
 
 		// Generate sitemap.xml
 		Sphido.template.toFile(
 			'public/sitemap.xml',
-			'theme/sitemap.xml',
+			'content/sitemap.xml',
 			{pages, domain: 'https://sphido.org'}
 		);
 
 		// Copy static content
-		const files = await await globby(['theme/**/*.*', 'content/**/*.*', '!**/*.{md,html,xml}']);
+		const files = await await globby(['content/**/*.*', '!**/*.{md,html,xml}']);
 		for await (const file of files) {
 			await fs.copy(file, file.replace(/^[\w]+/, 'public'));
 		}
 
-		Sphido.template.toFile('public/404.html', 'theme/404.html');
+		Sphido.template.toFile('public/404.html', 'content/404.html');
 
 	} catch (error) {
 		console.error(error);

@@ -1,7 +1,6 @@
 ---
 title: API Docs
-template: theme/docs.html
-slug: .
+slug: api-docs
 ---
  
 # 🚀 API Docs

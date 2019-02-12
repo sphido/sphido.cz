@@ -1,6 +1,6 @@
 ---
 title: Extenders
-template: theme/docs.html
+slug: extenders
 ---
 
 # Extenders

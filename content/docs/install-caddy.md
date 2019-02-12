@@ -1,6 +1,5 @@
 ---
 title: Install Caddy Server (on Debian)
-template: theme/docs.html
 slug: install-caddy
 ---
 

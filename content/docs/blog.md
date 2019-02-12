@@ -1,6 +1,6 @@
 ---
 title: Blog
-template: theme/docs.html
+slug: blog
 ---
 
 # How to generate blog with Sphido

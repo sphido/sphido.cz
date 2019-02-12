@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="cs" dir="ltr">
 <head>
-	{% include "theme/partials/head.html" %}
+	{% include "content/partials/head.html" %}
 	<title>{{ page.title | trim }}</title>
 </head>
 <body class="{{page.base}}">
 
-<header>{% include "theme/partials/navbar.html" %}</header>
+<header>{% include "content/partials/navbar.html" %}</header>
 
-<main class="container">{{ page.content | trim | safe }}</main>
+<main>
+	{{ page.content | trim | safe }}
+</main>
+
+<aside>
+	{% include "content/partials/aside.html" %}
+</aside>
 
 <footer class="bg-dark mt-5 p-5 text-center text-white">
 	<p>

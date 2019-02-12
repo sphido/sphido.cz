@@ -1,6 +1,5 @@
 ---
 title: Automatically deploy Sphido website from GitHub to Caddy server
-template: theme/docs.html
 slug: deploy-to-caddy
 ---
 
