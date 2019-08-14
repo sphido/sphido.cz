@@ -1,3 +1,65 @@
+body {
+	display: grid;
+	grid-template-areas: "header header" "main aside" "footer footer";
+	grid-template-columns: 1fr 320px;
+	grid-template-rows: 1fr auto auto;
+	max-width: 1280px;
+	width: 100%;
+	margin: 0 auto;
+	grid-gap: 1rem !important;
+	padding: 1rem !important;
+	box-sizing: border-box;
+}
+
+body > header {
+	grid-area: header;
+}
+
+body > footer {
+	grid-area: footer;
+}
+
+body > main {
+	grid-area: main;
+	max-width: 912px;
+}
+
+body.index {
+	grid-template-areas: "header header" "main main" "footer footer";
+}
+
+body.index > main {
+	max-width: inherit;
+}
+
+body > aside {
+	grid-area: aside;
+}
+
+@media (max-width: 768px) {
+	body {
+		grid-template-areas: "header header" "aside aside" "main main" "footer footer";
+		grid-template-columns: 1fr;
+		grid-auto-rows: auto auto auto;
+	}
+}
+
+@media print {
+	body {
+		grid-template-areas: "main" "footer";
+		grid-template-columns: 1fr;
+	}
+
+	.pagination, header, aside {
+		display: none;
+	}
+
+}
+
+aside > section.github {
+	margin: 25px 0;
+}
+
 img.emoji {
 	height: 1em;
 	width: 1em;
@@ -15,14 +77,14 @@ body.index pre code {
 	font-size: 1.3em;
 }
 
-footer > p {
-	margin-bottom: 0;
-}
-
 pre, code.language-text {
 	display: block;
 	overflow-x: auto;
 	padding: 0.5em;
 	background: rgb(35, 36, 31);
 	color: #f8f8f2;
+}
+
+footer > p {
+	margin-bottom: 0;
 }

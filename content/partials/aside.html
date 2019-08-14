@@ -1,19 +1,17 @@
-<aside class="col-sm-4 col-md-4 col-lg-3 my-lg-5 my-3 order-sm-first order-md-last">
-	<h2 class="text-center">
-		<a href="/docs" class="text-dark">Sphido|docs</a>
-	</h2>
-	<nav class="list-group my-4">
-		<a href="/docs" class="list-group-item list-group-item-action {{'active' if page.slug === '.'}}">API</a>
-		<a href="/docs/blog" class="list-group-item list-group-item-action {{'active' if page.slug === 'blog'}}">Blog</a>
-		<a href="/docs/sitemap" class="list-group-item list-group-item-action {{'active' if page.slug === 'sitemap'}}">sitemap.xml</a>
-		<a href="/docs/rss" class="list-group-item list-group-item-action {{'active' if page.slug === 'rss'}}">RSS feed</a>
-		<!-- a href="/docs/theme" class="list-group-item list-group-item-action {{'active' if page.slug === 'theme'}}">Theme</a>
-		<a href="/docs/extenders" class="list-group-item list-group-item-action {{'active' if page.slug === 'extenders'}}">Extenders</a -->
-		<a href="/docs/deploy-to-caddy" class="list-group-item list-group-item-action {{'active' if page.slug === 'deploy-to-caddy'}}">Deploy to Caddy Server</a>
-	</nav>
-	<div class="text-center">
-		<a href="https://github.com/sphido/sphido" target="_blank">
-			<img src="/img/github.svg" alt="" width="80px">
+<aside>
+
+	<section class="list-group">
+		<a class="list-group-item list-group-item-action {{'active' if page.slug === '.'}}" href="/">🏠 Home</a>
+		<a class="list-group-item list-group-item-action {{'active' if page.slug === 'api'}}" href="/docs/api">API Docs</a>
+		<a class="list-group-item list-group-item-action {{'active' if page.slug === 'blog'}}" href="/docs/blog">Blog</a>
+		<a class="list-group-item list-group-item-action {{'active' if page.slug === 'sitemap'}}" href="/docs/sitemap">sitemap.xml</a>
+		<a class="list-group-item list-group-item-action {{'active' if page.slug === 'rss'}}" href="/docs/rss">RSS feed</a>
+		<a class="list-group-item list-group-item-action {{'active' if page.slug === 'deploy-to-caddy'}}" href="/docs/deploy-to-caddy">Deploy to Caddy Server</a>
+	</section>
+
+	<section class="github text-center">
+		<a href="https://github.com/sphido/sphido" class="btn btn-lg btn-success" target="_blank">
+			<img src="/img/github-white.svg" fill="#fff" width="18px" style="vertical-align: -.1em" alt="Github logo"> Source Code
 		</a>
-	</div>
+	</section>
 </aside>

@@ -1,6 +1,6 @@
 ---
 title: API Docs
-slug: api-docs
+slug: api
 ---
  
 # 🚀 API Docs
