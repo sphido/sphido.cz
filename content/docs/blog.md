@@ -7,11 +7,10 @@ slug: blog
 
 ## Prepare new project
 
-Install [Sphido](https://www.npmjs.com/package/sphido) package and create `theme` and `content` folders:  
+Install [Sphido](https://www.npmjs.com/package/sphido) package and create `content` folders:  
 
 ```bash
-$ npm i sphido
-$ mkdir theme content
+$ npm i sphido && mkdir content
 ```
 
 ## ☔️ Javascript
@@ -43,7 +42,7 @@ const Sphido = require('sphido');
    ```javascript
    for await (const page of pages) {
      await page.save(
-       page.dir.replace('content', 'public')
+       page.dir.replace('content', 'public')    
      );
    }
    ```
@@ -67,7 +66,7 @@ const Sphido = require('sphido');
    for await (let current of pagination) {
      await Sphido.render.toFile(    
        current === 1 ? 'public/index.html' : join('public/page/', current.toString(), 'index.html'),
-       'theme/pages.html',
+       'content/pages.html',
          {
            pages: posts.slice(postPerPage * (current - 1), current * postPerPage),
            pagination: pagination,
@@ -81,11 +80,11 @@ const Sphido = require('sphido');
 
 [Sphido](https://sphido.org) using [nunjucks](https://mozilla.github.io/nunjucks/) - a rich and powerful templating language for JavaScript from Mozilla.
 
-First create empty templates `theme/page.html` and `theme/pages.html`:
+First create empty templates `content/page.html` and `content/pages.html`:
 
 ```bash
-$ echo "{{page | dump(1)}}" > theme/page.html 
-$ echo "{{pages | dump(1)}}" > theme/pages.html
+$ echo "{{page | dump(1)}}" > content/page.html 
+$ echo "{{pages | dump(1)}}" > content/pages.html
 ``` 
 
 
@@ -98,7 +97,7 @@ $ echo "{{pages | dump(1)}}" > theme/pages.html
 {% endfor %}
 ```
 
-Add follow code to `theme/pages.html` to generate page navigation:
+Add follow code to `content/pages.html` to generate page navigation:
  
 ```html
 {% if pagination %}
@@ -121,13 +120,13 @@ Add follow code to `theme/pages.html` to generate page navigation:
 
 ## 🔗 Links &amp; code
 
-* [index.js](https://github.com/OzzyCzech/blog.omdesign.cz/blob/master/index.js)
-* [theme/page.html](https://github.com/OzzyCzech/blog.omdesign.cz/blob/master/theme/page.html)
-* [theme/pages.html](https://github.com/OzzyCzech/blog.omdesign.cz/blob/master/theme/pages.html)
+* [index.js](https://github.com/OzzyCzech/ozzyczech.cz/blob/master/index.js)
+* [content/page.html](https://github.com/OzzyCzech/ozzyczech.cz/blob/master/theme/page.html)
+* [content/pages.html](https://github.com/OzzyCzech/ozzyczech.cz/blob/master/theme/pages.html)
 * [Nunjucks docs](https://mozilla.github.io/nunjucks/templating.html)
 
 or follow pages 
 
-* [blog.omdesign.cz](https://github.com/OzzyCzech/blog.omdesign.cz)
+* [ozzyczech.cz](https://github.com/OzzyCzech/ozzyczech.cz/)
 * [sphido.org](https://github.com/sphido/sphido.org)
 
