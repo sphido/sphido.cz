@@ -11,38 +11,41 @@ slug: '.'
 ## Installation
 
 ```bash 
-$ npm i sphido # or
-$ yarn add sphido
+$ npm i @sphido/core @sphido/frontmatter @sphido/marked @sphido/meta @sphido/nunjucks # or
+$ yarn add @sphido/core @sphido/frontmatter @sphido/marked @sphido/meta @sphido/nunjucks
 ```
-
-[![npm version](https://img.shields.io/npm/v/sphido.svg?style=flat)](https://npmjs.org/package/sphido "View this project on npm")
-[![npm version](https://img.shields.io/npm/l/sphido.svg?style=flat)](https://npmjs.org/package/sphido "View this project on npm")
 
 ## Quick Start 
 
 ```javascript
+const {getPages} = require('@sphido/core');
+const {save} = require('@sphido/nunjucks');
 const globby = require('globby');
-const Sphido = require('sphido');
 
 (async () => {
 
-  // 1. get list of pages	
-  const pages = await Sphido.getPages(
-    await globby('content/**/*.{md,html}'),
-    ...Sphido.extenders
-  );
+	// 1. get list of pages
+	const pages = await getPages(
+		await globby('content/**/*.md'),
+		...[
+			require('@sphido/frontmatter'),
+			require('@sphido/marked'),
+			require('@sphido/meta'),
+			{save},
+		],
+	);
 
-  // 2. save them (with default template)
-  for await (const page of pages) {
-    await page.save(
-        page.dir.replace('content', 'public')
-    );
-  }
-  
+	// 2. save them (with default template)
+	for await (const page of pages) {
+		await page.save(
+			page.dir.replace('content', 'public')
+		);
+	}
+
 })();
 ```
 
-Need more **examples or tutorials**? [View Sphido docs](/docs/api) or explore [sphido.org source codes](https://github.com/sphido/sphido.org).
+Need more **examples or tutorials**? [View API docs](/docs/api) or explore [sphido.org source codes](https://github.com/sphido/sphido.org).
 
 ## <img src="/img/github.svg" fill="#fff" width="32px" style="vertical-align: -.1em" alt="Github logo"> Source codes
 
