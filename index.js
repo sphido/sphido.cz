@@ -1,40 +1,51 @@
 #!/usr/bin/env node
 
-const Sphido = require('sphido');
-const fs = require('fs-extra');
+const {getPages} = require('@sphido/core');
+const sitemap = require('@sphido/sitemap');
+const {sep, normalize} = require('path');
+const {renderToFile, save} = require('@sphido/nunjucks');
+const {link} = require('@sphido/link');
+const {copy, outputFile} = require('fs-extra');
 const globby = require('globby');
-const twemoji = require('twemoji');
+
 
 (async () => {
 	try {
-		// Get pages from directory
-		const pages = await Sphido.getPages(
+
+		// 1. Get pages from directory
+
+		const pages = await getPages(
 			await globby('content/**/*.md'),
-			page => {
-				page.content = twemoji.parse(page.content); // Twemoji
-			},
-			...Sphido.extenders
+			...[
+				require('@sphido/frontmatter'),
+				require('@sphido/twemoji'),
+				require('@sphido/marked'),
+				require('@sphido/meta'),
+				{save, link},
+			],
 		);
 
-		// Generate single pages...
+		// 2. Generate single pages...
+
 		for await (const page of pages) {
 			await page.save(page.dir.replace('content', 'public'), 'content/page.html');
 		}
 
-		// Generate sitemap.xml
-		Sphido.template.toFile(
+
+		// 3. generate sitemap.xml
+
+		outputFile(
 			'public/sitemap.xml',
-			'content/sitemap.xml',
-			{pages, domain: 'https://sphido.org'}
+			sitemap(pages, 'https://sphido.org/')
 		);
 
-		// Copy static content
-		const files = await await globby(['content/**/*.*', '!**/*.{md,html,xml}']);
+		// 4. copy static content
+		const files = await globby(['content/**/*.*', '!**/*.{md,html}']);
 		for await (const file of files) {
-			await fs.copy(file, file.replace(/^[\w]+/, 'public'));
+			await copy(file, file.replace(/^[\w]+/, 'public'));
 		}
 
-		Sphido.template.toFile('public/404.html', 'content/404.html');
+		await renderToFile('public/404.html', 'content/404.html');
 
 	} catch (error) {
 		console.error(error);
