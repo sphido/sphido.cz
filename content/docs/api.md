@@ -46,8 +46,6 @@ Page extender that add follow properties to `page` object:
 This package allow use [nunjucks](https://mozilla.github.io/nunjucks/) - a rich and powerful templating language for JavaScript from Mozilla
 for rendering HTML files from page object.
 
-Allow paginate over `pages` array
-
 Functions:
 
 - `env.addFilter(name, func, [async])` -  allow [addFilter](https://mozilla.github.io/nunjucks/api.html#getfilter) to [nunjucks](https://mozilla.github.io/nunjucks) template engine.
