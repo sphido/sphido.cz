@@ -11,11 +11,7 @@ slug: '.'
 ## Installation
 
 ```bash 
-$ npm i @sphido/core \
-        @sphido/frontmatter \
-        @sphido/marked \
-        @sphido/meta \
-        @sphido/nunjucks
+$ npm i @sphido/core @sphido/frontmatter @sphido/marked @sphido/meta @sphido/nunjucks
 ```
 
 ## Quick Start 
