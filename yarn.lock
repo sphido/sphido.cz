@@ -72,10 +72,10 @@
   dependencies:
     js-yaml "^3.13.1"
 
-"@sphido/link@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@sphido/link/-/link-0.0.2.tgz#d513c8a8d7013fb0851fa27cee96c3dae96d6782"
-  integrity sha512-FsfjTd2ug13naNE10oaAf5tw5tSCWkFIYqvTnzqrz3QJhKQlvMuN72j0ysKFsu2Dhz8VgwYwe4jvjI9J9+OXKw==
+"@sphido/link@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@sphido/link/-/link-0.0.3.tgz#7e834541f733fe5a559c2c20b8c888b87975bae7"
+  integrity sha512-KrDkLRhO3QO9d+kySrRfFGYHlzuv16r/Hdb4s26HXaD8wai13dBgBBbWEPKieBZGWZkcSTTNNEHUSytzBUIc1A==
   dependencies:
     marked "^0.7.0"
 
@@ -86,25 +86,25 @@
   dependencies:
     marked "^0.7.0"
 
-"@sphido/meta@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@sphido/meta/-/meta-0.0.1.tgz#822822400a64950303c551d289d2787e68f9c394"
-  integrity sha512-hJ9ikoOYoVdcEeY5iRdJtY22zRLEPEU4+6+SYjir+q3I1gX0/47Nc9SwBcf8ci7SPNI7cXB6GBeSwdHo4SiGow==
+"@sphido/meta@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@sphido/meta/-/meta-0.0.2.tgz#aa918a32a8c4adbac8e3c08abf0f388848b5ea1f"
+  integrity sha512-Uv1uRIH4Osk6qfNjS6PDvZMaJ6EQGIUXmsHMe2M50sIrAtGVkZCHI5YIZIp81+3mmDkI6CzQPHqdAU56eCcPxQ==
   dependencies:
     "@sindresorhus/slugify" "^0.9.1"
 
-"@sphido/nunjucks@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@sphido/nunjucks/-/nunjucks-0.0.1.tgz#b6b9ad6e7d20695b271eb839846d6263bc4857a2"
-  integrity sha512-OHLtWWu3X0s5JhCRRsdWoUK2WP7S/fTrxA6XKw07aV4G9bXph27q99rrUQjwwAUnc/Oocd/gZPgEDPMVYXGkVQ==
+"@sphido/nunjucks@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@sphido/nunjucks/-/nunjucks-0.0.2.tgz#1f20c9bb33037f1d9ceea4cd5d313a49ca00056b"
+  integrity sha512-Pe0mEN12rnlLNfxAYXyv8BBS9528a/NvIxLU47khdZMM8xwhlFh1QbCYlgz8kRv9tsQdxMSfAeOBVQVoYtvwyQ==
   dependencies:
     fs-extra "^8.1.0"
     nunjucks "^3.2.0"
 
-"@sphido/sitemap@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@sphido/sitemap/-/sitemap-0.0.3.tgz#f3c8075399a66b32ed4054b0a82f5c5a3a1bfee9"
-  integrity sha512-UO81dWrpzU461iKUcrMRtyyLGsTXTmjCpv6Lkyr01MPFLwzUBAvR6QmmX62n/vzQC4DL9wDJ5xbvhWHXVe8W6A==
+"@sphido/sitemap@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@sphido/sitemap/-/sitemap-0.0.4.tgz#db7c5fd8ba408b0e0f8fa24bbad0f87890603285"
+  integrity sha512-ISdJcgmoR0BKfQWLvJbWowTeKzCezFjGts0Im4JLa8lK/YGjGeRRRrMFJgs+RvPZz36sSo5GuqaPl36hRtA5/w==
 
 "@sphido/twemoji@^0.0.1":
   version "0.0.1"

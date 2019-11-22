@@ -11,16 +11,19 @@ slug: '.'
 ## Installation
 
 ```bash 
-$ npm i @sphido/core @sphido/frontmatter @sphido/marked @sphido/meta @sphido/nunjucks # or
-$ yarn add @sphido/core @sphido/frontmatter @sphido/marked @sphido/meta @sphido/nunjucks
+$ npm i @sphido/core \
+        @sphido/frontmatter \
+        @sphido/marked \
+        @sphido/meta \
+        @sphido/nunjucks
 ```
 
 ## Quick Start 
 
 ```javascript
+const globby = require('globby');
 const {getPages} = require('@sphido/core');
 const {save} = require('@sphido/nunjucks');
-const globby = require('globby');
 
 (async () => {
 
@@ -45,7 +48,8 @@ const globby = require('globby');
 })();
 ```
 
-Need more **examples or tutorials**? [View API docs](/docs/api) or explore [sphido.org source codes](https://github.com/sphido/sphido.org).
+Need more **examples or tutorials**? [View API docs](/docs/api) or
+ explore [sphido.org source codes](https://github.com/sphido/sphido.org).
 
 ## <img src="/img/github.svg" fill="#fff" width="32px" style="vertical-align: -.1em" alt="Github logo"> Source codes
 
