@@ -72,9 +72,17 @@ body.index h1 {
 	margin-bottom: 3vh;
 }
 
+body.index pre {
+	border-radius: 1em;
+}
+
 body.index pre code {
 	padding: 2em;
 	font-size: 1.3em;
+}
+
+body.index .btn.active {
+	padding: 22px 25px;
 }
 
 pre, code.language-text {
