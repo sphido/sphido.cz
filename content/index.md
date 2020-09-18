@@ -8,41 +8,73 @@ slug: '.'
 
 # A rocket 🚀 fast, lightweight, static site generator
 
-## Installation
+## Install
 
 ```bash 
-$ npm i @sphido/core @sphido/frontmatter @sphido/marked @sphido/meta @sphido/nunjucks
+$ npm i @sphido/core @sphido/frontmatter @sphido/markdown @sphido/meta fs-extra esm globby
 ```
 
 ## Quick Start
 
 ```javascript
-const globby = require('globby');
-const {getPages} = require('@sphido/core');
-const {save} = require('@sphido/nunjucks');
+import {join} from "path";
+import globby from "globby";
+import {getPages} from "@sphido/core";
+import frontmatter from "@sphido/frontmatter";
+import meta from "@sphido/meta";
+import {outputFile} from "fs-extra";
+import {markdown} from "@sphido/markdown";
 
 (async () => {
 
 	// 1. get list of pages
+
 	const pages = await getPages(
-		await globby('content/**/*.md'),
+		await globby('content/**/*.{md,html}'),
 		...[
-			require('@sphido/frontmatter'),
-			require('@sphido/marked'),
-			require('@sphido/meta'),
-			{save},
+
+			frontmatter,
+			markdown,
+			meta,
+
+			// add custom page extender
+			(page) => {
+				page.toFile = join(
+					page.dir.replace('content', 'public'),
+					page.slug,
+					'index.html'
+				);
+			},
+
+			// add custom page function
+			{
+                head: function() {
+                  return `<head><meta charset="UTF-8"><title>${this.title}</title></head>`
+                },
+
+				getHtml: function () {
+					return `<!DOCTYPE html>` + 
+                           `<html lang="en" dir="ltr">` + this.head() + 
+                           `<body>${this.content}</body></html>`
+				}
+			}
 		],
 	);
 
-	// 2. save them (with default template)
-	for await (const page of pages) {
-		await page.save(
-			page.dir.replace('content', 'public')
-		);
-	}
+	// 2. save pages
+
+	pages.forEach(page => outputFile(page.toFile, page.getHtml()))
 
 })();
 ```
+
+## Run script
+
+```bash
+$ node -r esm index.js
+```
+
+Download this example here: https://github.com/sphido/examples/tree/master/basic
 
 <div class="text-center"> 
     <a href="https://github.com/sphido/sphido" class="btn btn-lg btn-success" target="_blank">
@@ -57,9 +89,9 @@ const {save} = require('@sphido/nunjucks');
 * [@sphido/feed](https://github.com/sphido/sphido/tree/master/packages/sphido-feed) - generate atom feed from `pages`.
 * [@sphido/frontmatter](https://github.com/sphido/sphido/tree/master/packages/sphido-frontmatter) - `page` **extender** that process front matter block inside content.
 * [@sphido/link](https://github.com/sphido/sphido/tree/master/packages/sphido-link) - **extender function** `link()` allow create URL link to page.
-* [@sphido/marked](https://github.com/sphido/sphido/tree/master/packages/sphido-marked) - page **extender** that transform page.content markdown to HTML with marked.
+* [@sphido/markdown](https://github.com/sphido/sphido/tree/master/packages/sphido-markdown) - page **extender** that transform page.content markdown to HTML with [marked](https://github.com/markedjs/marked).
 * [@sphido/meta](https://github.com/sphido/sphido/tree/master/packages/sphido-meta) - **extender** that add common properties to `pages`. 
-* [@sphido/nunjucks](https://github.com/sphido/sphido/tree/master/packages/sphido-nunjucks) - allow generate HTM with nunjucks templates a rich and powerful templating language for JavaScript from Mozilla.
+* [@sphido/nunjucks](https://github.com/sphido/sphido/tree/master/packages/sphido-nunjucks) - allow generate HTM with [nunjucks templates](https://mozilla.github.io/nunjucks/) a rich and powerful templating language for JavaScript from Mozilla.
 * [@sphido/pagination](https://github.com/sphido/sphido/tree/master/packages/sphido-pagination) - allow paginate over `pages`.
 * [@sphido/sitemap](https://github.com/sphido/sphido/tree/master/packages/sphido-sitemap) - allow generate `sitemap.xml` from `pages`.
 * [@sphido/twemoji](https://github.com/sphido/sphido/tree/master/packages/sphido-twemoji) - transform content emoji to twemoji.

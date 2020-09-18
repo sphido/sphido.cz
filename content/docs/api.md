@@ -21,18 +21,19 @@ Basic page object looks like follow:
 }
 ```
 
+
 Pages are merged inside `getPage()` function together with `extenders`. Extender can be object or function.    
 
-## [@sphido/frontmatter](https://github.com/sphido/sphido/tree/master/packages/sphido-frontmatter) - extender
+### [@sphido/frontmatter](https://github.com/sphido/sphido/tree/master/packages/sphido-frontmatter) - extender
 
 Page extender that process [front matter](https://jekyllrb.com/docs/front-matter/) block inside content.
 Using fastest YAML Parser [js-yaml](https://github.com/nodeca/js-yaml). 
 
-## [@sphido/marked](https://github.com/sphido/sphido/tree/master/packages/sphido-marked) - extender
+### [@sphido/markdown](https://github.com/sphido/sphido/tree/master/packages/sphido-markdown) - extender
 
 Page extender that transform `page.content` markdown to HTML with [marked](https://marked.js.org/).
 
-## [@sphido/meta](https://github.com/sphido/sphido/tree/master/packages/sphido-meta) - extender
+### [@sphido/meta](https://github.com/sphido/sphido/tree/master/packages/sphido-meta) - extender
 
 Page extender that add follow properties to `page` object:
 
@@ -41,7 +42,7 @@ Page extender that add follow properties to `page` object:
 * `page.slug` - using [slugify](https://github.com/sindresorhus/slugify) to made url safe slug
 * `page.tags` - create Set from tags
 
-## [@sphido/nunjucks](https://github.com/sphido/sphido/tree/master/packages/sphido-nunjucks) - extender/renderer
+### [@sphido/nunjucks](https://github.com/sphido/sphido/tree/master/packages/sphido-nunjucks) - extender/renderer
 
 This package allow use [nunjucks](https://mozilla.github.io/nunjucks/) - a rich and powerful templating language for JavaScript from Mozilla
 for rendering HTML files from page object.
