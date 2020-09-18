@@ -7,8 +7,8 @@
 	},
 	"license": "MIT",
 	"scripts": {
-		"build": "./index.js",
-		"dev": "watch ./index.js ./content | serve public",
+		"build": "babel-node ./index.js",
+		"dev": "watch './index.js' ./content | serve public",
 		"test": "xo"
 	},
 	"devDependencies": {
