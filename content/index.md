@@ -11,10 +11,10 @@ slug: '.'
 ## Install
 
 ```bash 
-$ npm i @sphido/core @sphido/frontmatter @sphido/markdown @sphido/meta fs-extra esm globby
+npm i @sphido/core @sphido/frontmatter @sphido/markdown @sphido/meta fs-extra esm globby
 ```
 
-## Quick Start
+## Create `index.js`
 
 ```javascript
 import {join} from "path";
@@ -71,7 +71,7 @@ import {markdown} from "@sphido/markdown";
 ## Run script
 
 ```bash
-$ node -r esm index.js
+node -r esm index.js
 ```
 
 Download this example here: https://github.com/sphido/examples/tree/master/basic
