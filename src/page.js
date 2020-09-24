@@ -108,7 +108,7 @@ module.exports = (page) => `<!DOCTYPE html>
 	
 	<main>${page.content}</main>
 	
-	<footer class="mt-5 p-5 text-center">
+	<footer class="mt-5 pt-5 text-center">
 		<p>
 			Made with
 			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14px" height="14px" viewBox="0 0 86 70" xml:space="preserve">

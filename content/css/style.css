@@ -1,10 +1,10 @@
 body {
 	display: grid;
 	font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	grid-template-areas: "main header" "main aside" "footer footer";
-	grid-template-columns: minmax(0, auto) 320px;
+	grid-template-areas: "header main" "aside main" "footer footer";
+	grid-template-columns: 320px minmax(0, auto);
 	grid-template-rows: auto 1fr auto;
-	max-width: 1420px;
+	max-width: 1620px;
 	margin: 0 auto;
 	grid-gap: 2rem;
 	padding: 3rem 1rem;
@@ -92,7 +92,7 @@ h1 {
 }
 
 footer > p {
-	margin-bottom: 0;
+	margin: 0;
 }
 
 a.btn-copy, a.btn-copy:hover {

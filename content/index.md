@@ -3,7 +3,7 @@ title: Sphido | A rocket fast, lightweight, static site generator
 slug: .
 ---
 
-# A rocket 🚀 fast, lightweight, static site generator
+# A rocket 🚀 fast, 💭 lightweight, static site 🤖 generator
 
 ## Install
 
