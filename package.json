@@ -8,7 +8,7 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "babel-node ./index.js",
-		"dev": "watch './index.js' ./content | serve public",
+		"dev": "watch './index.js' ./content | serve public"
 	},
 	"devDependencies": {
 		"serve": "^11.3.2",
