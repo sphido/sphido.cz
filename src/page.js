@@ -42,21 +42,23 @@ module.exports = (page) => `<!DOCTYPE html>
 </head>
 <body class="${page.base}">
 
-	<aside>
-	
-		<div class="d-flex justify-content-center my-1">
+	<header>
+		<div class="d-flex justify-content-center">
 			<figure class="figure text-center w-75">
 				<a href="/" title="Homepage"><img src="/img/sphido.svg" class="figure-img text-center img-fluid rounded" title="Sphido logo" alt="Sphido logo"></a>		
 			</figure>
-		</div>	
-	
-	  <button type="button" class="btn btn-outline-secondary btn-block mb-3 d-lg-none" data-toggle="collapse" data-target="#aside-menu" aria-expanded="false" aria-controls="aside-menu" aria-label="Toggle menu">
+		</div>
+	</header>
+
+	<aside>
+	  <button type="button" class="btn btn-outline-secondary bg-white text-reset btn-lg btn-block mb-4 d-lg-none" data-toggle="collapse" data-target="#aside-menu" aria-expanded="false" aria-controls="aside-menu" aria-label="Toggle menu">
 	    <img src="https://twemoji.maxcdn.com/v/13.0.1/72x72/1f354.png" alt="🍔" width="20" height="20">
+	    <span>Show menu</span>
 		</button>
 		
 		<div class="collapse d-lg-block" id="aside-menu">
 			
-			<div class="list-group my-3">
+			<div class="list-group mb-3">
 				<a class="list-group-item list-group-item-action ${isActive(page, '.')}" href="/">Let's starts</a>
 				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-core')}" href="/packages/sphido-core">Core package</a>
 			</div>

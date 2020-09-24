@@ -1,19 +1,21 @@
-
 body {
 	display: grid;
 	font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	grid-template-areas: "header header" "aside main" "footer footer";
-	grid-template-columns: 320px minmax(0, auto);
-	grid-template-rows: 1fr auto auto;
-	margin: 0 auto;
+	grid-template-areas: "main header" "main aside" "footer footer";
+	grid-template-columns: minmax(0, auto) 320px;
+	grid-template-rows: auto 1fr auto;
 	max-width: 1420px;
-	grid-gap: 2rem !important;
-	padding: 2rem !important;
+	margin: 0 auto;
+	grid-gap: 2rem;
+	padding: 3rem 1rem;
 	box-sizing: border-box;
+	background: linear-gradient(0deg, rgba(235, 235, 235, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
 body > header {
 	grid-area: header;
+	grid-gap: 0;
+
 }
 
 body > footer {
@@ -27,6 +29,10 @@ body > main {
 
 body > aside {
 	grid-area: aside;
+}
+
+a.list-group-item[href*="//"]:not([href*="sphido.org"]):after {
+	content: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14px" height="14px" viewBox="0 2 12 14"><g style="opacity:0.75;" fill="currentColor"><polygon style="fill-rule:evenodd;clip-rule:evenodd;" points="2,2 5,2 5,3 3,3 3,9 9,9 9,7 10,7 10,10 2,10 "/><polygon style="fill-rule:evenodd;clip-rule:evenodd;" points="6.211,2 10,2 10,5.789 8.579,4.368 6.447,6.5 5.5,5.553 7.632,3.421"/></g></svg>');
 }
 
 @media (max-width: 768px) {
@@ -54,8 +60,8 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 }
 
-aside .list-group-item svg {
-	margin-right: .5rem;
+body > header figure {
+	margin: 0;
 }
 
 code.language-bash:before {
@@ -82,7 +88,7 @@ pre, code.language-text {
 }
 
 h1 {
-	margin-bottom: 2rem;
+	margin: 2rem 0;
 }
 
 footer > p {
