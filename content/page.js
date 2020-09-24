@@ -58,9 +58,7 @@ module.exports = (page) => `<!DOCTYPE html>
 		<div class="collapse d-lg-block" id="aside-menu">
 			
 			<div class="list-group my-3">
-				<a class="list-group-item list-group-item-action ${isActive(page, '.')}" href="/">
-					Home
-				</a>
+				<a class="list-group-item list-group-item-action ${isActive(page, '.')}" href="/">Let's starts</a>
 				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-core')}" href="/packages/sphido-core">Core package</a>
 			</div>
 			
