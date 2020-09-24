@@ -966,6 +966,11 @@
   resolved "https://registry.yarnpkg.com/@sphido/core/-/core-0.0.6.tgz#6cb252920ccf36d32541501229da479f8f957557"
   integrity sha512-s3daVz2hxDmy6G4QHRjxbtQ3lQerJ8pWKi03O0f7hiKubz+Do0Wr3pgTx/jI3hzljyMkw7ArBbT4gb7zCtnqwQ==
 
+"@sphido/feed@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@sphido/feed/-/feed-0.0.5.tgz#df9a5202a889957a1d8d8f21a3351bad3f47a222"
+  integrity sha512-shVREa/LxwEhteeJ+gEE8VGI6efjPTRKJjJac0SnX/KLeS2L2hhI9Dr6g9RLYw3xvGephWtXlbdh7WnkThFxHA==
+
 "@sphido/frontmatter@^0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@sphido/frontmatter/-/frontmatter-0.0.4.tgz#28fd3943d7054e16c4aa0ec0d8329f03204bf9f4"
@@ -1001,6 +1006,11 @@
   dependencies:
     fs-extra "^9.0.0"
     nunjucks "^3.2.0"
+
+"@sphido/pagination@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@sphido/pagination/-/pagination-0.0.5.tgz#0e565ec99aa9a60f2e4ecadebaa1f7f6ddc4465c"
+  integrity sha512-4ELENZQ421yzgm6hpzooNZkHTR4vyvyn3giOMfGyB1ZjIR79VNUFb1huaFY/ZHq+eNoxj9YgMUShb2UpJ5LjhA==
 
 "@sphido/sitemap@^0.0.7":
   version "0.0.7"

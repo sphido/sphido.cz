@@ -5,7 +5,7 @@ Source codes of website [sphido.org](https://sphido.org)
 
 ### Deploy
 
-Deploy for staging with `now` or `now --prod` for production. 
+Deploy for staging with `vercel` or `vercel --prod` for production. 
 
 
 ### Credits
