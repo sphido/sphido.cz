@@ -38,7 +38,6 @@ module.exports = (page) => `<!DOCTYPE html>
 		gtag('config', 'UA-59247808-1');
 	</script>
 
-
 	<title>${page.title}</title>
 </head>
 <body class="${page.base}">

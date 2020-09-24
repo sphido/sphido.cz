@@ -3,10 +3,10 @@ body {
 	display: grid;
 	font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	grid-template-areas: "header header" "main aside" "footer footer";
-	grid-template-columns: 1fr 420px;
+	grid-template-columns: minmax(0, auto) 320px;
 	grid-template-rows: 1fr auto auto;
 	margin: 0 auto;
-	max-width: 1620px;
+	max-width: 1420px;
 	grid-gap: 2rem !important;
 	padding: 2rem !important;
 	box-sizing: border-box;
@@ -89,14 +89,20 @@ footer > p {
 	margin-bottom: 0;
 }
 
-/* index (homepage) */
-
-body.index pre {
-	border-radius: 1em;
-	margin: 2rem 0;
+a.btn-copy, a.btn-copy:hover {
+	color: #dee2e6;
+	position: absolute;
+	user-select: none;
+	padding: 8px 10px;
+	font-size: smaller;
+	right: 0;
+	top: 0;
 }
 
-body.index pre code {
-	padding: 1.5em;
-	font-size: 1.3em;
+/* index (homepage) */
+
+body pre {
+	border-radius: .5em;
+	font-size: 1.1rem;
+	margin: 1rem 0;
 }

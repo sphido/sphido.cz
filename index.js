@@ -1,6 +1,5 @@
 #!/usr/bin/env npx babel-node
 
-
 import {join} from 'path';
 import {getPages} from '@sphido/core';
 import sitemap from '@sphido/sitemap';
@@ -11,7 +10,7 @@ import {markdown, renderer} from '@sphido/markdown';
 import meta from '@sphido/meta';
 import {copy, outputFile} from 'fs-extra';
 import globby from 'globby';
-import getPageHtml from './content/page'
+import getPageHtml from './src/page'
 
 const domain = new URL('https://sphido.org/');
 
