@@ -9,12 +9,10 @@
 	"scripts": {
 		"build": "babel-node ./index.js",
 		"dev": "watch './index.js' ./content | serve public",
-		"test": "xo"
 	},
 	"devDependencies": {
 		"serve": "^11.3.2",
-		"watch": "^1.0.2",
-		"xo": "^0.33.1"
+		"watch": "^1.0.2"
 	},
 	"dependencies": {
 		"@babel/cli": "^7.11.6",
