@@ -36,7 +36,6 @@ renderer(
 	}
 );
 
-
 (async () => {
 	try {
 
@@ -50,7 +49,7 @@ renderer(
 				markdown,
 				meta,
 				(page) => {
-					page.content = getPageHtml(page);
+					page.content = getPageHtml(page); // apply HTML template to content
 				}
 			]
 		);
@@ -58,6 +57,7 @@ renderer(
 		// 2. Generate single pages...
 
 		for await (const page of pages) {
+
 
 			if (page.dir.includes('node_modules/@sphido')) {
 				await outputFile(

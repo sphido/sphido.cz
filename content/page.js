@@ -11,12 +11,12 @@ module.exports = (page) => `<!DOCTYPE html>
 	<meta name="google-site-verification" content="jr_C4Rk1HNubH1Szgotyz6diVKR6ZNZTetbMyWiTGOI"/>
 
 	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+	<link href="//fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
 
 	<!-- Boostrap 5 -->
 	<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+	<script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="//stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 
 	<!-- highlight.js -->
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/monokai-sublime.min.css">
@@ -44,55 +44,67 @@ module.exports = (page) => `<!DOCTYPE html>
 <body class="${page.base}">
 
 	<aside>
-		
+	
 		<div class="d-flex justify-content-center my-1">
-			<figure class="figure text-center w-75"><a href="/" title="Homepage">
-				<img src="/img/sphido.svg" class="figure-img text-center img-fluid rounded" title="Sphido logo" alt="Sphido logo">		
+			<figure class="figure text-center w-75">
+				<a href="/" title="Homepage"><img src="/img/sphido.svg" class="figure-img text-center img-fluid rounded" title="Sphido logo" alt="Sphido logo"></a>		
 			</figure>
+		</div>	
+	
+	  <button type="button" class="btn btn-outline-secondary btn-block mb-3 d-lg-none" data-toggle="collapse" data-target="#aside-menu" aria-expanded="false" aria-controls="aside-menu" aria-label="Toggle menu">
+	    <img src="https://twemoji.maxcdn.com/v/13.0.1/72x72/1f354.png" alt="🍔" width="20" height="20">
+		</button>
+		
+		<div class="collapse d-lg-block" id="aside-menu">
+			
+			<div class="list-group my-3">
+				<a class="list-group-item list-group-item-action ${isActive(page, '.')}" href="/">
+					Home
+				</a>
+				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-core')}" href="/packages/sphido-core">Core package</a>
+			</div>
+			
+						
+			<h4>Extenders</h4>
+			
+			<div class="list-group my-3">
+				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-frontmatter')}" href="/packages/sphido-frontmatter">Front matter</a>
+				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-markdown')}" href="/packages/sphido-markdown">Markdown content</a>
+				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-meta')}" href="/packages/sphido-meta">Page meta</a>
+			</div>
+			
+			<h4>Templating</h4>
+			
+			<div class="list-group my-3">
+				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-nunjucks')}" href="/packages/sphido-nunjucks">Nunjucks templates</a>
+			</div>
+			
+			<h4>Outputing</h4>
+			
+			<div class="list-group my-3">
+				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-sitemap')}" href="/packages/sphido-sitemap">XML Sitemap</a>
+				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-feed')}" href="/packages/sphido-feed">Atom feed</a>
+				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-link')}" href="/packages/sphido-link">Add <code>link()</code> function</a>
+				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-pagination')}" href="/packages/sphido-pagination">Pagination</a>
+				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-twemoji')}" href="/packages/sphido-twemoji">Twemoji</a>
+			</div>
+	
+			<h4>Examples</h4>
+			<div class="list-group my-3">
+				<a class="list-group-item list-group-item-action" href="https://github.com/sphido/examples/tree/master/basic" target="_blank">Basics</a>
+				<a class="list-group-item list-group-item-action" href="https://github.com/sphido/examples/tree/master/custom-extenders" target="_blank">Custom extenders</a>
+				<a class="list-group-item list-group-item-action" href="https://github.com/sphido/examples/tree/master/custom-extenders" target="_blank">Markdown to JSON</a>
+			</div>
+			
+							
+			<div class="github text-center mt-5">
+				<a href="https://github.com/sphido/sphido" target="_blank">					
+					<svg width="128px" height="128px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;">
+				    <path d="M9,19C4,20.5 4,16.5 2,16M16,22L16,18.13C16.076,17.166 15.733,16.214 15.06,15.52C18.2,15.17 21.5,13.98 21.5,8.52C21.5,7.124 20.962,5.781 20,4.77C20.456,3.549 20.423,2.198 19.91,1C19.397,-0.198 18.73,0.65 16,2.48C13.708,1.859 11.292,1.859 9,2.48C6.27,0.65 5.09,1 5.09,1C4.577,2.198 4.544,3.549 5,4.77C4.03,5.788 3.493,7.144 3.5,8.55C3.5,13.97 6.8,15.16 9.94,15.55C9.275,16.237 8.933,17.176 9,18.13L9,22" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:1px;"/>
+					</svg>
+				</a>
+			</div>
 		</div>
-		
-		
-		<section class="list-group my-3">
-			<a class="list-group-item list-group-item-action ${isActive(page, '.')}" href="/">🏠 Home</a>
-			<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-core')}" href="/packages/sphido-core">🚀 Core</a>
-		</section>
-		
-		<h4>Extenders</h4>
-		
-		<section class="list-group my-3">
-			<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-frontmatter')}" href="/packages/sphido-frontmatter">Front matter</a>
-			<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-markdown')}" href="/packages/sphido-markdown">Markdown content</a>
-			<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-meta')}" href="/packages/sphido-meta">Page meta</a>
-		</section>
-		
-		<h4>Templating</h4>
-		
-		<section class="list-group my-3">
-			<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-nunjucks')}" href="/packages/sphido-nunjucks">Nunjucks templates</a>
-		</section>
-		
-		<h4>Outputing</h4>
-		
-		<section class="list-group my-3">
-			<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-sitemap')}" href="/packages/sphido-sitemap">XML Sitemap</a>
-			<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-feed')}" href="/packages/sphido-feed">Atom feed</a>
-			<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-link')}" href="/packages/sphido-link">Add <code>link()</code> function</a>
-			<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-pagination')}" href="/packages/sphido-pagination">Pagination</a>
-			<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-twemoji')}" href="/packages/sphido-twemoji">Twemoji</a>
-		</section>
-
-		<h4>Examples</h4>
-		<section class="list-group my-3">
-			<a class="list-group-item list-group-item-action" href="https://github.com/sphido/examples/tree/master/basic">Basics</a>
-			<a class="list-group-item list-group-item-action" href="https://github.com/sphido/examples/tree/master/custom-extenders">Custom extenders</a>
-			<a class="list-group-item list-group-item-action" href="https://github.com/sphido/examples/tree/master/custom-extenders">Markdown to JSON</a>
-		</section>
-				
-		<section class="github text-center mt-5">
-			<a href="https://github.com/sphido/sphido" class="btn btn-lg btn-success" target="_blank">
-				<img src="/img/github-white.svg" fill="#fff" width="18px" style="vertical-align: -.1em" alt="Github logo"> Get Source Code
-			</a>
-		</section>
 	</aside>
 	
 	<main>${page.content}</main>

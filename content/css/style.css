@@ -22,6 +22,7 @@ body > footer {
 
 body > main {
 	grid-area: main;
+	word-wrap: break-word;
 }
 
 body > aside {
@@ -49,8 +50,12 @@ body > aside {
 
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
+}
+
+aside .list-group-item svg {
+	margin-right: .5rem;
 }
 
 code.language-bash:before {
@@ -76,15 +81,15 @@ pre, code.language-text {
 	color: #f8f8f2;
 }
 
+h1 {
+	margin-bottom: 3rem;
+}
+
 footer > p {
 	margin-bottom: 0;
 }
 
 /* index (homepage) */
-
-body.index h1 {
-	margin-bottom: 3rem;
-}
 
 body.index pre {
 	border-radius: 1em;
