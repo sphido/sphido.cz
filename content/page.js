@@ -46,7 +46,7 @@ module.exports = (page) => `<!DOCTYPE html>
 	<aside>
 		
 		<div class="d-flex justify-content-center my-1">
-			<figure class="figure text-center w-75"><a href="https://github.com/sphido/sphido" title="" target="_blank">
+			<figure class="figure text-center w-75"><a href="/" title="Homepage">
 				<img src="/img/sphido.svg" class="figure-img text-center img-fluid rounded" title="Sphido logo" alt="Sphido logo">		
 			</figure>
 		</div>
@@ -54,7 +54,7 @@ module.exports = (page) => `<!DOCTYPE html>
 		
 		<section class="list-group my-3">
 			<a class="list-group-item list-group-item-action ${isActive(page, '.')}" href="/">🏠 Home</a>
-			<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-core')}" href="/packages/sphido-core">🔥 Sphido core </a>
+			<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-core')}" href="/packages/sphido-core">🚀 Core</a>
 		</section>
 		
 		<h4>Extenders</h4>
