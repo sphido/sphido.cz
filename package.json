@@ -15,10 +15,10 @@
 		"watch": "^1.0.2"
 	},
 	"dependencies": {
-		"@babel/cli": "^7.11.6",
-		"@babel/core": "^7.11.6",
-		"@babel/node": "^7.10.5",
-		"@babel/preset-env": "^7.11.5",
+		"@babel/cli": "^7.12.1",
+		"@babel/core": "^7.12.3",
+		"@babel/node": "^7.12.1",
+		"@babel/preset-env": "^7.12.1",
 		"@sphido/core": "^0.0.9",
 		"@sphido/feed": "^0.0.8",
 		"@sphido/frontmatter": "^0.0.7",
