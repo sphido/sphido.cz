@@ -1,17 +1,18 @@
-#!/usr/bin/env npx babel-node
+#!/usr/bin/env node
 
-import {join} from 'path';
-import {getPages} from '@sphido/core';
-import sitemap from '@sphido/sitemap';
-import {link} from '@sphido/link';
-import frontmatter from '@sphido/frontmatter';
-import twemoji from '@sphido/twemoji';
-import {markdown, renderer} from '@sphido/markdown';
-import meta from '@sphido/meta';
-import {copy, outputFile} from 'fs-extra';
 import globby from 'globby';
-import getPageHtml from './src/page'
+import path from 'path';
+import {getPages} from '@sphido/core';
+import {sitemap} from '@sphido/sitemap';
+import {fileURLToPath} from 'url';
+import {frontmatter} from '@sphido/frontmatter';
+import {emoji} from '@sphido/emoji';
+import {markdown, renderer} from '@sphido/markdown';
+import {meta} from '@sphido/meta';
+import fs from 'fs-extra';
+import {getPageHtml} from './src/page.js'
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const domain = new URL('https://sphido.org/');
 
 renderer(
@@ -44,7 +45,7 @@ renderer(
 			await globby(['content/**/*.md', 'node_modules/@sphido/**/readme.md']),
 			...[
 				frontmatter,
-				twemoji,
+				emoji,
 				markdown,
 				meta,
 				(page) => {
@@ -59,14 +60,14 @@ renderer(
 
 
 			if (page.dir.includes('node_modules/@sphido')) {
-				await outputFile(
-					join('public/packages', page.slug, 'index.html'),
+				await fs.outputFile(
+					path.join('public/packages', page.slug, 'index.html'),
 					page.content
 				);
 
 			} else {
-				await outputFile(
-					join(page.dir.replace('content', 'public'), page.slug, 'index.html'),
+				await fs.outputFile(
+					path.join(page.dir.replace('content', 'public'), page.slug, 'index.html'),
 					page.content
 				);
 			}
@@ -74,8 +75,8 @@ renderer(
 
 		// 3. generate sitemap.xml
 
-		outputFile(
-			join(__dirname, 'public/sitemap.xml'),
+		fs.outputFile(
+			path.join(__dirname, 'public/sitemap.xml'),
 			sitemap(pages, domain)
 		);
 
@@ -83,11 +84,11 @@ renderer(
 
 		const files = await globby(['content/**/*.*', '!**/*.{md,html}']);
 		for await (const file of files) {
-			await copy(file, file.replace(/^\w+/, 'public'));
+			await fs.copy(file, file.replace(/^\w+/, 'public'));
 		}
 
 		// 5. copy 404 page
-		await copy('content/404.html', 'public/404.html')
+		await fs.copy('content/404.html', 'public/404.html')
 
 
 	} catch (error) {

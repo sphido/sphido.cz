@@ -1,6 +1,6 @@
 const isActive = (page, current) => page.slug === current ? 'active' : '';
 
-module.exports = (page) => `<!DOCTYPE html>
+export const getPageHtml = (page) => `<!DOCTYPE html>
 <html lang="cs" dir="ltr">
 <head>
 	<meta charset="UTF-8">
@@ -85,7 +85,7 @@ module.exports = (page) => `<!DOCTYPE html>
 				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-feed')}" href="/packages/sphido-feed">Atom feed</a>
 				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-link')}" href="/packages/sphido-link">Add <code>link()</code> function</a>
 				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-pagination')}" href="/packages/sphido-pagination">Pagination</a>
-				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-twemoji')}" href="/packages/sphido-twemoji">Twemoji</a>
+				<a class="list-group-item list-group-item-action ${isActive(page, 'sphido-emoji')}" href="/packages/sphido-emoji">Emoji</a>
 			</div>
 	
 			<h4>Examples</h4>

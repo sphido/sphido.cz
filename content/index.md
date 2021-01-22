@@ -11,15 +11,19 @@ slug: .
 npm i @sphido/core @sphido/frontmatter @sphido/markdown @sphido/meta fs-extra esm globby
 ```
 
-## Create `index.js`
+**Warning**: Sphido requires Node 12.x and newer. To load an ES module, set `"type": "module"` in the `package.json` or use the `.mjs` extension.
+
+## Create `index.mjs`
 
 ```javascript
-import {join} from "path";
+#!/usr/bin/env node
+
+import path from "path";
 import globby from "globby";
+import fs from "fs-extra";
 import {getPages} from "@sphido/core";
-import frontmatter from "@sphido/frontmatter";
-import meta from "@sphido/meta";
-import {outputFile} from "fs-extra";
+import {frontmatter} from "@sphido/frontmatter";
+import {meta} from "@sphido/meta";
 import {markdown} from "@sphido/markdown";
 
 (async () => {
@@ -36,7 +40,7 @@ import {markdown} from "@sphido/markdown";
 
 			// add custom page extender
 			(page) => {
-				page.toFile = join(
+				page.toFile = path.join(
 					page.dir.replace('content', 'public'),
 					page.slug,
 					'index.html'
@@ -60,7 +64,7 @@ import {markdown} from "@sphido/markdown";
 
 	// 2. save pages
 
-	pages.forEach(page => outputFile(page.toFile, page.getHtml()))
+	pages.forEach(page => fs.outputFile(page.toFile, page.getHtml()))
 
 })();
 ```
@@ -68,5 +72,5 @@ import {markdown} from "@sphido/markdown";
 ## Run script
 
 ```bash
-node -r esm index.js
+node index.mjs
 ```
