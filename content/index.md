@@ -8,15 +8,15 @@ slug: .
 ## Install
 
 ```bash 
-npm i @sphido/core @sphido/frontmatter @sphido/markdown @sphido/meta fs-extra esm globby
+npm i @sphido/core @sphido/frontmatter @sphido/markdown @sphido/meta fs-extra globby
 ```
 
 **Warning**: Sphido requires Node 12.x and newer. To load an ES module, set `"type": "module"` in the `package.json` or use the `.mjs` extension.
 
-## Create `index.mjs`
+## Create `index.js`
 
 ```javascript
-#!/usr/bin/env node
+#!/usr/bin/env node --experimental-modules
 
 import path from "path";
 import globby from "globby";
