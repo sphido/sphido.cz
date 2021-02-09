@@ -19,16 +19,16 @@
 		"node": ">=12"
 	},
 	"dependencies": {
-		"@sphido/core": "^1.0.3",
-		"@sphido/emoji": "^1.0.5",
-		"@sphido/feed": "^1.0.3",
-		"@sphido/frontmatter": "^1.0.2",
-		"@sphido/link": "^1.0.2",
-		"@sphido/markdown": "^1.0.2",
-		"@sphido/meta": "^1.0.2",
-		"@sphido/nunjucks": "^1.0.2",
-		"@sphido/pagination": "^1.0.2",
-		"@sphido/sitemap": "^1.0.3",
+		"@sphido/core": "^1.0.4",
+		"@sphido/emoji": "^1.0.6",
+		"@sphido/feed": "^1.0.4",
+		"@sphido/frontmatter": "^1.0.3",
+		"@sphido/link": "^1.0.3",
+		"@sphido/markdown": "^1.0.3",
+		"@sphido/meta": "^1.0.3",
+		"@sphido/nunjucks": "^1.0.3",
+		"@sphido/pagination": "^1.0.3",
+		"@sphido/sitemap": "^1.0.4",
 		"fs-extra": "^9.1.0",
 		"globby": "^11.0.2"
 	}
