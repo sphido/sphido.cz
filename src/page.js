@@ -114,7 +114,7 @@ export const getPageHtml = (page) => `<!DOCTYPE html>
 			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14px" height="14px" viewBox="0 0 86 70" xml:space="preserve">
 				<path fill="#D2322D" d="M78.947,5.753c-8.359-7.671-21.91-7.671-30.271,0L43,10.963l-5.678-5.21c-8.357-7.671-21.91-7.671-30.27,0c-9.404,8.631-9.404,22.624,0,31.255L43,70l35.947-32.991C88.352,28.377,88.352,14.385,78.947,5.753z"></path>
 			</svg>
-			<a href="https://github.com/sphido/sphido.org" class="text-reset">Sphido</a> by <a href="https://omdesign.cz" class="text-reset">Roman Ožana</a>
+			<a href="https://github.com/sphido/sphido.org" class="text-reset">Sphido</a> by <a href="https://ozana.cz" class="text-reset">Roman Ožana</a>
 		</p>
 	</footer>
 </body>

@@ -22,7 +22,7 @@ www.sphido.org {
 }
 
 https://sphido.org {	
-  tls roman@omdesign.cz
+  tls roman@ozana.cz
 
   root /var/www/sphido.org/public
   log  /var/www/sphido.org/log/access.log
