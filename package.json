@@ -2,34 +2,32 @@
 	"name": "sphido.org",
 	"author": {
 		"name": "Roman Ožana",
-		"email": "roman@omdesign.cz",
-		"url": "https://omdesign.cz/"
+		"email": "roman@ozana.cz",
+		"url": "https://ozana.cz/"
 	},
+	"type": "module",
 	"license": "MIT",
 	"scripts": {
-		"build": "node ./index.js",
-		"start": "watch './index.js' ./content ./src | serve public"
+		"build": "node --experimental-modules index.js",
+		"start": "watch './index.js' ./content | serve public"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.13.8",
 		"serve": "^11.3.2",
 		"watch": "^1.0.2"
 	},
-	"type": "module",
-	"engines": {
-		"node": ">=12"
-	},
 	"dependencies": {
-		"@sphido/core": "^1.0.4",
-		"@sphido/emoji": "^1.0.6",
-		"@sphido/feed": "^1.0.4",
-		"@sphido/frontmatter": "^1.0.3",
-		"@sphido/link": "^1.0.3",
-		"@sphido/markdown": "^1.0.3",
-		"@sphido/meta": "^1.0.3",
-		"@sphido/nunjucks": "^1.0.3",
-		"@sphido/pagination": "^1.0.3",
-		"@sphido/sitemap": "^1.0.4",
+		"@sphido/core": "^1.0.5",
+		"@sphido/emoji": "^1.0.8",
+		"@sphido/feed": "^1.0.5",
+		"@sphido/frontmatter": "^1.0.4",
+		"@sphido/link": "^1.0.4",
+		"@sphido/markdown": "^1.0.4",
+		"@sphido/meta": "^1.0.4",
+		"@sphido/nunjucks": "^1.0.4",
+		"@sphido/pagination": "^1.0.5",
+		"@sphido/sitemap": "^1.0.5",
 		"fs-extra": "^9.1.0",
-		"globby": "^11.0.2"
+		"globby": "^11.0.3"
 	}
 }
