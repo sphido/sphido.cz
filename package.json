@@ -12,8 +12,8 @@
 		"start": "watch './index.js' ./content | serve public"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.14.3",
-		"serve": "^11.3.2",
+		"@babel/core": "^7.14.6",
+		"serve": "^12.0.0",
 		"watch": "^1.0.2"
 	},
 	"dependencies": {
@@ -21,13 +21,13 @@
 		"@sphido/emoji": "^1.0.9",
 		"@sphido/feed": "^1.0.6",
 		"@sphido/frontmatter": "^1.0.5",
-		"@sphido/link": "^1.0.5",
-		"@sphido/markdown": "^1.0.5",
+		"@sphido/link": "^1.0.6",
+		"@sphido/markdown": "^1.0.6",
 		"@sphido/meta": "^1.0.5",
 		"@sphido/nunjucks": "^1.0.5",
 		"@sphido/pagination": "^1.0.7",
 		"@sphido/sitemap": "^1.0.6",
 		"fs-extra": "^10.0.0",
-		"globby": "^11.0.3"
+		"globby": "^11.0.4"
 	}
 }
