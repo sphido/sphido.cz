@@ -12,22 +12,22 @@
 		"start": "watch './index.js' ./content | serve public"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.14.6",
+		"@babel/core": "^7.15.0",
 		"serve": "^12.0.0",
 		"watch": "^1.0.2"
 	},
 	"dependencies": {
-		"@sphido/core": "^1.0.6",
-		"@sphido/emoji": "^1.0.9",
-		"@sphido/feed": "^1.0.6",
-		"@sphido/frontmatter": "^1.0.5",
-		"@sphido/link": "^1.0.6",
-		"@sphido/markdown": "^1.0.6",
-		"@sphido/meta": "^1.0.5",
-		"@sphido/nunjucks": "^1.0.5",
-		"@sphido/pagination": "^1.0.7",
-		"@sphido/sitemap": "^1.0.6",
+		"@sphido/core": "^1.0.8",
+		"@sphido/emoji": "^1.0.10",
+		"@sphido/feed": "^1.0.8",
+		"@sphido/frontmatter": "^1.0.7",
+		"@sphido/link": "^1.0.8",
+		"@sphido/markdown": "^1.0.9",
+		"@sphido/meta": "^1.0.7",
+		"@sphido/nunjucks": "^1.0.8",
+		"@sphido/pagination": "^1.0.9",
+		"@sphido/sitemap": "^1.0.8",
 		"fs-extra": "^10.0.0",
-		"globby": "^11.0.4"
+		"globby": "^12.0.0"
 	}
 }

@@ -1,6 +1,6 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --experimental-modules
 
-import globby from 'globby';
+import {globby} from 'globby';
 import path from 'path';
 import {getPages} from '@sphido/core';
 import {sitemap} from '@sphido/sitemap';
