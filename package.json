@@ -12,8 +12,8 @@
 		"start": "watch './index.js' ./content | serve public"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.15.5",
-		"serve": "^12.0.1",
+		"@babel/core": "^7.16.0",
+		"serve": "^13.0.2",
 		"watch": "^1.0.2"
 	},
 	"dependencies": {
