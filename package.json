@@ -12,7 +12,7 @@
 		"start": "watch './index.js' ./content | serve public"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.16.7",
+		"@babel/core": "^7.17.10",
 		"serve": "^13.0.2",
 		"watch": "^1.0.2"
 	},
@@ -27,7 +27,7 @@
 		"@sphido/nunjucks": "^1.0.9",
 		"@sphido/pagination": "^1.0.10",
 		"@sphido/sitemap": "^1.0.9",
-		"fs-extra": "^10.0.0",
-		"globby": "^12.1.0"
+		"fs-extra": "^10.1.0",
+		"globby": "^13.1.1"
 	}
 }
