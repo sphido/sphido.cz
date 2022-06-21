@@ -41,7 +41,7 @@ export const getPageHtml = async ({content, title, name} = {}) => `<!DOCTYPE htm
 		gtag('config', 'UA-59247808-1');
 	</script>
 
-	<title>${title || name}</title>
+	<title>Sphido | ${title || name}</title>
 </head>
 <body class="dark:bg-gray-900 dark:text-gray-100">
 
