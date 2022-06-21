@@ -1,76 +1,57 @@
----
-title: Sphido | A rocket fast, lightweight, static site generator
-slug: .
----
+# A rocket 🚀 fast, 💭 light-weight and flexible static site 🤖 generator.
 
-# A rocket 🚀 fast, 💭 lightweight, static site 🤖 generator
+- 🚀 rocket fast
+- 💭️ light-weight
+- 🤘 no dependencies
+- ⚡️ flexible
 
 ## Install
 
 ```bash 
-npm i @sphido/core @sphido/frontmatter @sphido/markdown @sphido/meta fs-extra globby
+npm i @sphido/core
 ```
-
-**Warning**: Sphido requires Node 12.x and newer. To load an ES module, set `"type": "module"` in the `package.json` or use the `.mjs` extension.
 
 ## Create `index.js`
 
 ```javascript
-#!/usr/bin/env node --experimental-modules
+#!/usr/bin/env node
 
-import path from "path";
-import globby from "globby";
-import fs from "fs-extra";
-import {getPages} from "@sphido/core";
-import {frontmatter} from "@sphido/frontmatter";
-import {meta} from "@sphido/meta";
-import {markdown} from "@sphido/markdown";
+import {dirname, relative, join} from 'node:path';
+import {getPages, allPages, readFile, writeFile} from '@sphido/core';
+import slugify from '@sindresorhus/slugify';
+import {marked} from 'marked';
 
-(async () => {
+function getHtml({name, content, path}) {
+	return `<!DOCTYPE html>
+<html lang="cs" dir="ltr">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+	<title>${name} | Sphido Example page</title>	
+</head>
+<body class="prose mx-auto my-6">${content}</body>
+<!-- Generated with Sphido from ${path} -->
+</html>`;
+}
 
-	// 1. get list of pages
+const pages = await getPages({path: 'content'});
 
-	const pages = await getPages(
-		await globby('content/**/*.{md,html}'),
-		...[
+for (const page of allPages(pages)) {
+	page.slug = slugify(page.name) + '.html';
+	page.output = join('public', relative('content', dirname(page.path)), page.slug);
 
-			frontmatter,
-			markdown,
-			meta,
+	// read content and process markdown
+	page.content = marked(await readFile(page.path));
 
-			// add custom page extender
-			(page) => {
-				page.toFile = path.join(
-					page.dir.replace('content', 'public'),
-					page.slug,
-					'index.html'
-				);
-			},
-
-			// add custom page function
-			{
-                head: function() {
-                  return `<head><meta charset="UTF-8"><title>${this.title}</title></head>`
-                },
-
-				getHtml: function () {
-					return `<!DOCTYPE html>` + 
-                           `<html lang="en" dir="ltr">` + this.head() + 
-                           `<body>${this.content}</body></html>`
-				}
-			}
-		],
-	);
-
-	// 2. save pages
-
-	pages.forEach(page => fs.outputFile(page.toFile, page.getHtml()))
-
-})();
+	// save HTML file
+	await writeFile(page.output, getHtml(page));
+}
 ```
 
 ## Run script
 
 ```bash
-node index.mjs
+node index.js
 ```
+
+**Warning**: Sphido requires Node 14.x and newer. To load an ES module, set `"type": "module"` in the `package.json` or use the `.mjs` extension.

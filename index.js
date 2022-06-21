@@ -1,97 +1,58 @@
-#!/usr/bin/env node --experimental-modules
-
+#!/usr/bin/env node
+import {dirname, relative, join} from 'node:path';
+import {getPages, allPages, readFile, writeFile, copyFile} from '@sphido/core';
+import slugify from '@sindresorhus/slugify';
+import {getPageHtml} from './src/page.js';
+import {makdown} from './src/makdown.js';
 import {globby} from 'globby';
-import path from 'path';
-import {getPages} from '@sphido/core';
-import {sitemap} from '@sphido/sitemap';
-import {fileURLToPath} from 'url';
-import {frontmatter} from '@sphido/frontmatter';
-import {emoji} from '@sphido/emoji';
-import {markdown, renderer} from '@sphido/markdown';
-import {meta} from '@sphido/meta';
-import fs from 'fs-extra';
-import {getPageHtml} from './src/page.js'
+import {marked} from 'marked';
+import {createSitemap} from '@sphido/sitemap';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const domain = new URL('https://sphido.org/');
+const sitemap = await createSitemap();
 
-renderer(
-	{
-		table: (header, body) => `<table class="table table-bordered table-striped bg-white m-1">${header}${body}</table>`,
+// process content pages
 
-		image: (href, title, text) => {
-			const className = new URL(href, domain).hash.slice(1).replace(/_/g, ' ');
-			return `<div class=" ${className ? className : 'd-flex justify-content-center my-1'}"><figure class="figure text-center w-75">
-			<img src="${href}" class="figure-img img-fluid rounded" title="${title ? title : ''}" alt="${text ? text : ''}"/>		
-			<figcaption class="figure-caption text-center">${text}</figcaption></figure></div>`;
-		},
+const pages = await getPages({path: 'content'}, (page) => {
+	page.slug = slugify(page.name) + '.html';
+});
 
-		link: (href, title, text) => {
-			if (href.includes(domain.hostname)) {
-				return `<a href="${href}" title="${title ? title : ''}">${text}</a>`;
-			}
+for (const page of allPages(pages)) {
+	page.content = marked(await readFile(page.path));
+	page.title = page.content.match(/(?<=<h[12][^>]*?>)([^<>]+?)(?=<\/h[12]>)/i)?.pop();
+	page.url = join(relative('content', dirname(page.path)), page.slug);
+	await writeFile(join('public', page.url), await getPageHtml(page));
 
-			return `<a href="${href}" title="${title ? title : ''}" target="_blank">${text}</a>`;
+	sitemap.add({url: `https://sphido.org/${page.url}`});
+}
+
+// Process readme.md from packages
+
+const readme = await getPages({
+	path: 'node_modules/@sphido', include: (dirent, path) => {
+		if (dirent.isDirectory()) {
+			return path.includes('@sphido');
+		} else {
+			return dirent.name.endsWith('readme.md');
 		}
-	}
-);
+	},
+}, (page, dirent, path) => {
+	page.name = relative('node_modules', path);
+	page.slug = slugify(page.name) + '.html';
+});
 
-(async () => {
-	try {
+for (const page of allPages(readme)) {
+	page.content = makdown(await readFile(page.path));
+	page.title = `Package ${page.name}`;
+	await writeFile(join('public', page.slug), await getPageHtml(page));
 
-		// 1. Get pages from directory
+	sitemap.add({url: `https://sphido.org/${page.slug}`});
+}
 
-		const pages = await getPages(
-			await globby(['content/**/*.md', 'node_modules/@sphido/**/readme.md']),
-			...[
-				frontmatter,
-				emoji,
-				markdown,
-				meta,
-				(page) => {
-					page.content = getPageHtml(page); // apply HTML template to content
-				}
-			]
-		);
+// Copy static files
 
-		// 2. Generate single pages...
+const files = await globby(['content/**/*.*', '!**/*.{md,html}']);
+for await (const file of files) {
+	await copyFile(file, join('public', relative('content', file)));
+}
 
-		for await (const page of pages) {
-
-
-			if (page.dir.includes('node_modules/@sphido')) {
-				await fs.outputFile(
-					path.join('public/packages', page.slug, 'index.html'),
-					page.content
-				);
-
-			} else {
-				await fs.outputFile(
-					path.join(page.dir.replace('content', 'public'), page.slug, 'index.html'),
-					page.content
-				);
-			}
-		}
-
-		// 3. generate sitemap.xml
-
-		fs.outputFile(
-			path.join(__dirname, 'public/sitemap.xml'),
-			sitemap(pages, domain)
-		);
-
-		// 4. copy static content
-
-		const files = await globby(['content/**/*.*', '!**/*.{md,html}']);
-		for await (const file of files) {
-			await fs.copy(file, file.replace(/^\w+/, 'public'));
-		}
-
-		// 5. copy 404 page
-		await fs.copy('content/404.html', 'public/404.html')
-
-
-	} catch (error) {
-		console.error(error);
-	}
-})();
+sitemap.end();
