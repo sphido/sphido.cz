@@ -65,10 +65,11 @@ export const getPageHtml = async ({content, title, name} = {}) => `<!DOCTYPE htm
 			
 			<div id="aside-menu">
 				<ul class="my-2 space-y-2 transition-all dark:bg-gray-800 rounded-xl py-4">
-				<li><a href="/" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4">Home</a></li>
-				${['core', 'frontmatter', 'hashtags', 'sitemap'].map(link => {
-	return `<li><a href="/sphido-${link}.html" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4">@sphido/${link}</a></li>`;
-}).join('')}
+					<li><a href="/" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4">Home</a></li>
+					<li><a href="/sphido-core.html" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4">Core</a></li>
+					<li><a href="/sphido-frontmatter.html" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4">Frontmatter</a></li>
+					<li><a href="/sphido-hashtags.html" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4">Hashtags</a></li>
+					<li><a href="/sphido-hashtags.html" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4">Sitemap</a></li>
 				</ul>
 				
 				<a href="https://github.com/sphido/sphido" target="_blank" class="block dark:fill-gray-700 dark:hover:fill-lime-300 transition mx-auto w-32 mt-24">		
