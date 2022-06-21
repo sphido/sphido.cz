@@ -279,10 +279,10 @@
   dependencies:
     "@sindresorhus/slugify" "^2.1.0"
 
-"@sphido/sitemap@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@sphido/sitemap/-/sitemap-2.0.4.tgz#afd9c8f9fb456201c4cc8d5db04b4fd25b3d7c75"
-  integrity sha512-w07gqcvzzHWlGajPGRn3SDzZo+PtMAVZqsoBuG0f9479nepPvYK5vAPWhlrL+a7pCRwCvd9YT7o02ZZA6E9ckQ==
+"@sphido/sitemap@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@sphido/sitemap/-/sitemap-2.0.5.tgz#6b60d19a6c5c688a3bad54b6c5599e29841b71b1"
+  integrity sha512-v+eWYLnipRHe6nJamBFykqUrbONCxg7wUli77sUB9JYeIjbFr05UV/cFTYBar8wR9iQqRujktEuY/F7jsWLnGQ==
 
 "@tailwindcss/forms@^0.5.2":
   version "0.5.2"

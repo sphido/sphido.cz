@@ -24,7 +24,7 @@
 		"@sphido/core": "^2.0.6",
 		"@sphido/frontmatter": "^2.0.0",
 		"@sphido/hashtags": "^2.0.0",
-		"@sphido/sitemap": "^2.0.4",
+		"@sphido/sitemap": "^2.0.5",
 		"@tailwindcss/forms": "^0.5.2",
 		"@tailwindcss/typography": "^0.5.2",
 		"globby": "^13.1.2",
