@@ -42,7 +42,6 @@ const readme = await getPages({
 
 for (const page of allPages(readme)) {
 	page.content = makdown(await readFile(page.path));
-	page.title = `Package ${page.name}`;
 	await writeFile(join('public', page.slug), await getPageHtml(page));
 
 	sitemap.add({url: `https://sphido.org/${page.slug}`});
