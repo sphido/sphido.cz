@@ -1,14 +1,19 @@
 # A rocket 🚀 fast, 💭 light-weight and flexible static site 🤖 generator.
 
+I know, another [static site generator](https://github.com/collections/static-site-generators)! This one's different - it's totally minimalistic. 
+Basically, it's just two functions. Fist one, the `getPages()` function allows you to load a list of pages and `getPages()` allows you to iterate over them.
+
+You get a static site generator that is:
+
 - 🚀 rocket fast
 - 💭️ light-weight
 - 🤘 no dependencies
 - ⚡️ flexible
 
-## Install
+## Install package
 
 ```bash 
-npm i @sphido/core
+npm i @sphido/core # that's all
 ```
 
 ## Create `index.js`
@@ -54,4 +59,9 @@ for (const page of allPages(pages)) {
 node index.js
 ```
 
-**Warning**: Sphido requires Node 14.x and newer. To load an ES module, set `"type": "module"` in the `package.json` or use the `.mjs` extension.
+Check [website source code](https://github.com/sphido/sphido.org) to getting deeper idea how Sphido works.
+
+
+:::py-6 px-8 border-l-4 border-l-amber-500 dark:bg-gray-900/50
+Sphido requires Node 14.x and newer. To load an ES module, set `"type": "module"` in the `package.json` or use the `.mjs` extension.
+:::

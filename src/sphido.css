@@ -1,4 +1,13 @@
 @tailwind base;
+@layer base {
+	main {
+		@apply prose lg:prose-xl dark:prose-invert;
+		@apply prose-headings:break-all prose-a:break-all;
+		@apply prose-a:no-underline  hover:prose-a:underline;
+		@apply prose-h1:text-lime-300;
+	}
+}
+
 @tailwind components;
 @layer components {
 	pre {
@@ -40,7 +49,7 @@
 	.language-css .token.function,
 	.language-shell .token:not(.comment),
 	.token.atapply .token:not(.rule):not(.important) {
-		color: inherit
+		@apply text-inherit;
 	}
 
 	.token.doctype,
@@ -55,6 +64,14 @@
 
 	.token.entity {
 		@apply cursor-help;
+	}
+
+	.language-bash {
+		@apply before:content-['$'] before:inline-block before:mr-2 before:text-gray-500;
+	}
+
+	aside [data-active=true] {
+		@apply dark:text-lime-300 dark:bg-gray-700;
 	}
 }
 @tailwind utilities;

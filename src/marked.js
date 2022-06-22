@@ -29,8 +29,37 @@ const renderer = {
 	},
 };
 
-marked.use({renderer});
 
-export function makdown(content) {
-	return marked(content);
-}
+const extensions = [
+	{
+		name: 'note',
+		level: 'block',
+		start(src) {
+			return src.match(/:::(.+)\s+(.+)\s+:::/)?.index;
+		},
+		tokenizer(src, tokens) {
+			const rule = /^:::(.+)\s+(.+)\s+:::/gi;
+			const match = rule.exec(src);
+
+			if (match) {
+				const token = {
+					type: 'note',
+					raw: match[0],
+					text: match[2].trim(),
+					note: match[1],
+					tokens: [],
+				};
+				this.lexer.inline(token.text, token.tokens);
+				return token;
+			}
+		},
+		renderer(token) {
+			return `<div class="${token.type} ${token.note}">${this.parser.parseInline(token.tokens)}</div>`; // parseInline to turn child tokens into HTML
+		},
+	},
+];
+
+
+marked.use({renderer, extensions});
+
+export {marked};

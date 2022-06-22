@@ -5,6 +5,7 @@ module.exports = {
 	],
 	darkMode: 'class',
 	theme: {
+		container: {center: true, padding: '1rem'},
 		extend: {
 			typography: ({theme}) => ({
 				invert: {
