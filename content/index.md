@@ -13,7 +13,7 @@ You get a static site generator that is:
 ## Install package
 
 ```bash 
-npm i @sphido/core # that's all
+yarn add @sphido/core # that's all
 ```
 
 ## Create `index.js`

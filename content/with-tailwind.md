@@ -4,7 +4,7 @@
 First you have to add following packages:
 
 ```bash
-npm i tailwind @tailwindcss/typography  
+yarn add tailwind @tailwindcss/typography  
 ```
 
 Create `tailwind.config.cjs` file in project root:
