@@ -36,5 +36,5 @@ Then add follow lines to the `package.json` under `"scripts"`:
 Then run:
 
 ```bash
-npm run build.html && npm run build.css
+yarn build.html && yarn build.css
 ```
