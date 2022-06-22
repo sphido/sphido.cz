@@ -12,12 +12,13 @@ const sitemap = await createSitemap();
 
 // process content pages
 
-const pages = await getPages({path: 'content'}, (page) => {
-	page.slug = slugify(page.name) + '.html';
-});
+const pages = await getPages({path: 'content'},
+	async (page) => {
+		page.content = marked(await readFile(page.path));
+		page.slug = slugify(page.name) + '.html';
+	});
 
 for (const page of allPages(pages)) {
-	page.content = marked(await readFile(page.path));
 	page.title = page.content.match(/(?<=<h[12][^>]*?>)([^<>]+?)(?=<\/h[12]>)/i)?.pop();
 	page.url = join(relative('content', dirname(page.path)), page.slug);
 	await writeFile(join('public', page.url), await getPageHtml(page));
@@ -41,7 +42,6 @@ const readme = await getPages({
 });
 
 for (const page of allPages(readme)) {
-	page.content = makdown(await readFile(page.path));
 	await writeFile(join('public', page.slug), await getPageHtml(page));
 
 	sitemap.add({url: `https://sphido.org/${page.slug}`});
