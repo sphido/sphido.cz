@@ -8,7 +8,7 @@ const svg = {
 	heart: await readFile('content/img/heart.svg'),
 };
 
-export const getPageHtml = async ({content, title, name} = {}) => `<!DOCTYPE html>
+export const getPageHtml = async ({content, title, name, slug} = {}) => `<!DOCTYPE html>
 <html lang="cs" dir="ltr" class="dark">
 <head>
 	<meta charset="UTF-8">
@@ -55,7 +55,7 @@ export const getPageHtml = async ({content, title, name} = {}) => `<!DOCTYPE htm
 		</div>
 	</header>
 
-	<div class="container mx-auto grid lg:grid-cols-[minmax(0,auto)_320px] gap-6">
+	<div class="container mx-auto grid gtid-cols-1 lg:grid-cols-[minmax(0,auto)_320px] gap-6">
 		<aside class="lg:order-last">
 		
 		  <button type="button" class="hidden" data-toggle="collapse" data-target="#aside-menu" aria-expanded="false" aria-controls="aside-menu" aria-label="Toggle menu">
@@ -63,13 +63,14 @@ export const getPageHtml = async ({content, title, name} = {}) => `<!DOCTYPE htm
 		    <span>Show menu</span>
 			</button>
 			
+			${slug}
 			<div id="aside-menu">
-				<ul class="my-2 space-y-2 transition-all dark:bg-gray-800 rounded-xl py-4">
-					<li><a href="/" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4">Home</a></li>
-					<li><a href="/sphido-core.html" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4">Core</a></li>
-					<li><a href="/sphido-frontmatter.html" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4">Frontmatter</a></li>
-					<li><a href="/sphido-hashtags.html" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4">Hashtags</a></li>
-					<li><a href="/sphido-hashtags.html" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4">Sitemap</a></li>
+				<ul class="space-y-2 transition-all">
+					<li><a href="/" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4 rounded-md">Home</a></li>
+					<li><a href="/sphido-core.html" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4 rounded-md ">Core</a></li>
+					<li><a href="/sphido-frontmatter.html" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4 rounded-md">Frontmatter</a></li>
+					<li><a href="/sphido-hashtags.html" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4 rounded-md">Hashtags</a></li>
+					<li><a href="/sphido-hashtags.html" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4 rounded-md">Sitemap</a></li>
 				</ul>
 				
 				<a href="https://github.com/sphido/sphido" target="_blank" class="block dark:fill-gray-700 dark:hover:fill-lime-300 transition mx-auto w-32 mt-24">		

@@ -16,9 +16,9 @@ marked.setOptions({
 const renderer = {
 	image: (href, title, text) => {
 		const className = new URL(href, domain).hash.slice(1).replace(/_/g, ' ');
-		return `<div class=" ${className ? className : 'd-flex justify-content-center my-1'}"><figure class="figure text-center w-75">
-			<img src="${href}" class="figure-img img-fluid rounded" title="${title ? title : ''}" alt="${text ? text : ''}"/>		
-			<figcaption class="figure-caption text-center">${text}</figcaption></figure></div>`;
+		return `<div class=" ${className ? className : 'd-flex justify-content-center my-1'}"><figure class="text-center">
+			<img src="${href}" class="max-w-full h-auto" title="${title ? title : ''}" alt="${text ? text : ''}"/>		
+			<figcaption class="italic">${text}</figcaption></figure></div>`;
 	},
 	link: (href, title, text) => {
 		if (href.includes('sphido.org')) {

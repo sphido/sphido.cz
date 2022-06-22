@@ -2,8 +2,7 @@
 @tailwind components;
 @layer components {
 	pre {
-		hyphens: none;
-		tab-size: 2;
+		@apply overflow-x-scroll;
 	}
 
 	.token.class-name,
