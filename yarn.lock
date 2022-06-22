@@ -260,29 +260,29 @@
     escape-string-regexp "^5.0.0"
     lodash.deburr "^4.1.0"
 
-"@sphido/core@^2.0.6":
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/@sphido/core/-/core-2.0.6.tgz#a973b1e4c5bbb581856d0403cb39aa39eeb4f36e"
-  integrity sha512-gEmBPu3XzFCMdyCLmV9QCMlSOCVNqAUtQegxp79ZuvHKYeVKvUjj5ujS3/dndbJFOSh0oitDk0dlSJYzcD1fWQ==
+"@sphido/core@^2.0.7":
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@sphido/core/-/core-2.0.7.tgz#db7359205ed3b03c6e4e6ea7327d9bf5f274a4b2"
+  integrity sha512-y25lpAz0Mca8QnicYgmdoO2Lbkg3okYrUJZkvuE6Tpq2t7dFPHZ+mggFQlLjQWKbP7Wq1gHkxBTlP9CaiGNklQ==
 
-"@sphido/frontmatter@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@sphido/frontmatter/-/frontmatter-2.0.0.tgz#9eaa7d0e87a0dfffaa3d797ab4edc50dd8d26a76"
-  integrity sha512-IBborp2qh04HcB8u7JTtTHBe64KwsvS9ZC1rfSTF92csWDRR35/D0Mm0ANC8a34oLm+Kg0bRnt9FgVDXTEUpKg==
+"@sphido/frontmatter@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@sphido/frontmatter/-/frontmatter-2.0.1.tgz#d88440b3002b8fc4c48879d90af07404033cef08"
+  integrity sha512-lqVh9JzPw8g2NjTtYYftMZNBW1lwSjJa2BNMciT5jF0D/IlXsrIuymFFPm4cr5EGsxV3PT/uBYlLtNIMTQut5A==
   dependencies:
     js-yaml "^4.1.0"
 
-"@sphido/hashtags@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@sphido/hashtags/-/hashtags-2.0.0.tgz#5fd0ae1ccfcbd8df5d7c5a38d319bbd84032102a"
-  integrity sha512-syQR/StObpD/bA69H4wNr1+UMTa4umX8xbfq0wBo7s15cFQ5qbIMi7N5YEyIxDcaNmgIYL0fIgzsO8y9LCfl1g==
+"@sphido/hashtags@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@sphido/hashtags/-/hashtags-2.0.1.tgz#4b17d94903da7333e5cd47c1e09985df3dce0813"
+  integrity sha512-yXqHHL0R0YzFBSZydV81Qg8rlHSB4/JdMlsMUhfU5CYT6+q8OfTEKmYjqwLMHIQRlJDHsL54lzkMEJnAH7RPxw==
   dependencies:
     "@sindresorhus/slugify" "^2.1.0"
 
-"@sphido/sitemap@^2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@sphido/sitemap/-/sitemap-2.0.5.tgz#6b60d19a6c5c688a3bad54b6c5599e29841b71b1"
-  integrity sha512-v+eWYLnipRHe6nJamBFykqUrbONCxg7wUli77sUB9JYeIjbFr05UV/cFTYBar8wR9iQqRujktEuY/F7jsWLnGQ==
+"@sphido/sitemap@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@sphido/sitemap/-/sitemap-2.0.6.tgz#7008239d793535a6fc43dc38b5cf55ee0766675e"
+  integrity sha512-mWFLPfkh7kun4h4Nqs2znPd547+XwO4T5XWmZZXLlqXKk3/bh2H7P9DikRhn2jVySA0e+3FW9MAa4qJP14twGg==
 
 "@tailwindcss/forms@^0.5.2":
   version "0.5.2"
