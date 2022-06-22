@@ -1,4 +1,4 @@
-# Sphido & Tailwind
+# Tailwind
 
 [Tailwind CSS](https://tailwindcss.com/) is utility first CSS framework which can be easily integrated with Sphido. 
 First you have to add following packages:
