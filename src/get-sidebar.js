@@ -11,7 +11,7 @@ export function getSidebar(pages, active) {
 		<ul class="space-y-2 transition-all">
 			${docs.map(page => `
 			<li>
-				<a href="${page.slug}" title="${page.title}" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4 rounded-md" data-active="${page.slug == active}">
+				<a href="${page.slug}" title="${page.title}" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4 rounded-md transition" data-active="${page.slug == active}">
 					${page.name === 'index' ? 'Home' : page.title}
 				</a>
 		</li>`).join('')}	
@@ -22,7 +22,7 @@ export function getSidebar(pages, active) {
 		<ul class="space-y-2 transition-all">
 			${packages.map(page => `
 			<li>
-				<a href="${page.slug}" title="${page.title}" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4 rounded-md" data-active="${page.slug == active}">
+				<a href="${page.slug}" title="${page.title}" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4 rounded-md transition" data-active="${page.slug == active}">
 					${page.name === 'index' ? 'Home' : page.title}
 				</a>
 		</li>`).join('')}	
