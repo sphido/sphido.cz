@@ -27,16 +27,5 @@ export function getSidebar(pages, active) {
 				</a>
 		</li>`).join('')}	
 		</ul>
-		
-		<h2 class="font-semibold dark:text-gray-500 py-3 uppercase">Source</h2>
-		
-		<ul class="space-y-2 transition-all">
-			<li>
-				<a href="https://github.com/sphido/sphido" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4 rounded-md transition">Source codes</a>
-			</li>
-			<li>
-				<a href="https://github.com/sphido/examples" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4 rounded-md transition">Examples</a>
-			</li>
-		</ul>	
 	`;
 }

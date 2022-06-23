@@ -60,9 +60,10 @@ for (const page of allPages(pages)) {
 node index.js
 ```
 
-Check [website source code](https://github.com/sphido/sphido.org) to getting deeper idea how Sphido works.
-
-
-:::py-6 px-8 border-l-4 border-l-amber-500 dark:bg-gray-900/50
+<div class="py-6 px-8 border-l-4 border-l-amber-500 dark:bg-gray-900/50">
 Sphido requires Node 14.x and newer. To load an ES module, set `"type": "module"` in the `package.json` or use the `.mjs` extension.
-:::
+</div>
+
+## Need more examples?
+
+Let's check [website source code](https://github.com/sphido/sphido.org) or [examples repository](https://github.com/sphido/examples). 
