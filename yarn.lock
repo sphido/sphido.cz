@@ -260,10 +260,10 @@
     escape-string-regexp "^5.0.0"
     lodash.deburr "^4.1.0"
 
-"@sphido/core@^2.0.9":
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/@sphido/core/-/core-2.0.9.tgz#7c8c30d2313d02e6e81edaa005417c7f24ee2809"
-  integrity sha512-C0n7ZOgY4iuRvqT1yYAafM4Th96afk65RoDEuyoAOcniXdPAr6F5DWGj7ds5OD3VfOecXfY8Y2m3y1sGyLRKMA==
+"@sphido/core@^2.0.10":
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/@sphido/core/-/core-2.0.10.tgz#f02fa7054af92cd1a632c53c1392bd04b4f203e2"
+  integrity sha512-+isPxC3ySfsWrSmQNap2ZYkZfBWLbnl5ijcZiWKluUmQIf3Xw4VxcHAjrlcuSCxymYmK5Qp3XTK7PrKkUIjzOQ==
 
 "@sphido/frontmatter@^2.0.2":
   version "2.0.2"
