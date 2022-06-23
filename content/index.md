@@ -1,7 +1,7 @@
 # A rocket 🚀 fast, 💭 light-weight and flexible static site 🤖 generator.
 
 I know, another [static site generator](https://github.com/collections/static-site-generators)! This one's different - it's totally minimalistic. 
-Basically, it's just two functions. Fist one, the `getPages()` function allows you to load a list of pages and `getPages()` allows you to iterate over them.
+Basically, it's just two functions. Fist one, the `getPages()` function allows you to load a list of pages and `allPages()` allows you to iterate over them.
 
 You get a static site generator that is:
 
