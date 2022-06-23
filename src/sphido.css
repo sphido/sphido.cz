@@ -2,8 +2,8 @@
 @layer base {
 	main {
 		@apply prose lg:prose-xl dark:prose-invert;
-		@apply prose-headings:break-all prose-a:break-all;
-		@apply prose-a:no-underline  hover:prose-a:underline;
+		@apply prose-headings:break-all;
+		@apply prose-a:no-underline hover:prose-a:underline;
 		@apply prose-h1:text-lime-300;
 	}
 }
