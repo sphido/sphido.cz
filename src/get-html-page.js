@@ -57,7 +57,7 @@ export async function getPageHtml({content, title, name, slug} = {}, pages) {
 		<main class="max-w-full lg:dark:bg-gray-800 lg:rounded-xl lg:px-24 lg:py-16">${content}</main>
 	</div>
 	
-	<footer class="dark:text-gray-500 dark:hover:text-gray-500 text-right my-12">
+	<footer class="dark:text-gray-500 dark:hover:text-gray-500 text-center lg:text-right my-12">
 		<p class="dark:fill-rose-500">
 			Made with ${svg.heart} by <a href="https://github.com/sphido/sphido.org" class="hover:underline">Sphido</a> and <a href="https://ozana.cz" target="_blank" class="hover:underline">Roman Ožana</a>
 		</p>
