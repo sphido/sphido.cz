@@ -260,10 +260,10 @@
     escape-string-regexp "^5.0.0"
     lodash.deburr "^4.1.0"
 
-"@sphido/core@^2.0.10":
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/@sphido/core/-/core-2.0.10.tgz#f02fa7054af92cd1a632c53c1392bd04b4f203e2"
-  integrity sha512-+isPxC3ySfsWrSmQNap2ZYkZfBWLbnl5ijcZiWKluUmQIf3Xw4VxcHAjrlcuSCxymYmK5Qp3XTK7PrKkUIjzOQ==
+"@sphido/core@^2.0.11":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@sphido/core/-/core-2.0.11.tgz#0d1de6dda7a978f7dc064f82eb8ac64e01c78ade"
+  integrity sha512-W4BHFzEHhFr3te++NL1TdwlJqAhUF89q9/Zxc35YBTcCvnebRvxOS2BSJRtfr8nfzw+R0EeP8s12Sf3LLc2kaw==
 
 "@sphido/frontmatter@^2.0.2":
   version "2.0.2"
@@ -272,17 +272,17 @@
   dependencies:
     js-yaml "^4.1.0"
 
-"@sphido/hashtags@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@sphido/hashtags/-/hashtags-2.0.2.tgz#5619bfd9b2bf2033f2377dc3f559abae34f9b084"
-  integrity sha512-8w6MyBffoKWODb9HGKHbWUueEUkfOyRZwYcSGnDCZgPY8RtjRZjYWeBZFS74xPsGsrvxf3nVIKVa+eSlwKEXRA==
+"@sphido/hashtags@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@sphido/hashtags/-/hashtags-2.0.3.tgz#b136b096ac1d83abac480a8d9c5ad8ba7315b213"
+  integrity sha512-RotyQ3rT0uwQN70EZGndP2roQGfANymISWFljlJUAmfeSruU6S6Ryrw0QlqQA71tL2LxTkiXLW32V0R0R5w+tg==
   dependencies:
     "@sindresorhus/slugify" "^2.1.0"
 
-"@sphido/sitemap@^2.0.7":
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@sphido/sitemap/-/sitemap-2.0.7.tgz#097c038efdc150e6f2a5129095c85ed42205c52d"
-  integrity sha512-yGMOTpnk3GdPp8nxZn8uvnehrIPEFJsAScRJ0FmN35Sx1aTVehoGKglLKBGp8fRx0nnmPfwWTXCol3b1bHE++Q==
+"@sphido/sitemap@^2.0.8":
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/@sphido/sitemap/-/sitemap-2.0.8.tgz#6b2683284d4d7e86103226d9a98ab64d3fc1b583"
+  integrity sha512-0RMpA25QwTuLT4bGqi/kfGh6p3WXA1w+rHP1y3AxuocfLUpsuxIF4fuOPVzsJx3Bh5eRcGAxwtOJnQE5ceCjOA==
 
 "@tailwindcss/forms@^0.5.2":
   version "0.5.2"
