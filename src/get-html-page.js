@@ -19,6 +19,13 @@ export async function getPageHtml({content, title, name, slug} = {}, pages) {
 	<meta name="google-site-verification" content="jr_C4Rk1HNubH1Szgotyz6diVKR6ZNZTetbMyWiTGOI"/>
 	<link rel="stylesheet" href="/sphido.css"/>
 	<title>Sphido | ${title || name}</title>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6LEPS7X1H"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'G-Q6LEPS7X1H');
+	</script>
 </head>
 <body class="dark:bg-gray-900 dark:text-gray-100 container my-6">
 	<div class="grid grid-cols-1 lg:grid-cols-[320px_minmax(0,auto)] gap-6">
