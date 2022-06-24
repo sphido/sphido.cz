@@ -17,22 +17,7 @@ export async function getPageHtml({content, title, name, slug} = {}, pages) {
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
 	<meta name="google-site-verification" content="jr_C4Rk1HNubH1Szgotyz6diVKR6ZNZTetbMyWiTGOI"/>
-	
 	<link rel="stylesheet" href="/sphido.css"/>
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="//www.googletagmanager.com/gtag/js?id=UA-59247808-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-
-		gtag('js', new Date());
-		gtag('config', 'UA-59247808-1');
-	</script>
-
 	<title>Sphido | ${title || name}</title>
 </head>
 <body class="dark:bg-gray-900 dark:text-gray-100 container my-6">
@@ -53,7 +38,6 @@ export async function getPageHtml({content, title, name, slug} = {}, pages) {
 				</a>
 			</div>
 		</aside>
-		
 		<main class="max-w-full lg:dark:bg-gray-800 lg:rounded-xl lg:px-24 lg:py-16">${content}</main>
 	</div>
 	
