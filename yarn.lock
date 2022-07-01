@@ -51,10 +51,10 @@
   dependencies:
     js-yaml "^4.1.0"
 
-"@sphido/hashtags@^2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@sphido/hashtags/-/hashtags-2.0.5.tgz#5f78f89a677408fbc23f031f3d4f89da69711bcc"
-  integrity sha512-/xinlq31iJyIQEeTxxF83aAkRTGLn6yLQxJT0Jwe86jWbFvfhuMrficWvDMSxv3qiLrZyyf+oxOvBaU3/1j5Kw==
+"@sphido/hashtags@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@sphido/hashtags/-/hashtags-2.0.6.tgz#0c39cb898df4d7df9ad97daa78ea94e71ec9e60a"
+  integrity sha512-ltuPPr6nTSuLqXUVHUnu7H9Tx4Kaq9kZrh/9Y7ZczGKkUmnXmz32ehSJ7PbkZsX1n15NftqGdl3jUgcQkvK3YQ==
   dependencies:
     "@sindresorhus/slugify" "^2.1.0"
 
