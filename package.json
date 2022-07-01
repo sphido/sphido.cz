@@ -22,7 +22,7 @@
 		"@sindresorhus/slugify": "^2.1.0",
 		"@sphido/core": "^2.0.12",
 		"@sphido/frontmatter": "^2.0.2",
-		"@sphido/hashtags": "^2.0.4",
+		"@sphido/hashtags": "^2.0.5",
 		"@sphido/sitemap": "^2.0.9",
 		"@tailwindcss/forms": "^0.5.2",
 		"@tailwindcss/typography": "^0.5.2",
