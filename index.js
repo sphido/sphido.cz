@@ -36,19 +36,20 @@ function slug(page, dirent, path) {
 	}
 }
 
-function readme(dirent, path) {
-	if (dirent.isDirectory()) {
-		return path.includes('@sphido');
-	} else {
-		return dirent.name.endsWith('readme.md');
-	}
-}
-
 // Get pages to process
 
 const pages = [
 	...await getPages({path: 'content'}, slug, content),
-	...await getPages({path: 'node_modules/@sphido', include: readme}, slug, content),
+	...await getPages({
+		path: 'node_modules/@sphido',
+		include: (dirent, path) => {
+			if (dirent.isDirectory()) {
+				return path.includes('@sphido');
+			} else {
+				return dirent.name.endsWith('readme.md');
+			}
+		}
+	}, slug, content),
 ];
 
 
