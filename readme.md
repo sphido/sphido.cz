@@ -4,8 +4,8 @@ Source codes of website [sphido.org](https://sphido.org)
 
 ### Deploy
 
-Deploy for staging with `vercel` or `vercel --prod` for production or `make release` 
+Deploy for staging with `vercel` or `vercel --prod` for production or `make release`
 
 ### Credits
- 
-- https://zeit.co/now
+
+- https://vercel.com
