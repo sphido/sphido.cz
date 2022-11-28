@@ -4,12 +4,10 @@
 	main {
 		@apply prose lg:prose-xl dark:prose-invert;
 		@apply prose-headings:break-all;
-		@apply prose-a:no-underline hover:prose-a:underline;
 		@apply prose-h1:text-lime-300;
-		@apply prose-a:text-blue-400 hover:prose-a:underline;
+		@apply prose-sky;
 
 		@apply prose-code:font-medium prose-code:text-white;
-		/*@apply prose-code:bg-black/50 prose-code:inline prose-code:p-1 prose-code:before:content-none prose-code:after:content-none prose-code:rounded-md;*/
 		@apply prose-figcaption:italic prose-figcaption:content-center;
 	}
 }

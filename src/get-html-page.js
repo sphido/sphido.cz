@@ -18,7 +18,7 @@ export async function getPageHtml({content, title, name, slug} = {}, pages) {
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
 	<meta name="google-site-verification" content="jr_C4Rk1HNubH1Szgotyz6diVKR6ZNZTetbMyWiTGOI"/>
 	<link rel="stylesheet" href="/sphido.css"/>
-	<title>Sphido | ${title || name}</title>
+	<title>Sphido / ${title || name}</title>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-G4BGB8KFGJ"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];

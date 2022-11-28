@@ -8,11 +8,11 @@
 	"type": "module",
 	"license": "MIT",
 	"scripts": {
-		"build": "yarn build.html && yarn build.css",
-		"build.html": "node --experimental-modules index.js",
-		"build.css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css",
+		"build": "yarn build:html && yarn build:css",
+		"build:html": "node --experimental-modules index.js",
+		"build:css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css",
 		"css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css --watch",
-		"start": "watch './index.js' ./content | serve public"
+		"start": "watch ./index.js ./content ./src | serve public"
 	},
 	"devDependencies": {
 		"serve": "^14.1.2",
