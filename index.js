@@ -48,7 +48,7 @@ const pages = [
 			} else {
 				return dirent.name.endsWith('readme.md');
 			}
-		}
+		},
 	}, slug, content),
 ];
 
