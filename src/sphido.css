@@ -1,4 +1,6 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
 	main {
@@ -12,9 +14,6 @@
 	}
 }
 
-
-
-@tailwind components;
 @layer components {
 
 	main h1 > code,
@@ -94,4 +93,4 @@
 		@apply dark:text-lime-300 dark:bg-gray-700;
 	}
 }
-@tailwind utilities;
+

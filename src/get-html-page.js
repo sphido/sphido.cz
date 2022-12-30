@@ -31,7 +31,7 @@ export async function getPageHtml({content, title, name, slug} = {}, pages) {
 	<div class="grid grid-cols-1 lg:grid-cols-[320px_minmax(0,auto)] gap-6">
 		<aside class="border-b dark:border-gray-700 pb-6 lg:border-0">
 		
-			<a href="/" title="Homepage" class="block dark:fill-gray-50 mb-6 max-w-[180px] mx-auto">${svg.sphido}</a>
+			<a href="/" title="Homepage" class="block dark:fill-gray-50 my-6 mx-auto px-4">${svg.sphido}</a>
 		
 		  <button type="button" class="hidden" data-toggle="collapse" data-target="#aside-menu" aria-expanded="false" aria-controls="aside-menu" aria-label="Toggle menu">
 		    <img src="https://twemoji.maxcdn.com/v/13.0.1/72x72/1f354.png" alt="🍔" width="20" height="20">
