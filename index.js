@@ -41,7 +41,7 @@ function slug(page, dirent, path) {
 const pages = [
 	{
 		slug: '/index.html',
-		content: `# A rocket 🚀 fast, 💭 light-weight and flexible static site 🤖 generator.\n` + await got('https://raw.githubusercontent.com/sphido/sphido/main/readme.md').text(),
+		content: await got('https://raw.githubusercontent.com/sphido/sphido/main/readme.md').text(),
 		title: 'Home',
 		name: 'A rocket 🚀 fast, 💭 light-weight and flexible static site 🤖 generator',
 		output: 'public/index.html',
