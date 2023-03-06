@@ -30,26 +30,25 @@ export async function getPageHtml({content, title, name, slug} = {}, pages) {
 </head>
 <body class="antialiased leading-normal tracking-normal dark:bg-gray-800 dark:text-gray-100">
 
-	<header class="flex flex-wrap items-center justify-between mx-auto bg-gray-50 dark:bg-gray-900 px-6 py-3 sticky top-0 z-50">
-		<a href="/" title="Homepage" class="flex h-8 dark:fill-white">${logo}</a>
+	<header class="flex flex-wrap items-center justify-between mx-auto bg-gray-50 dark:bg-gray-900 px-4 py-3 sticky top-0 z-50 drop-shadow">
+		<a href="/" title="Homepage" class="flex h-10 dark:fill-white">${logo}</a>
 		<div>
 			<ul class="flex flex-col md:flex-row gap-4">
 				<li>
-					<a href="https://github.com/sphido/sphido" target="_blank" class="hover:text-sky-300 hover:underline transition">GitHub</a>
+					<a href="https://github.com/sphido/sphido" target="_blank" class="inline-flex items-center bg-green-600 hover:contrast-125 text-white font-semibold py-2 px-6 rounded-lg">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-5 h-5 mr-2" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+						</svg>
+						<span class="hidden md:inline">GitHub</span>
+					</a>
 				</li>
 			</ul>
 		</div>
 	</header>
 	
-	<div class="grid grid-cols-1 lg:grid-cols-[340px,minmax(0,auto)] gap-4 lg:gap-6 min-h-screen">
+	<div class="grid grid-cols-1 lg:grid-cols-[340px,minmax(0,auto)] gap-x-4 lg:gap-6 min-h-screen">
 		<aside class="border-r dark:border-gray-900">
-			<div id="aside-menu">
-				<button type="button" class="hidden" data-toggle="collapse" data-target="#aside-menu" aria-expanded="false" aria-controls="aside-menu" aria-label="Toggle menu">
-					<img src="https://twemoji.maxcdn.com/v/13.0.1/72x72/1f354.png" alt="🍔" width="20" height="20">
-					<span>Show menu</span>
-				</button>
-				${getSidebar(pages, slug)}
-			</div>		
+			${getSidebar(pages, slug)}
 		</aside>
 		<main>
 			${marked(content)}

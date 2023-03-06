@@ -8,10 +8,10 @@
 		@apply prose-headings:break-words;
 		@apply prose-h1:text-lime-300;
 
-		@apply prose-a:no-underline hover:prose-a:underline;
+		@apply prose-a:no-underline hover:prose-a:underline prose-a:break-all;
 		@apply prose-code:font-medium prose-code:text-white;
 		@apply prose-figcaption:italic prose-figcaption:content-center;
-		@apply w-full max-w-screen-xl mx-auto my-12;
+		@apply w-full max-w-screen-xl mx-auto my-0 xl:my-14 p-4;
 	}
 }
 
