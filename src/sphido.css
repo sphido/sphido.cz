@@ -4,13 +4,14 @@
 
 @layer base {
 	main {
-		@apply prose lg:prose-xl dark:prose-invert;
-		@apply prose-headings:break-all;
+		@apply prose lg:prose-xl dark:prose-invert prose-sky dark:prose-sky;
+		@apply prose-headings:break-words;
 		@apply prose-h1:text-lime-300;
-		@apply prose-sky;
 
+		@apply prose-a:no-underline hover:prose-a:underline;
 		@apply prose-code:font-medium prose-code:text-white;
 		@apply prose-figcaption:italic prose-figcaption:content-center;
+		@apply w-full max-w-screen-xl mx-auto my-12;
 	}
 }
 
@@ -87,10 +88,6 @@
 
 	.language-bash {
 		@apply before:content-['$'] before:inline-block before:mr-2 before:text-gray-500;
-	}
-
-	aside [data-active=true] {
-		@apply dark:text-lime-300 dark:bg-gray-700;
 	}
 }
 

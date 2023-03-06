@@ -2,27 +2,13 @@ import {allPages} from '@sphido/core';
 
 
 export function getSidebar(pages, active) {
-	let docs = [...allPages(pages)].filter(page => page.path.startsWith('content') && page.name !== '404');
-	let packages = [...allPages(pages)].filter(page => page.path.startsWith('node_modules'));
+	let docs = [...allPages(pages)].filter(page => page?.name !== '404');
 
 	return `
-		<h2 class="font-semibold dark:text-gray-500 py-3 uppercase">Docs</h2>
-		
-		<ul class="space-y-2 transition-all">
+		<ul class="space-y-2 transition-all m-2">
 			${docs.map(page => `
 			<li>
-				<a href="${page.slug}" title="${page.title}" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4 rounded-md transition" data-active="${page.slug == active}">
-					${page.name === 'index' ? 'Home' : page.title}
-				</a>
-		</li>`).join('')}	
-		</ul>
-		
-		<h2 class="font-semibold dark:text-gray-500 py-3 uppercase">Packages</h2>
-		
-		<ul class="space-y-2 transition-all">
-			${packages.map(page => `
-			<li>
-				<a href="${page.slug}" title="${page.title}" class="block dark:hover:bg-gray-700 hover:text-lime-300 py-2.5 px-4 rounded-md transition" data-active="${page.slug == active}">
+				<a href="${page.slug}" title="${page.title}" class="flex rounded-md px-4 py-3 font-semibold hover:bg-gray-900 ${page.slug === active ? 'dark:text-lime-300 dark:bg-gray-900' : ''}" data-active="${page.slug == active}">
 					${page.name === 'index' ? 'Home' : page.title}
 				</a>
 		</li>`).join('')}	

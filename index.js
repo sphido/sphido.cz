@@ -4,6 +4,7 @@ import {getPages, allPages, readFile, writeFile, copyFile} from '@sphido/core';
 import slugify from '@sindresorhus/slugify';
 import {globby} from 'globby';
 import {createSitemap} from '@sphido/sitemap';
+import got from 'got';
 
 import {marked} from './src/marked.js'; // custom marked
 import {getPageHtml} from './src/get-html-page.js';
@@ -36,20 +37,40 @@ function slug(page, dirent, path) {
 	}
 }
 
-// Get pages to process
 
 const pages = [
+	{
+		slug: '/index.html',
+		content: `# A rocket 🚀 fast, 💭 light-weight and flexible static site 🤖 generator.\n` + await got('https://raw.githubusercontent.com/sphido/sphido/main/readme.md').text(),
+		title: 'Home',
+		name: 'A rocket 🚀 fast, 💭 light-weight and flexible static site 🤖 generator',
+		output: 'public/index.html',
+	},
+	{
+		slug: 'core.html',
+		content: await got('https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-core/readme.md').text(),
+		title: 'Sphido core',
+		output: 'public/core.html',
+	},
 	...await getPages({path: 'content'}, slug, content),
-	...await getPages({
-		path: 'node_modules/@sphido',
-		include: (dirent, path) => {
-			if (dirent.isDirectory()) {
-				return path.includes('@sphido');
-			} else {
-				return dirent.name.endsWith('readme.md');
-			}
-		},
-	}, slug, content),
+	{
+		slug: 'frontmatter.html',
+		content: await got('https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-frontmatter/readme.md').text(),
+		title: 'Frontmatter',
+		output: 'public/frontmatter.html',
+	},
+	{
+		slug: 'hashtags.html',
+		content: await got('https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-hashtags/readme.md').text(),
+		title: 'Hashtags',
+		output: 'public/hashtags.html',
+	},
+	{
+		slug: 'sitemap.html',
+		content: await got('https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-sitemap/readme.md').text(),
+		title: 'sitemap.xml',
+		output: 'public/sitemap.html',
+	},
 ];
 
 

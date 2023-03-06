@@ -15,10 +15,14 @@ marked.setOptions({
 
 const renderer = {
 	image: (href, title, text) => {
-		const className = new URL(href, 'https://sphido.org').hash.slice(1).replace(/_/g, ' ');
-		return `<div class=" ${className ? className : 'd-flex justify-content-center my-1'}"><figure class="text-center">
+		if (href.includes('img.shields.io')) {
+			return `<img src="${href}" class="inline" title="${title ? title : ''}" alt="${text ? text : ''}"/>`;
+		} else {
+			const className = new URL(href, 'https://sphido.org').hash.slice(1).replace(/_/g, ' ');
+			return `<div class="${className ? className : 'd-flex justify-content-center my-1'}"><figure class="text-center">
 			<img src="${href}" class="max-w-full h-auto" title="${title ? title : ''}" alt="${text ? text : ''}"/>		
 			<figcaption class="italic">${text}</figcaption></figure></div>`;
+		}
 	},
 	link: (href, title, text) => {
 		if (href.includes('sphido.org')) {
