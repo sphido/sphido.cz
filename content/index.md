@@ -62,4 +62,4 @@ Sphido requires Node 14.x and newer. To load an ES module, set `"type": "module"
 
 ## Need more examples?
 
-Let's look at the [source code of the site](https://sphido.org) or the [examples repository](https://github.com/sphido/examples).
+Let's look at the [source code of the site](https://github.com/sphido/sphido.org) or the [examples repository](https://github.com/sphido/examples).
