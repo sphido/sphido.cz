@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
 	content: [
 		'./src/**/*.{html,svg,js}',
@@ -6,6 +8,11 @@ module.exports = {
 	darkMode: 'class',
 	theme: {
 		container: {center: true, padding: '1rem'},
+		extend: {
+			colors: {
+				gray: colors.zinc,
+			},
+		},
 	},
 	plugins: [
 		require('@tailwindcss/forms'),
