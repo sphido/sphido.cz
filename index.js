@@ -11,7 +11,8 @@ import {getPageHtml} from './src/get-html-page.js';
 
 async function content(page, dirent) {
 	if (dirent.isFile()) {
-		page.content = marked(await readFile(page.path));
+		const markdown = await readFile(page.path);
+		page.content = await marked.parse(markdown);
 		page.title = page.content.match(/(?<=<h[12][^>]*?>)([^<>]+?)(?=<\/h[12]>)/i)?.pop();
 	}
 }

@@ -1,6 +1,6 @@
 import {readFile} from '@sphido/core';
 import {getSidebar} from './get-sidebar.js';
-import {marked} from 'marked';
+import {marked} from './marked.js';
 
 const logo = await readFile('content/img/sphido.svg');
 
