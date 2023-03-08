@@ -1,6 +1,6 @@
 import {readFile} from '@sphido/core';
 import {getSidebar} from './get-sidebar.js';
-import {marked} from './marked.js';
+import {markdown} from './markdown.js';
 
 const logo = await readFile('content/img/sphido.svg');
 
@@ -51,7 +51,7 @@ export async function getPageHtml({content, title, name, slug} = {}, pages) {
 			${getSidebar(pages, slug)}
 		</aside>
 		<main>
-			${marked(content)}
+			${await markdown(content, title)}
 		</main>
 	</div>
 

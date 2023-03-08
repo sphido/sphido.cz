@@ -32,6 +32,7 @@
 
 	pre {
 		@apply overflow-x-scroll;
+		@apply max-h-[100vh] overflow-y-auto;
 	}
 
 	.token.class-name,

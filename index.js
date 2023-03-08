@@ -6,14 +6,13 @@ import {globby} from 'globby';
 import {createSitemap} from '@sphido/sitemap';
 import got from 'got';
 
-import {marked} from './src/marked.js'; // custom marked
 import {getPageHtml} from './src/get-html-page.js';
 
 async function content(page, dirent) {
 	if (dirent.isFile()) {
-		const markdown = await readFile(page.path);
-		page.content = await marked.parse(markdown);
-		page.title = page.content.match(/(?<=<h[12][^>]*?>)([^<>]+?)(?=<\/h[12]>)/i)?.pop();
+		page.content = await readFile(page.path);
+		page.title = page.content.match(/(?<=(^#)\s).*/gm)?.pop();
+		page.name = page.name || page.title;
 	}
 }
 
