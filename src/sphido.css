@@ -4,14 +4,13 @@
 
 @layer base {
 	main {
-		@apply prose lg:prose-xl dark:prose-invert prose-sky dark:prose-sky;
+		@apply prose lg:prose-lg dark:prose-invert prose-sky dark:prose-sky;
 		@apply prose-headings:break-words;
-		@apply prose-h1:text-lime-300;
 
 		@apply prose-a:no-underline hover:prose-a:underline prose-a:break-all;
-		@apply prose-code:font-medium prose-code:text-white;
+		@apply prose-code:font-medium dark:prose-code:text-white;
 		@apply prose-figcaption:italic prose-figcaption:content-center;
-		@apply w-full max-w-screen-xl mx-auto my-0 xl:my-14 p-4;
+		@apply w-full max-w-screen-xl mx-auto my-4 xl:my-6 p-4;
 	}
 }
 
