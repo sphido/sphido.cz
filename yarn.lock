@@ -80,15 +80,15 @@
   dependencies:
     escape-string-regexp "^5.0.0"
 
-"@sphido/core@^2.0.17":
-  version "2.0.17"
-  resolved "https://registry.yarnpkg.com/@sphido/core/-/core-2.0.17.tgz#3b7e71c37b8b733e46d6d15df2592aff635e6f39"
-  integrity sha512-xp2ZU2mRVMYcnhbleKjW/3IloILhqo4E/fDRs1x38hWB2KuDXC7g+R3KZPdzpN35AzYM9e0CFSJNQg4XECHtZA==
+"@sphido/core@^2.0.20":
+  version "2.0.20"
+  resolved "https://registry.yarnpkg.com/@sphido/core/-/core-2.0.20.tgz#cf349d2069f25c08478a9c59c16233ad9746cbff"
+  integrity sha512-G8HhvkD0xdoPVQYfSvuUsZTBaez6vExwLHa5q862oKJVzSkVLFU7Z2/QSbr5um9IDc50st7qVPy6W1QZuBaDJw==
 
-"@sphido/sitemap@^2.0.14":
-  version "2.0.14"
-  resolved "https://registry.yarnpkg.com/@sphido/sitemap/-/sitemap-2.0.14.tgz#7e6934bd09624e48e33bccc84d655d1bbfef4612"
-  integrity sha512-tOzAgTJ9ciyHpgMMIfNu5sYE/T/J8f1mO4sPvDVxxvFV0OKr+8yIyFuz0kw81ZGuYPHgSiShc+xxUs8iAp259A==
+"@sphido/sitemap@^2.0.17":
+  version "2.0.17"
+  resolved "https://registry.yarnpkg.com/@sphido/sitemap/-/sitemap-2.0.17.tgz#ef1cadb6017510d2ae533dd993829b7424227b5e"
+  integrity sha512-9AV48+Xb2WRShojP/u446Mpg+NLhRcnfDa5XcSYXdLbcFDTkdBKaxOMTIgK954AjlTZhnuwZAWs3i297EtPwzw==
 
 "@szmarczak/http-timer@^5.0.1":
   version "5.0.1"

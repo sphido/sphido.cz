@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "@sindresorhus/slugify": "^2.2.1",
-    "@sphido/core": "^2.0.17",
-    "@sphido/sitemap": "^2.0.14",
+    "@sphido/core": "^2.0.20",
+    "@sphido/sitemap": "^2.0.17",
     "@tailwindcss/forms": "^0.5.6",
     "@tailwindcss/typography": "^0.5.10",
     "globby": "^13.2.2",
