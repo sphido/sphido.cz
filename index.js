@@ -34,7 +34,7 @@ function slug(page, dirent, path) {
     }
 
     // read file content
-    page.url = new URL(page.slug, 'https://sphido.org/').toString();
+    page.url = new URL(page.slug, 'https://sphido.cz/').toString();
   }
 }
 

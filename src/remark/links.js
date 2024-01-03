@@ -6,7 +6,7 @@ export default function links(options = {}) {
 	return tree => {
 		visit(tree, 'link', (node) => {
 			// external links
-			if (!node.url.includes('sphido.org')) {
+			if (!node.url.includes('sphido.cz')) {
 
 				const hProperties = node.data?.hProperties ?? {};
 

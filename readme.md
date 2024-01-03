@@ -1,6 +1,6 @@
-# [sphido.org](https://sphido.org)
+# [sphido.cz](https://sphido.cz)
 
-Source codes of website [sphido.org](https://sphido.org)
+Source codes of website [sphido.cz](https://sphido.cz)
 
 ### Deploy
 
