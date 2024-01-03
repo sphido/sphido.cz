@@ -16,12 +16,12 @@ export async function getPageHtml({content, title, name, slug} = {}, pages) {
 	<meta name="google-site-verification" content="jr_C4Rk1HNubH1Szgotyz6diVKR6ZNZTetbMyWiTGOI"/>
 	<link rel="stylesheet" href="/sphido.css"/>
 	<title>Sphido / ${title || name}</title>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-G4BGB8KFGJ"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-YXS0BVJ766"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
+		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
-		gtag('config', 'G-G4BGB8KFGJ');
+		gtag('config', 'G-YXS0BVJ766');
 	</script>
 </head>
 <body class="antialiased leading-normal tracking-normal dark:bg-gray-950 dark:text-gray-200 dark:selection:bg-sky-950">
