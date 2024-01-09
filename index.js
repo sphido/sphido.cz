@@ -41,16 +41,18 @@ function slug(page, dirent, path) {
 
 const pages = [
   {
-    slug: '/index.html',
+    slug: 'index.html',
     content: await got('https://raw.githubusercontent.com/sphido/sphido/main/readme.md').text(),
     title: 'Home',
     name: 'A rocket 🚀 fast, 💭 light-weight and flexible static site 🤖 generator',
+    url: 'https://sphido.cz/',
     output: 'public/index.html',
   },
   {
     slug: 'core.html',
     content: await got('https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-core/readme.md').text(),
     title: 'Sphido core',
+    url: 'https://sphido.cz/core.html',
     output: 'public/core.html',
   },
   ...await getPages({path: 'content'}, slug, content),
@@ -58,18 +60,21 @@ const pages = [
     slug: 'frontmatter.html',
     content: await got('https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-frontmatter/readme.md').text(),
     title: 'Frontmatter',
+    url: 'https://sphido.cz/frontmatter.html',
     output: 'public/frontmatter.html',
   },
   {
     slug: 'hashtags.html',
     content: await got('https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-hashtags/readme.md').text(),
     title: 'Hashtags',
+    url: 'https://sphido.cz/hashtags.html',
     output: 'public/hashtags.html',
   },
   {
     slug: 'sitemap.html',
     content: await got('https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-sitemap/readme.md').text(),
     title: 'sitemap.xml',
+    url: 'https://sphido.cz/sitemap.html',
     output: 'public/sitemap.html',
   },
 ];
