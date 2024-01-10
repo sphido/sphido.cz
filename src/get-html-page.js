@@ -4,7 +4,7 @@ import {markdown} from './markdown.js';
 
 const logo = await readFile('static/sphido.svg');
 
-export async function getPageHtml({content, title, name, slug} = {}, pages) {
+export async function getPageHtml({content, title, name, slug, url} = {}, pages) {
   return `<!DOCTYPE html>
 <html lang="cs" dir="ltr">
 <head>
@@ -12,10 +12,10 @@ export async function getPageHtml({content, title, name, slug} = {}, pages) {
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<script src="/theme.js"></script>
-	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
-	<meta name="google-site-verification" content="jr_C4Rk1HNubH1Szgotyz6diVKR6ZNZTetbMyWiTGOI"/>
+	<link rel="canonical" href="${url}" />
 	<link rel="stylesheet" href="/sphido.css"/>
 	<title>Sphido / ${title || name}</title>
+	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-YXS0BVJ766"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
