@@ -2,7 +2,6 @@ import {remark} from 'remark';
 import remarkHtml from 'remark-html';
 import github from './remark/github.js';
 import remarkGfm from 'remark-gfm';
-import sanitize from './remark/sanitize.js';
 import links from './remark/links.js';
 import images from './remark/images.js';
 import prism from './remark/prism.js';
