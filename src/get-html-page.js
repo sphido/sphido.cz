@@ -6,7 +6,7 @@ const logo = await readFile('static/sphido.svg');
 
 export async function getPageHtml({content, title, name, slug, url} = {}, pages) {
   return `<!DOCTYPE html>
-<html lang="cs" dir="ltr">
+<html lang="en" dir="ltr">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
