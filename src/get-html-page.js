@@ -16,13 +16,6 @@ export async function getPageHtml({content, title, name, slug, url} = {}, pages)
 	<link rel="stylesheet" href="/sphido.css"/>
 	<title>Sphido / ${title || name}</title>
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-YXS0BVJ766"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-YXS0BVJ766');
-	</script>
 </head>
 <body class="antialiased leading-normal tracking-normal dark:bg-gray-950 dark:text-gray-200 dark:selection:bg-sky-950">
 	<header class="sticky top-0 z-40 backdrop-blur">
