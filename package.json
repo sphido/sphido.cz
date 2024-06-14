@@ -1,39 +1,36 @@
 {
-  "name": "sphido.cz",
-  "author": {
-    "name": "Roman Ožana",
-    "email": "roman@ozana.cz",
-    "url": "https://ozana.cz/"
-  },
-  "type": "module",
-  "license": "MIT",
-  "scripts": {
-    "build": "yarn build:html && yarn build:css",
-    "build:html": "node --experimental-modules index.js",
-    "build:css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css",
-    "css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css --watch",
-    "dev": "watch \"yarn build\" ./content ./src | serve public",
-    "serve": "serve public"
-  },
-  "devDependencies": {
-    "serve": "^14.2.3",
-    "watch": "^1.0.2"
-  },
-  "dependencies": {
-    "@sindresorhus/slugify": "^2.2.1",
-    "@sphido/core": "^2.0.29",
-    "@sphido/sitemap": "^2.0.25",
-    "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.13",
-    "globby": "^14.0.1",
-    "got": "^14.2.1",
-    "hast-util-sanitize": "^5.0.1",
-    "postcss": "^8.4.38",
-    "prismjs": "^1.29.0",
-    "remark": "^15.0.1",
-    "remark-gfm": "^4.0.0",
-    "remark-html": "^16.0.1",
-    "tailwindcss": "^3.4.3",
-    "unist-util-visit": "^5.0.0"
-  }
+	"private": true,
+	"author": "Roman Ožana <roman@ozana.cz> (https://ozana.cz)",
+	"license": "MIT",
+	"repository": "sphido/sphido.cz",
+	"type": "module",
+	"scripts": {
+		"build": "yarn build:html && yarn build:css",
+		"build:html": "node --experimental-modules index.js",
+		"build:css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css",
+		"css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css --watch",
+		"dev": "watch \"yarn build\" ./content ./src | serve public",
+		"serve": "serve public"
+	},
+	"devDependencies": {
+		"serve": "^14.2.3",
+		"watch": "^1.0.2"
+	},
+	"dependencies": {
+		"@sindresorhus/slugify": "^2.2.1",
+		"@sphido/core": "^2.0.29",
+		"@sphido/sitemap": "^2.0.25",
+		"@tailwindcss/forms": "^0.5.7",
+		"@tailwindcss/typography": "^0.5.13",
+		"globby": "^14.0.1",
+		"got": "^14.4.1",
+		"hast-util-sanitize": "^5.0.1",
+		"postcss": "^8.4.38",
+		"prismjs": "^1.29.0",
+		"remark": "^15.0.1",
+		"remark-gfm": "^4.0.0",
+		"remark-html": "^16.0.1",
+		"tailwindcss": "^3.4.4",
+		"unist-util-visit": "^5.0.0"
+	}
 }
