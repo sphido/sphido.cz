@@ -1,5 +1,5 @@
-import { visit } from "unist-util-visit";
 import got from "got";
+import { visit } from "unist-util-visit";
 
 export default function github(options = {}) {
 	return async (tree) => {
@@ -30,7 +30,7 @@ export default function github(options = {}) {
 							url: folderUrl,
 							data: {
 								hProperties: {
-									className: "text-base inline-flex items-center bg-green-600 hover:contrast-125 text-white font-semibold py-2 px-6 rounded-lg hover:no-underline",
+									className: "text-base inline-flex items-center bg-[#1f883d] hover:contrast-125 text-white font-semibold py-2 px-6 rounded-lg hover:no-underline",
 									target: "_blank",
 								},
 							},
