@@ -10,9 +10,11 @@
 		"build:css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css",
 		"css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css --watch",
 		"dev": "watch \"yarn build\" ./content ./src | serve public",
-		"serve": "serve public"
+		"serve": "serve public",
+		"format": "biome format --write"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
 		"serve": "^14.2.4",
 		"watch": "^1.0.2"
 	},
@@ -20,17 +22,18 @@
 		"@sindresorhus/slugify": "^2.2.1",
 		"@sphido/core": "^2.0.30",
 		"@sphido/sitemap": "^2.0.25",
+		"@tailwindcss/cli": "^4.1.8",
 		"@tailwindcss/forms": "^0.5.10",
 		"@tailwindcss/typography": "^0.5.16",
 		"globby": "^14.1.0",
 		"got": "^14.4.7",
 		"hast-util-sanitize": "^5.0.2",
-		"postcss": "^8.5.3",
+		"postcss": "^8.5.4",
 		"prismjs": "^1.30.0",
 		"remark": "^15.0.1",
 		"remark-gfm": "^4.0.1",
 		"remark-html": "^16.0.1",
-		"tailwindcss": "^3.4.9",
+		"tailwindcss": "^4.1.8",
 		"unist-util-visit": "^5.0.0"
 	}
 }

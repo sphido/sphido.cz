@@ -1,11 +1,11 @@
-import {readFile} from '@sphido/core';
-import {getSidebar} from './get-sidebar.js';
-import {markdown} from './markdown.js';
+import { readFile } from "@sphido/core";
+import { getSidebar } from "./get-sidebar.js";
+import { markdown } from "./markdown.js";
 
-const logo = await readFile('static/sphido.svg');
+const logo = await readFile("static/sphido.svg");
 
-export async function getPageHtml({content, title, name, slug, url} = {}, pages) {
-  return `<!DOCTYPE html>
+export async function getPageHtml({ content, title, name, slug, url }, pages) {
+	return `<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
 	<meta charset="UTF-8">
@@ -17,13 +17,13 @@ export async function getPageHtml({content, title, name, slug, url} = {}, pages)
 	<title>Sphido / ${title || name}</title>
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
 </head>
-<body class="antialiased leading-normal tracking-normal dark:bg-gray-950 dark:text-gray-200 dark:selection:bg-sky-950">
-	<header class="sticky top-0 z-40 backdrop-blur">
-		<div class="container p-4 flex flex-wrap items-center justify-between mx-auto">
+<body class="antialiased leading-normal tracking-normal dark:bg-gray-950 dark:text-gray-200 dark:selection:bg-sky-950 h-screen flex flex-col">
+	<header class="sticky top-0 z-40 bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800">
+		<div class="p-4 flex flex-wrap items-center justify-between mx-auto">
 			<nav>
 				<a href="/" title="Homepage" class="flex h-10 text-gray-950 dark:text-gray-100">${logo}</a>
 			</nav>
-			<div class="flex gap-4 items-center">
+			<div class="flex gap-4 items-center text-gray-700 dark:text-gray-200">
 				<button type="button" onclick="theme.toggle()">
 					 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden dark:block">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
@@ -41,13 +41,12 @@ export async function getPageHtml({content, title, name, slug, url} = {}, pages)
 			</div>
 		</div>
 	</header>
-	
-	<div class="container px-4 mx-auto min-h-screen">
-		<div class="grid grid-cols-1 lg:grid-cols-[320px,minmax(0,auto)] gap-4 lg:gap-6 min-h-screen">
-			<aside class="">
-				${getSidebar(pages, slug)}
-			</aside>
-			<main>
+	<div class="flex flex-1 flex-col md:flex-row overflow-hidden">
+		<aside class="md:w-48 lg:w-64 md:border-r border-gray-200 dark:border-gray-800">
+			${getSidebar(pages, slug)}
+		</aside>
+		<div class="flex-1 overflow-y-auto mx-auto">
+			<main class="mx-auto px-4 py-12">
 				${await markdown(content, title)}
 			</main>
 		</div>

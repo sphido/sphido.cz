@@ -1,21 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
 	main {
 		@apply prose lg:prose-lg dark:prose-invert prose-sky dark:prose-sky;
-		@apply prose-headings:break-words;
+		@apply prose-headings:break-words max-w-[100ch];
 
 		@apply prose-a:no-underline hover:prose-a:underline prose-a:break-all;
 		@apply prose-code:font-medium dark:prose-code:text-white;
 		@apply prose-figcaption:italic prose-figcaption:content-center;
-		@apply w-full max-w-screen-xl mx-auto my-4 xl:my-6 p-4;
 	}
 }
 
 @layer components {
-
 	main h1 > code,
 	main h2 > code,
 	main h3 > code,
@@ -90,4 +89,3 @@
 		@apply before:content-['$'] before:inline-block before:mr-2 before:text-gray-500;
 	}
 }
-
