@@ -6,9 +6,9 @@
 @layer base {
 	main {
 		@apply prose lg:prose-lg dark:prose-invert prose-sky dark:prose-sky;
-		@apply prose-headings:break-words max-w-[100ch];
+		@apply prose-headings:break-words break-words max-w-[100ch];
 
-		@apply prose-a:no-underline hover:prose-a:underline prose-a:break-all;
+		@apply prose-a:no-underline prose-a:hover:underline prose-a:break-all;
 		@apply prose-code:font-medium dark:prose-code:text-white;
 		@apply prose-figcaption:italic prose-figcaption:content-center;
 	}
