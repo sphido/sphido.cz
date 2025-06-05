@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build
+      - name: Build site
         run: yarn build
 
       - name: Setup Pages
@@ -38,7 +38,7 @@ jobs:
         with:
           enablement: true
 
-      - name: Upload artifact
+      - name: Upload static site to Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: "./public"
