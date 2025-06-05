@@ -11,7 +11,8 @@
 		"css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css --watch",
 		"dev": "watch \"yarn build\" ./content ./src | serve public",
 		"serve": "serve public",
-		"format": "biome format --write"
+		"format": "biome format --write",
+		"deploy": "gh-pages -d public"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
