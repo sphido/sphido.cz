@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import { dirname, join, relative } from "node:path";
-import { allPages, copyFile, getPages, readFile, writeFile } from "@sphido/core";
-import slugify from "@sindresorhus/slugify";
-import { globby } from "globby";
-import { createSitemap } from "@sphido/sitemap";
 import { cp } from "node:fs/promises";
+import { dirname, join, relative } from "node:path";
+import slugify from "@sindresorhus/slugify";
+import { allPages, copyFile, getPages, readFile, writeFile } from "@sphido/core";
+import { createSitemap } from "@sphido/sitemap";
+import { globby } from "globby";
 import got from "got";
 
 import { getPageHtml } from "./src/get-html-page.js";
@@ -19,13 +19,6 @@ async function content(page, dirent) {
 
 function slug(page, dirent, path) {
 	if (dirent.isFile()) {
-		// Packages
-		if (path.startsWith("node_modules")) {
-			page.name = relative("node_modules", path);
-			page.slug = join("/", `${slugify(page.name)}.html`);
-			page.output = join("public", page.slug);
-		}
-
 		// Content
 		if (path.startsWith("content")) {
 			page.slug = join("/", relative("content", dirname(page.path)), `${slugify(page.name)}.html`);

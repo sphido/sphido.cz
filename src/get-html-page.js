@@ -45,11 +45,14 @@ export async function getPageHtml({ content, title, name, slug, url }, pages) {
 		<aside class="md:w-48 lg:w-64 md:border-r border-gray-200 dark:border-gray-800">
 			${getSidebar(pages, slug)}
 		</aside>
+
 		<div class="flex-1 overflow-y-auto mx-auto w-full">
 			<main class="mx-auto px-4 py-12">
 				${await markdown(content, title)}
-			</main>
+			</main>			
 		</div>
+		
+		
 	</div>	
 </body>
 </html>`;
