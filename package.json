@@ -15,7 +15,7 @@
 		"deploy": "gh-pages -d public"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
+		"@biomejs/biome": "2.2.0",
 		"serve": "^14.2.4",
 		"watch": "^1.0.2"
 	},
@@ -23,18 +23,18 @@
 		"@sindresorhus/slugify": "^2.2.1",
 		"@sphido/core": "^2.0.30",
 		"@sphido/sitemap": "^2.0.25",
-		"@tailwindcss/cli": "^4.1.8",
+		"@tailwindcss/cli": "^4.1.12",
 		"@tailwindcss/forms": "^0.5.10",
 		"@tailwindcss/typography": "^0.5.16",
 		"globby": "^14.1.0",
 		"got": "^14.4.7",
 		"hast-util-sanitize": "^5.0.2",
-		"postcss": "^8.5.4",
+		"postcss": "^8.5.6",
 		"prismjs": "^1.30.0",
 		"remark": "^15.0.1",
 		"remark-gfm": "^4.0.1",
 		"remark-html": "^16.0.1",
-		"tailwindcss": "^4.1.8",
+		"tailwindcss": "^4.1.12",
 		"unist-util-visit": "^5.0.0"
 	}
 }
