@@ -1,11 +1,11 @@
 import got from "got";
 import { visit } from "unist-util-visit";
 
-export default function github(options = {}) {
+export default function github(_options = {}) {
 	return async (tree) => {
 		const promises = [];
 
-		visit(tree, "link", async (node, index, parent) => {
+		visit(tree, "link", async (node, _index, parent) => {
 			if (node.url.match(/https:\/\/github\.com.+\/blob\//gi) && node.url.match(/\.js$/gi)) {
 				const rawUrl = node.url.replace("blob", "raw");
 				const folderUrl = node.url.replace(/\/[^/]+$/, "").replace(/\/blob\//, "/tree/");

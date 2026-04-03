@@ -1,9 +1,9 @@
 import { remark } from "remark";
+import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
 import github from "./remark/github.js";
-import remarkGfm from "remark-gfm";
-import links from "./remark/links.js";
 import images from "./remark/images.js";
+import links from "./remark/links.js";
 import prism from "./remark/prism.js";
 
 export async function markdown(content) {

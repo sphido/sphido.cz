@@ -1,7 +1,6 @@
 import { visit } from "unist-util-visit";
-import got from "got";
 
-export default function links(options = {}) {
+export default function links(_options = {}) {
 	return (tree) => {
 		visit(tree, "link", (node) => {
 			// external links

@@ -1,6 +1,6 @@
 import { visit } from "unist-util-visit";
 
-export default function images(options = {}) {
+export default function images(_options = {}) {
 	return (tree) => {
 		visit(tree, "image", (node) => {
 			// shields.io images should be inline

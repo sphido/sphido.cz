@@ -1,13 +1,13 @@
-import { visit } from "unist-util-visit";
 import Prism from "prismjs";
+import { visit } from "unist-util-visit";
 import "prismjs/components/prism-json.js";
 import "prismjs/components/prism-bash.js";
 import "prismjs/components/prism-textile.js";
 import "prismjs/components/prism-markdown.js";
 
-export default function prism(options = {}) {
+export default function prism(_options = {}) {
 	return (tree) =>
-		visit(tree, "code", (node, index, parent) => {
+		visit(tree, "code", (node, _index, _parent) => {
 			const lang = node.lang || "markdown";
 			node.type = "html";
 			node.value = `<pre><code class="language-${lang}">${Prism.highlight(node.value, Prism.languages[lang], lang)}</code></pre>`;
