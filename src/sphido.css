@@ -117,68 +117,74 @@
 		@apply border-0 bg-transparent p-0 text-foreground before:content-none after:content-none;
 	}
 
-	/* Night Owl Dark – syntax highlighting */
-	main pre .token.function,
-	main pre .token.class-name {
-		color: #82aaff;
+	/* Dark Plus (VS Code) – syntax highlighting */
+	main pre .token.function {
+		color: #DCDCAA;
 	}
 
-	main pre .token.tag,
+	main pre .token.class-name {
+		color: #4EC9B0;
+	}
+
+	main pre .token.tag {
+		color: #569cd6;
+	}
+
 	main pre .token.selector,
 	main pre .token.selector .class {
-		color: #caece6;
+		color: #d7ba7d;
 	}
 
 	main pre .token.keyword,
 	main pre .token.important,
-	main pre .token.pseudo-class,
 	main pre .token.rule,
-	main pre .token.attr-name {
-		color: #c792ea;
+	main pre .token.module {
+		color: #C586C0;
+	}
+
+	main pre .token.attr-name,
+	main pre .token.property {
+		color: #9CDCFE;
 	}
 
 	main pre .token.operator {
-		color: #7fdbca;
+		color: #D4D4D4;
 	}
 
 	main pre .token.string,
 	main pre .token.attr-value {
-		color: #ecc48d;
+		color: #ce9178;
 	}
 
 	main pre .token.number,
-	main pre .token.unit,
-	main pre .token.color {
-		color: #f78c6c;
+	main pre .token.unit {
+		color: #b5cea8;
 	}
 
 	main pre .token.boolean,
 	main pre .token.constant {
-		color: #ff5874;
+		color: #569cd6;
 	}
 
-	main pre .token.class {
-		color: #ffcb8b;
-	}
-
-	main pre .token.module,
-	main pre .token.property {
-		color: #7fdbca;
+	main pre .token.class,
+	main pre .token.pseudo-class,
+	main pre .token.color {
+		color: #d7ba7d;
 	}
 
 	main pre .token.punctuation {
-		color: #d6deeb;
+		color: #D4D4D4;
 	}
 
 	main pre .language-css .token.function,
 	main pre .language-shell .token:not(.comment),
 	main pre .token.atapply .token:not(.rule):not(.important) {
-		color: #d6deeb;
+		color: #D4D4D4;
 	}
 
 	main pre .token.doctype,
 	main pre .token.comment {
-		color: #637777;
+		color: #6A9955;
 	}
 
 	main pre .token.important,
@@ -187,13 +193,13 @@
 	}
 
 	main pre .token.entity {
-		color: #80cbc4;
+		color: #4EC9B0;
 		@apply cursor-help;
 	}
 
 	main pre .language-bash {
 		@apply before:mr-2 before:inline-block before:content-['$'];
-		&::before { color: #637777; }
+		&::before { color: #6A9955; }
 	}
 }
 
@@ -202,8 +208,8 @@
   Unlayered so this wins over @tailwindcss/typography `.prose pre` rules.
 */
 main pre {
-	background-color: #011627 !important;
-	color: #d6deeb !important;
+	background-color: #1E1E1E !important;
+	color: #D4D4D4 !important;
 	border: 1px solid var(--border) !important;
 	border-radius: var(--radius);
 	padding: 1rem 1.25rem !important;
