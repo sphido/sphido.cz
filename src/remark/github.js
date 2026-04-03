@@ -32,6 +32,7 @@ export default function github(_options = {}) {
 								hProperties: {
 									className: "text-base inline-flex items-center bg-[#1f883d] hover:contrast-125 text-white font-semibold py-2 px-6 rounded-lg hover:no-underline",
 									target: "_blank",
+									rel: ["noopener", "noreferrer"],
 								},
 							},
 							children: [{ type: "text", value: "View on GitHub" }],

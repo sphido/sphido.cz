@@ -4,7 +4,8 @@ export function getSidebar(pages, active) {
 	const docs = [...allPages(pages)].filter((page) => page?.name !== "404");
 
 	return `
-		<ul class="flex flex-col gap-4 m-8">
+		<nav aria-label="Documentation" class="m-8">
+		<ul class="flex flex-col gap-4">
 			${docs
 				.map(
 					(page) => `
@@ -16,5 +17,6 @@ export function getSidebar(pages, active) {
 				)
 				.join("")}
 		</ul>
+		</nav>
 	`;
 }
