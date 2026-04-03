@@ -19,29 +19,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: "24"
-          cache: "yarn"
+          node-version: "25"
+          cache: yarn
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+      - name: Install and build
+        run: yarn install --frozen-lockfile && yarn build
 
-      - name: Build site
-        run: yarn build
-
-      - name: Setup Pages
+      - name: Configure Pages
         uses: actions/configure-pages@v4
         with:
           enablement: true
 
-      - name: Upload static site to Pages
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          path: "./public"
+          path: public
 
   deploy:
     environment:
