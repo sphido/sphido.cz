@@ -30,10 +30,18 @@ function slug(page, dirent, path) {
 	}
 }
 
+const [homeReadme, coreReadme, frontmatterReadme, hashtagsReadme, sitemapReadme] = await Promise.all([
+	got("https://raw.githubusercontent.com/sphido/sphido/main/readme.md").text(),
+	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-core/readme.md").text(),
+	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-frontmatter/readme.md").text(),
+	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-hashtags/readme.md").text(),
+	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-sitemap/readme.md").text(),
+]);
+
 const pages = [
 	{
 		slug: "index.html",
-		content: await got("https://raw.githubusercontent.com/sphido/sphido/main/readme.md").text(),
+		content: homeReadme,
 		title: "Home",
 		name: "A rocket 🚀 fast, 💭 lightweight and flexible static site 🤖 generator",
 		url: "https://sphido.cz/",
@@ -41,7 +49,7 @@ const pages = [
 	},
 	{
 		slug: "core.html",
-		content: await got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-core/readme.md").text(),
+		content: coreReadme,
 		title: "Sphido core",
 		url: "https://sphido.cz/core.html",
 		output: "public/core.html",
@@ -49,21 +57,21 @@ const pages = [
 	...(await getPages({ path: "content" }, slug, content)),
 	{
 		slug: "frontmatter.html",
-		content: await got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-frontmatter/readme.md").text(),
+		content: frontmatterReadme,
 		title: "Frontmatter",
 		url: "https://sphido.cz/frontmatter.html",
 		output: "public/frontmatter.html",
 	},
 	{
 		slug: "hashtags.html",
-		content: await got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-hashtags/readme.md").text(),
+		content: hashtagsReadme,
 		title: "Hashtags",
 		url: "https://sphido.cz/hashtags.html",
 		output: "public/hashtags.html",
 	},
 	{
 		slug: "sitemap.html",
-		content: await got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-sitemap/readme.md").text(),
+		content: sitemapReadme,
 		title: "sitemap.xml",
 		url: "https://sphido.cz/sitemap.html",
 		output: "public/sitemap.html",
