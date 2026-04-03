@@ -15,6 +15,15 @@
 }
 
 @layer components {
+	pre > code {
+		@apply text-inherit before:content-none after:content-none bg-transparent;
+	}
+
+	pre {
+		@apply overflow-x-auto;
+		@apply max-h-[100vh] overflow-y-auto;
+	}
+
 	main h1 > code,
 	main h2 > code,
 	main h3 > code,
@@ -22,15 +31,6 @@
 	main h5 > code,
 	main h6 > code {
 		@apply before:content-none after:content-none text-inherit bg-transparent p-0;
-	}
-
-	pre > code {
-		@apply text-inherit before:content-none after:content-none bg-transparent;
-	}
-
-	pre {
-		@apply overflow-x-scroll;
-		@apply max-h-[100vh] overflow-y-auto;
 	}
 
 	.token.class-name,
