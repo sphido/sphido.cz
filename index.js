@@ -35,7 +35,7 @@ const pages = [
 		slug: "index.html",
 		content: await got("https://raw.githubusercontent.com/sphido/sphido/main/readme.md").text(),
 		title: "Home",
-		name: "A rocket 🚀 fast, 💭 light-weight and flexible static site 🤖 generator",
+		name: "A rocket 🚀 fast, 💭 lightweight and flexible static site 🤖 generator",
 		url: "https://sphido.cz/",
 		output: "public/index.html",
 	},

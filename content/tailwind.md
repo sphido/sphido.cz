@@ -1,6 +1,6 @@
 # Tailwind
 
-[Tailwind CSS](https://tailwindcss.com/) is utility first CSS framework which can be easily integrated with Sphido. 
+[Tailwind CSS](https://tailwindcss.com/) is a utility-first CSS framework which can be easily integrated with Sphido. 
 
 ## Install Required Packages
 
@@ -23,7 +23,7 @@ In the `src` directory, create a file named `style.css` with the following conte
 @custom-variant dark (&:where(.dark, .dark *));
 ```
 
-Then add follow lines to the `package.json` under `"scripts"`:
+Then add the following lines to the `package.json` under `"scripts"`:
 
 ```json
 {
