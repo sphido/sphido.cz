@@ -4,19 +4,17 @@ export function getSidebar(pages, active) {
 	const docs = [...allPages(pages)].filter((page) => page?.name !== "404");
 
 	return `
-		<nav aria-label="Documentation" class="m-8">
-		<ul class="flex flex-col gap-4">
+		<nav aria-label="Documentation" class="py-6 pr-4 md:py-8">
+		<div class="flex flex-col gap-1">
 			${docs
 				.map(
 					(page) => `
-			<li>
-				<a href="${page.slug}" title="${page.title}" class="hover:text-sky-600 dark:hover:text-sky-500 ${page.slug === active ? "font-semibold text-sky-600 dark:text-sky-500" : ""}" data-active="${page.slug === active}">
+				<a href="${page.slug === "index.html" ? "/" : page.slug}" title="${page.title}" class="group flex items-center rounded-md px-3 py-1.5 text-sm transition-colors ${page.slug === active ? "font-medium text-foreground" : "text-muted-foreground hover:text-foreground"}" data-active="${page.slug === active}">
 					${page.name === "index" ? "Home" : page.title}
-				</a>
-		</li>`,
+				</a>`,
 				)
 				.join("")}
-		</ul>
+		</div>
 		</nav>
 	`;
 }
