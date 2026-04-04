@@ -30,7 +30,8 @@ export default function github(_options = {}) {
 							url: folderUrl,
 							data: {
 								hProperties: {
-									className: "mt-4 inline-flex h-8 items-center justify-center rounded-md border border-border bg-background px-3 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground no-underline hover:no-underline",
+									className:
+										"mt-4 inline-flex h-8 items-center justify-center rounded-md border border-border bg-background px-3 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground no-underline hover:no-underline",
 									target: "_blank",
 									rel: ["noopener", "noreferrer"],
 								},

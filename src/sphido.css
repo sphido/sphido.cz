@@ -119,11 +119,11 @@
 
 	/* Dark Plus (VS Code) – syntax highlighting */
 	main pre .token.function {
-		color: #DCDCAA;
+		color: #dcdcaa;
 	}
 
 	main pre .token.class-name {
-		color: #4EC9B0;
+		color: #4ec9b0;
 	}
 
 	main pre .token.tag {
@@ -139,16 +139,16 @@
 	main pre .token.important,
 	main pre .token.rule,
 	main pre .token.module {
-		color: #C586C0;
+		color: #c586c0;
 	}
 
 	main pre .token.attr-name,
 	main pre .token.property {
-		color: #9CDCFE;
+		color: #9cdcfe;
 	}
 
 	main pre .token.operator {
-		color: #D4D4D4;
+		color: #d4d4d4;
 	}
 
 	main pre .token.string,
@@ -173,18 +173,18 @@
 	}
 
 	main pre .token.punctuation {
-		color: #D4D4D4;
+		color: #d4d4d4;
 	}
 
 	main pre .language-css .token.function,
 	main pre .language-shell .token:not(.comment),
 	main pre .token.atapply .token:not(.rule):not(.important) {
-		color: #D4D4D4;
+		color: #d4d4d4;
 	}
 
 	main pre .token.doctype,
 	main pre .token.comment {
-		color: #6A9955;
+		color: #6a9955;
 	}
 
 	main pre .token.important,
@@ -193,13 +193,15 @@
 	}
 
 	main pre .token.entity {
-		color: #4EC9B0;
+		color: #4ec9b0;
 		@apply cursor-help;
 	}
 
 	main pre .language-bash {
 		@apply before:mr-2 before:inline-block before:content-['$'];
-		&::before { color: #6A9955; }
+		&::before {
+			color: #6a9955;
+		}
 	}
 }
 
@@ -210,8 +212,8 @@
 main pre {
 	tab-size: 2;
 	-moz-tab-size: 2;
-	background-color: #1E1E1E !important;
-	color: #D4D4D4 !important;
+	background-color: #1e1e1e !important;
+	color: #d4d4d4 !important;
 	border: 1px solid var(--border) !important;
 	border-radius: var(--radius);
 	padding: 1rem 1.25rem !important;
