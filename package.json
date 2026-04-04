@@ -5,35 +5,32 @@
 	"repository": "sphido/sphido.cz",
 	"type": "module",
 	"scripts": {
-		"build": "yarn build:html && yarn build:css",
+		"build": "pnpm run build:html && pnpm run build:css",
 		"build:html": "node index.js",
 		"build:css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css",
 		"css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css --watch",
-		"dev": "watch \"yarn build\" ./content ./src | serve public",
+		"dev": "watch \"pnpm run build\" ./content ./src | serve public",
 		"serve": "serve public",
 		"format": "biome format --write",
 		"deploy": "gh-pages -d public"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.10",
-		"gh-pages": "^6.3.0",
-		"serve": "^14.2.6",
-		"watch": "^1.0.2"
-	},
-	"dependencies": {
 		"@sindresorhus/slugify": "^3.0.0",
-		"@sphido/core": "^2.0.30",
-		"@sphido/sitemap": "^2.0.25",
+		"@sphido/core": "^3.0.0",
+		"@sphido/sitemap": "^3.0.1",
 		"@tailwindcss/cli": "^4.2.2",
 		"@tailwindcss/typography": "^0.5.19",
+		"gh-pages": "^6.3.0",
 		"globby": "^16.2.0",
 		"got": "^15.0.0",
-		"postcss": "^8.5.8",
 		"prismjs": "^1.30.0",
 		"remark": "^15.0.1",
 		"remark-gfm": "^4.0.1",
 		"remark-html": "^16.0.1",
+		"serve": "^14.2.6",
 		"tailwindcss": "^4.2.2",
-		"unist-util-visit": "^5.1.0"
+		"unist-util-visit": "^5.1.0",
+		"watch": "^1.0.2"
 	}
 }

@@ -1,4 +1,5 @@
 .npm
+.pnpm-store
 .cache
 public
 node_modules
