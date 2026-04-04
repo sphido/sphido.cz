@@ -208,6 +208,8 @@
   Unlayered so this wins over @tailwindcss/typography `.prose pre` rules.
 */
 main pre {
+	tab-size: 2;
+	-moz-tab-size: 2;
 	background-color: #1E1E1E !important;
 	color: #D4D4D4 !important;
 	border: 1px solid var(--border) !important;
