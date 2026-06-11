@@ -5,7 +5,7 @@
 
 /* shadcn/ui-style design tokens (default zinc neutral theme) */
 :root {
-	--background: oklch(1 0 0);
+	--background: oklch(0.99 0.004 85);
 	--foreground: oklch(0.145 0 0);
 	--card: oklch(1 0 0);
 	--card-foreground: oklch(0.145 0 0);
@@ -24,13 +24,16 @@
 	--border: oklch(0.922 0 0);
 	--input: oklch(0.922 0 0);
 	--ring: oklch(0.708 0 0);
-	--radius: 0.5rem;
+	--radius: 0.625rem;
+	--flame: oklch(0.62 0.21 38);
+	--flame-foreground: oklch(0.985 0 0);
+	--flame-shadow: oklch(0.62 0.21 38 / 25%);
 }
 
 .dark {
-	--background: oklch(0.145 0 0);
+	--background: oklch(0.15 0.012 262);
 	--foreground: oklch(0.985 0 0);
-	--card: oklch(0.205 0 0);
+	--card: oklch(0.185 0.014 262);
 	--card-foreground: oklch(0.985 0 0);
 	--popover: oklch(0.205 0 0);
 	--popover-foreground: oklch(0.985 0 0);
@@ -47,6 +50,9 @@
 	--border: oklch(1 0 0 / 10%);
 	--input: oklch(1 0 0 / 15%);
 	--ring: oklch(0.556 0 0);
+	--flame: oklch(0.72 0.19 42);
+	--flame-foreground: oklch(0.16 0.01 260);
+	--flame-shadow: oklch(0.72 0.19 42 / 20%);
 }
 
 @theme inline {
@@ -72,7 +78,11 @@
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);
-	--font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--color-flame: var(--flame);
+	--color-flame-foreground: var(--flame-foreground);
+	--font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+	--font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+	--font-sans: "Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 @layer base {
@@ -118,86 +128,86 @@
 	}
 
 	/* Dark Plus (VS Code) – syntax highlighting */
-	main pre .token.function {
+	:is(main, .code-window) pre .token.function {
 		color: #dcdcaa;
 	}
 
-	main pre .token.class-name {
+	:is(main, .code-window) pre .token.class-name {
 		color: #4ec9b0;
 	}
 
-	main pre .token.tag {
+	:is(main, .code-window) pre .token.tag {
 		color: #569cd6;
 	}
 
-	main pre .token.selector,
-	main pre .token.selector .class {
+	:is(main, .code-window) pre .token.selector,
+	:is(main, .code-window) pre .token.selector .class {
 		color: #d7ba7d;
 	}
 
-	main pre .token.keyword,
-	main pre .token.important,
-	main pre .token.rule,
-	main pre .token.module {
+	:is(main, .code-window) pre .token.keyword,
+	:is(main, .code-window) pre .token.important,
+	:is(main, .code-window) pre .token.rule,
+	:is(main, .code-window) pre .token.module {
 		color: #c586c0;
 	}
 
-	main pre .token.attr-name,
-	main pre .token.property {
+	:is(main, .code-window) pre .token.attr-name,
+	:is(main, .code-window) pre .token.property {
 		color: #9cdcfe;
 	}
 
-	main pre .token.operator {
+	:is(main, .code-window) pre .token.operator {
 		color: #d4d4d4;
 	}
 
-	main pre .token.string,
-	main pre .token.attr-value {
+	:is(main, .code-window) pre .token.string,
+	:is(main, .code-window) pre .token.attr-value {
 		color: #ce9178;
 	}
 
-	main pre .token.number,
-	main pre .token.unit {
+	:is(main, .code-window) pre .token.number,
+	:is(main, .code-window) pre .token.unit {
 		color: #b5cea8;
 	}
 
-	main pre .token.boolean,
-	main pre .token.constant {
+	:is(main, .code-window) pre .token.boolean,
+	:is(main, .code-window) pre .token.constant {
 		color: #569cd6;
 	}
 
-	main pre .token.class,
-	main pre .token.pseudo-class,
-	main pre .token.color {
+	:is(main, .code-window) pre .token.class,
+	:is(main, .code-window) pre .token.pseudo-class,
+	:is(main, .code-window) pre .token.color {
 		color: #d7ba7d;
 	}
 
-	main pre .token.punctuation {
+	:is(main, .code-window) pre .token.punctuation {
 		color: #d4d4d4;
 	}
 
-	main pre .language-css .token.function,
-	main pre .language-shell .token:not(.comment),
-	main pre .token.atapply .token:not(.rule):not(.important) {
+	:is(main, .code-window) pre .language-css .token.function,
+	:is(main, .code-window) pre .language-shell .token:not(.comment),
+	:is(main, .code-window) pre .token.atapply .token:not(.rule):not(.important) {
 		color: #d4d4d4;
 	}
 
-	main pre .token.doctype,
-	main pre .token.comment {
+	:is(main, .code-window) pre .token.doctype,
+	:is(main, .code-window) pre .token.comment {
 		color: #6a9955;
 	}
 
-	main pre .token.important,
-	main pre .token.bold {
+	:is(main, .code-window) pre .token.important,
+	:is(main, .code-window) pre .token.bold {
 		@apply font-semibold;
 	}
 
-	main pre .token.entity {
+	:is(main, .code-window) pre .token.entity {
 		color: #4ec9b0;
 		@apply cursor-help;
 	}
 
-	main pre .language-bash {
+	:is(main, .code-window) pre .language-bash {
 		@apply before:mr-2 before:inline-block before:content-['$'];
 		&::before {
 			color: #6a9955;
@@ -209,7 +219,7 @@
   Fenced code blocks: always dark (same in light and dark site theme).
   Unlayered so this wins over @tailwindcss/typography `.prose pre` rules.
 */
-main pre {
+:is(main, .code-window) pre {
 	tab-size: 2;
 	-moz-tab-size: 2;
 	background-color: #1e1e1e !important;
@@ -223,10 +233,51 @@ main pre {
 	margin: 1.5rem 0 !important;
 }
 
-main pre code {
+:is(main, .code-window) pre code {
 	background-color: transparent !important;
 	color: inherit !important;
 	border: none !important;
 	padding: 0 !important;
 	font-size: inherit !important;
+}
+
+/* Landing page atmosphere */
+.bg-grid {
+	background-image: radial-gradient(color-mix(in oklch, var(--foreground) 12%, transparent) 1px, transparent 1px);
+	background-size: 24px 24px;
+	mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+}
+
+.glow {
+	background: radial-gradient(ellipse at center, var(--flame-shadow), transparent 65%);
+	filter: blur(40px);
+}
+
+@keyframes rise {
+	from {
+		opacity: 0;
+		transform: translateY(14px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.reveal {
+	animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+	animation-delay: var(--d, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.reveal {
+		animation: none;
+	}
+}
+
+/* Code window on the landing page: pre sits inside its own chrome */
+.code-window pre {
+	margin: 0 !important;
+	border: 0 !important;
+	border-radius: 0 0 calc(var(--radius) + 4px) calc(var(--radius) + 4px);
 }

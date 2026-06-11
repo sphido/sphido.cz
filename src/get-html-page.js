@@ -1,46 +1,35 @@
-import { readFile } from "@sphido/core";
+import { footer, head, header } from "./chrome.js";
 import { getSidebar } from "./get-sidebar.js";
 import { markdown } from "./markdown.js";
 
-const logo = await readFile("static/sphido.svg");
+/** Docs page header with npm metadata — only for package pages */
+function packageMeta({ npm, version }) {
+	if (!npm) return "";
+	return `<div class="not-prose mb-8 flex flex-wrap items-center gap-2 border-b border-border pb-6 font-mono text-xs">
+		<a href="https://www.npmjs.com/package/${npm}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-muted-foreground transition-colors hover:border-flame/50 hover:text-foreground">
+			<svg viewBox="0 0 24 24" class="h-3 w-3 fill-current" aria-hidden="true"><path d="M0 7.334v8h6.666v1.332H12v-1.332h12v-8H0zm6.666 6.664H5.334v-4H3.999v4H1.335V8.667h5.331v5.331zm4 0v1.336H8.001V8.667h5.334v5.332h-2.669v-.001zm12.001 0h-1.33v-4h-1.336v4h-1.335v-4h-1.33v4h-2.671V8.667h8.002v5.331zM10.665 10H12v2.667h-1.335V10z"/></svg>
+			${npm}${version ? ` <span class="text-flame">v${version}</span>` : ""}
+		</a>
+		<button type="button" onclick="navigator.clipboard.writeText('pnpm add ${npm}');this.dataset.copied='1';setTimeout(()=>delete this.dataset.copied,1600)" class="group inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-muted-foreground transition-colors hover:border-flame/50 hover:text-foreground" aria-label="Copy install command">
+			<span class="text-flame" aria-hidden="true">$</span>pnpm add ${npm}
+			<span class="group-data-[copied]:hidden" aria-hidden="true">⧉</span>
+			<span class="hidden text-flame group-data-[copied]:inline" aria-hidden="true">✓</span>
+		</button>
+		<a href="https://github.com/sphido/sphido/tree/main/packages/${npm.startsWith("@sphido/") ? `sphido-${npm.slice(8)}` : npm}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-muted-foreground transition-colors hover:border-flame/50 hover:text-foreground">source</a>
+	</div>`;
+}
 
-export async function getPageHtml({ content, title, name, slug, url }, pages) {
+export async function getPageHtml(page, pages) {
+	const { content, title, name, slug, url } = page;
+
 	return `<!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="shortcut icon" href="/favicon.ico"/>
-	<script src="/theme.js"></script>
-	<link rel="canonical" href="${url}" />
-	<link rel="stylesheet" href="/sphido.css"/>
-	<title>Sphido / ${title || name}</title>
-	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
+	${head({ title: `Sphido / ${title || name}`, url })}
 </head>
 <body class="flex min-h-screen flex-col bg-background text-foreground">
+	${header()}
 	<div class="container flex min-h-0 flex-1 flex-col">
-	<header class="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-		<div class="flex h-14 items-center justify-between">
-			<nav aria-label="Main" class="flex items-center">
-				<a href="/" title="Homepage" class="inline-flex items-center text-foreground transition-opacity hover:opacity-80 [&_svg]:h-6 [&_svg]:w-auto">${logo}</a>
-			</nav>
-			<div class="flex items-center gap-1">
-				<button type="button" onclick="theme.toggle()" aria-label="Toggle light and dark theme" class="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden h-4 w-4 dark:block" aria-hidden="true" focusable="false">
-						<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
-					</svg>
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 dark:hidden" aria-hidden="true" focusable="false">
-						<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-					</svg>
-				</button>
-				<a href="https://github.com/sphido/sphido" target="_blank" rel="noopener noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground" aria-label="GitHub">
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="h-4 w-4" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-						<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-					</svg>
-				</a>
-			</div>
-		</div>
-	</header>
 	<div class="flex min-h-0 flex-1 flex-col md:flex-row md:gap-0">
 		<aside class="w-full shrink-0 md:sticky md:top-14 md:h-[calc(100vh-3.5rem)] md:w-56 md:overflow-y-auto lg:w-64">
 			${getSidebar(pages, slug)}
@@ -48,11 +37,13 @@ export async function getPageHtml({ content, title, name, slug, url }, pages) {
 
 		<div class="min-w-0 flex-1">
 			<main class="w-full max-w-3xl px-4 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+				${packageMeta(page)}
 				${await markdown(content)}
 			</main>
 		</div>
 	</div>
 	</div>
+	${footer()}
 </body>
 </html>`;
 }

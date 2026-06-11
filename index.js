@@ -8,121 +8,126 @@ import { globby } from "globby";
 import got from "got";
 
 import { getPageHtml } from "./src/get-html-page.js";
+import { getHomeHtml } from "./src/home.js";
+
+const RAW = "https://raw.githubusercontent.com/sphido/sphido/main";
+
+const PACKAGES = [
+	{
+		name: "create",
+		npm: "create-sphido",
+		title: "create-sphido",
+		group: "Get started",
+		description: "Scaffold a working blog with one command — content, layout, sitemap and dev server included.",
+		readme: "packages/create-sphido/readme.md",
+	},
+	{
+		name: "core",
+		npm: "@sphido/core",
+		title: "Sphido core",
+		group: "Core",
+		description: "getPages() and allPages() — the whole generator, with zero runtime dependencies.",
+		readme: "packages/sphido-core/readme.md",
+	},
+	{
+		name: "frontmatter",
+		npm: "@sphido/frontmatter",
+		title: "Frontmatter",
+		group: "Extenders",
+		description: "Reads YAML front matter into page.title, page.date, page.tags and friends.",
+		readme: "packages/sphido-frontmatter/readme.md",
+	},
+	{
+		name: "hashtags",
+		npm: "@sphido/hashtags",
+		title: "Hashtags",
+		group: "Extenders",
+		description: "Turns #hashtags in content into links and collects them in page.tags.",
+		readme: "packages/sphido-hashtags/readme.md",
+	},
+	{
+		name: "sitemap",
+		npm: "@sphido/sitemap",
+		title: "sitemap.xml",
+		group: "Components",
+		description: "Pure functions that render a protocol-correct sitemap.xml from your pages tree.",
+		readme: "packages/sphido-sitemap/readme.md",
+	},
+	{
+		name: "feed",
+		npm: "@sphido/feed",
+		title: "RSS feed",
+		group: "Components",
+		description: "Valid RSS 2.0 with RFC 822 dates and atom self-link, rendered from plain objects.",
+		readme: "packages/sphido-feed/readme.md",
+	},
+	{
+		name: "collections",
+		npm: "@sphido/collections",
+		title: "Collections",
+		group: "Helpers",
+		description: "Sorting, pagination, tag pages and prev/next navigation for blogs.",
+		readme: "packages/sphido-collections/readme.md",
+	},
+	{
+		name: "dev",
+		npm: "@sphido/dev",
+		title: "Dev server",
+		group: "Helpers",
+		description: "Watch mode, static server and browser live reload around your build function.",
+		readme: "packages/sphido-dev/readme.md",
+	},
+];
+
+/** Latest published version from the npm registry; empty string when offline */
+async function npmVersion(name) {
+	try {
+		const { version } = await got(`https://registry.npmjs.org/${name}/latest`).json();
+		return version;
+	} catch {
+		return "";
+	}
+}
 
 async function content(page, dirent) {
 	if (dirent.isFile()) {
 		page.content = await readFile(page.path);
 		page.title = page.content.match(/(?<=(^#)\s).*/gm)?.pop();
 		page.name = page.name || page.title;
+		page.group = "Guides";
 	}
 }
 
 function slug(page, dirent, path) {
 	if (dirent.isFile()) {
-		// Content
 		if (path.startsWith("content")) {
-			page.slug = join("/", relative("content", dirname(page.path)), `${slugify(page.name)}.html`);
+			page.slug = join("/", relative("content", dirname(page.path)), `${slugify(page.name)}.html`).slice(1);
 			page.output = join("public", page.slug);
 		}
 
-		// read file content
 		page.url = new URL(page.slug, "https://sphido.cz/").toString();
 	}
 }
 
-const [
-	homeReadme,
-	coreReadme,
-	frontmatterReadme,
-	hashtagsReadme,
-	sitemapReadme,
-	feedReadme,
-	collectionsReadme,
-	devReadme,
-	createReadme,
-] = await Promise.all([
-	got("https://raw.githubusercontent.com/sphido/sphido/main/readme.md").text(),
-	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-core/readme.md").text(),
-	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-frontmatter/readme.md").text(),
-	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-hashtags/readme.md").text(),
-	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-sitemap/readme.md").text(),
-	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-feed/readme.md").text(),
-	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-collections/readme.md").text(),
-	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-dev/readme.md").text(),
-	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/create-sphido/readme.md").text(),
-]);
+// Package documentation pages: readme + live npm version
+const packagePages = await Promise.all(
+	PACKAGES.map(async (pkg) => ({
+		...pkg,
+		slug: `${pkg.name}.html`,
+		content: await got(`${RAW}/${pkg.readme}`).text(),
+		url: `https://sphido.cz/${pkg.name}.html`,
+		output: `public/${pkg.name}.html`,
+		version: await npmVersion(pkg.npm),
+	})),
+);
 
-const pages = [
-	{
-		slug: "index.html",
-		content: homeReadme,
-		title: "Home",
-		name: "A rocket 🚀 fast, 💭 lightweight and flexible static site 🤖 generator",
-		url: "https://sphido.cz/",
-		output: "public/index.html",
-	},
-	{
-		slug: "core.html",
-		content: coreReadme,
-		title: "Sphido core",
-		url: "https://sphido.cz/core.html",
-		output: "public/core.html",
-	},
-	...(await getPages({ path: "content" }, slug, content)),
-	{
-		slug: "frontmatter.html",
-		content: frontmatterReadme,
-		title: "Frontmatter",
-		url: "https://sphido.cz/frontmatter.html",
-		output: "public/frontmatter.html",
-	},
-	{
-		slug: "hashtags.html",
-		content: hashtagsReadme,
-		title: "Hashtags",
-		url: "https://sphido.cz/hashtags.html",
-		output: "public/hashtags.html",
-	},
-	{
-		slug: "sitemap.html",
-		content: sitemapReadme,
-		title: "sitemap.xml",
-		url: "https://sphido.cz/sitemap.html",
-		output: "public/sitemap.html",
-	},
-	{
-		slug: "feed.html",
-		content: feedReadme,
-		title: "RSS feed",
-		url: "https://sphido.cz/feed.html",
-		output: "public/feed.html",
-	},
-	{
-		slug: "collections.html",
-		content: collectionsReadme,
-		title: "Collections",
-		url: "https://sphido.cz/collections.html",
-		output: "public/collections.html",
-	},
-	{
-		slug: "dev.html",
-		content: devReadme,
-		title: "Dev server",
-		url: "https://sphido.cz/dev.html",
-		output: "public/dev.html",
-	},
-	{
-		slug: "create.html",
-		content: createReadme,
-		title: "create-sphido",
-		url: "https://sphido.cz/create.html",
-		output: "public/create.html",
-	},
-];
+const pages = [...packagePages, ...(await getPages({ path: "content" }, slug, content))];
 
 // Generate HTML pages
 
-const entries = [];
+const entries = [{ url: "https://sphido.cz/" }];
+
+await writeFile("public/index.html", await getHomeHtml({ packages: packagePages, url: "https://sphido.cz/" }));
 
 for (const page of allPages(pages)) {
 	await writeFile(page.output, await getPageHtml(page, pages));
