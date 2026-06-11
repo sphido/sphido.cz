@@ -7,7 +7,8 @@ export function head({ title, url, description = "A rocket fast, lightweight and
 	return `<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta name="description" content="${description}">
-	<link rel="shortcut icon" href="/favicon.ico"/>
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+	<link rel="icon" href="/favicon.png" type="image/png">
 	<script src="/theme.js"></script>
 	<link rel="canonical" href="${url}" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
