@@ -30,12 +30,26 @@ function slug(page, dirent, path) {
 	}
 }
 
-const [homeReadme, coreReadme, frontmatterReadme, hashtagsReadme, sitemapReadme] = await Promise.all([
+const [
+	homeReadme,
+	coreReadme,
+	frontmatterReadme,
+	hashtagsReadme,
+	sitemapReadme,
+	feedReadme,
+	collectionsReadme,
+	devReadme,
+	createReadme,
+] = await Promise.all([
 	got("https://raw.githubusercontent.com/sphido/sphido/main/readme.md").text(),
 	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-core/readme.md").text(),
 	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-frontmatter/readme.md").text(),
 	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-hashtags/readme.md").text(),
 	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-sitemap/readme.md").text(),
+	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-feed/readme.md").text(),
+	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-collections/readme.md").text(),
+	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/sphido-dev/readme.md").text(),
+	got("https://raw.githubusercontent.com/sphido/sphido/main/packages/create-sphido/readme.md").text(),
 ]);
 
 const pages = [
@@ -75,6 +89,34 @@ const pages = [
 		title: "sitemap.xml",
 		url: "https://sphido.cz/sitemap.html",
 		output: "public/sitemap.html",
+	},
+	{
+		slug: "feed.html",
+		content: feedReadme,
+		title: "RSS feed",
+		url: "https://sphido.cz/feed.html",
+		output: "public/feed.html",
+	},
+	{
+		slug: "collections.html",
+		content: collectionsReadme,
+		title: "Collections",
+		url: "https://sphido.cz/collections.html",
+		output: "public/collections.html",
+	},
+	{
+		slug: "dev.html",
+		content: devReadme,
+		title: "Dev server",
+		url: "https://sphido.cz/dev.html",
+		output: "public/dev.html",
+	},
+	{
+		slug: "create.html",
+		content: createReadme,
+		title: "create-sphido",
+		url: "https://sphido.cz/create.html",
+		output: "public/create.html",
 	},
 ];
 
