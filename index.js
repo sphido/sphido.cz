@@ -3,7 +3,7 @@ import { cp } from "node:fs/promises";
 import { dirname, join, relative } from "node:path";
 import slugify from "@sindresorhus/slugify";
 import { allPages, copyFile, getPages, readFile, writeFile } from "@sphido/core";
-import { createSitemap } from "@sphido/sitemap";
+import { renderSitemap, writeSitemap } from "@sphido/sitemap";
 import { globby } from "globby";
 import got from "got";
 
@@ -78,16 +78,16 @@ const pages = [
 	},
 ];
 
-const sitemap = await createSitemap();
-
 // Generate HTML pages
+
+const entries = [];
 
 for (const page of allPages(pages)) {
 	await writeFile(page.output, await getPageHtml(page, pages));
-	sitemap.add(page);
+	entries.push({ url: page.url });
 }
 
-sitemap.end();
+await writeSitemap("public/sitemap.xml", renderSitemap(entries));
 
 // Copy static files
 

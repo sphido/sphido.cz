@@ -4,11 +4,12 @@ import "prismjs/components/prism-json.js";
 import "prismjs/components/prism-bash.js";
 import "prismjs/components/prism-textile.js";
 import "prismjs/components/prism-markdown.js";
+import "prismjs/components/prism-typescript.js";
 
 export default function prism(_options = {}) {
 	return (tree) =>
 		visit(tree, "code", (node, _index, _parent) => {
-			const lang = node.lang || "markdown";
+			const lang = node.lang && Prism.languages[node.lang] ? node.lang : "markdown";
 			node.type = "html";
 			node.value = `<pre><code class="language-${lang}">${Prism.highlight(node.value, Prism.languages[lang], lang)}</code></pre>`;
 

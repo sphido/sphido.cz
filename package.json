@@ -17,8 +17,8 @@
 	"devDependencies": {
 		"@biomejs/biome": "2.4.10",
 		"@sindresorhus/slugify": "^3.0.0",
-		"@sphido/core": "^3.0.0",
-		"@sphido/sitemap": "^3.0.1",
+		"@sphido/core": "^3.1.0",
+		"@sphido/sitemap": "^4.0.0",
 		"@tailwindcss/cli": "^4.2.2",
 		"@tailwindcss/typography": "^0.5.19",
 		"gh-pages": "^6.3.0",
