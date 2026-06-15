@@ -36,7 +36,7 @@ const FEATURES = [
 ];
 
 function packageCard({ slug, npm, title, description, version }) {
-	return `<a href="/${slug}.html" class="group relative flex flex-col gap-2 rounded-lg border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-flame/50 hover:shadow-[0_4px_24px_-8px_var(--flame-shadow)]">
+	return `<a href="/${slug}" class="group relative flex flex-col gap-2 rounded-lg border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-flame/50 hover:shadow-[0_4px_24px_-8px_var(--flame-shadow)]">
 		<div class="flex items-center justify-between gap-2">
 			<span class="font-mono text-sm font-medium text-foreground">${npm}</span>
 			${version ? `<span class="rounded-full border border-border bg-muted px-2 py-0.5 font-mono text-[11px] text-muted-foreground">v${version}</span>` : ""}
