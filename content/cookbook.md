@@ -3,6 +3,68 @@
 Package readmes tell you what each function does — this page shows how the packages
 work together. Every recipe is a complete, runnable fragment of a build script.
 
+## Markdown with syntax highlighting
+
+[`@sphido/markdown`](/markdown.html) renders `page.content` as the last extender, so
+everything before it still works with the markdown source. Zero config gives you GFM,
+escaped raw HTML and code blocks a highlighter can pick up.
+
+```javascript
+import {allPages, getPages, writeFile} from '@sphido/core';
+import {frontmatter} from '@sphido/frontmatter';
+import {markdown} from '@sphido/markdown';
+import {createHighlighter} from 'shiki';
+
+const highlighter = await createHighlighter({themes: ['github-light'], langs: ['javascript']});
+
+// a Sätteri hast plugin: swap every <pre> for Shiki's highlighted markup
+const shiki = {
+	name: 'shiki',
+	element: {
+		filter: ['pre'],
+		visit(node, ctx) {
+			const code = node.children?.[0];
+			if (code?.type !== 'element' || code.tagName !== 'code') return;
+			const lang = (code.properties?.className ?? []).map(String)
+				.find((name) => name.startsWith('language-'))?.slice(9);
+			ctx.replaceNode(node, {
+				type: 'raw',
+				value: highlighter.codeToHtml(ctx.textContent(node), {
+					lang: highlighter.getLoadedLanguages().includes(lang) ? lang : 'text',
+					theme: 'github-light',
+				}),
+			});
+		},
+	},
+};
+
+const pages = await getPages({path: 'content'}, frontmatter, markdown({hastPlugins: [shiki]}));
+
+for (const page of allPages(pages)) {
+	await writeFile(`public/${page.name}.html`, page.content); // already HTML
+}
+```
+
+The two safe defaults are hast plugins themselves and run **before** yours, which is why
+the highlighter may emit raw HTML while the author's `<script>` stays escaped.
+
+Prefer another engine? `render` takes over completely and the rest of the extender —
+file loading, skipping directories and `*.html` pages, `sanitize` — keeps working:
+
+```javascript
+import {unified} from 'unified';
+import remarkParse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
+import rehypeSanitize from 'rehype-sanitize';
+import rehypeStringify from 'rehype-stringify';
+
+const processor = unified().use(remarkParse).use(remarkGfm).use(remarkRehype)
+	.use(rehypeSanitize).use(rehypeStringify);
+
+markdown({render: async (md) => String(await processor.process(md))})
+```
+
 ## Blog with pagination and tag pages
 
 [`@sphido/collections`](/collections.html) covers what nearly every blog re-implements
@@ -112,10 +174,11 @@ intersection away:
 import {getPages, type Page} from '@sphido/core';
 import {frontmatter, type WithFrontmatter} from '@sphido/frontmatter';
 import {hashtags, type WithHashtags} from '@sphido/hashtags';
+import {markdown} from '@sphido/markdown';
 
 type BlogPage = Page & WithFrontmatter & WithHashtags & {slug: string};
 
 const pages = await getPages<BlogPage>({path: 'content'}, frontmatter, hashtags, (page) => {
 	page.slug = `${page.name}.html`;
-});
+}, markdown());
 ```

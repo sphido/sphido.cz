@@ -46,6 +46,14 @@ const PACKAGES = [
 		readme: "packages/sphido-hashtags/readme.md",
 	},
 	{
+		name: "markdown",
+		npm: "@sphido/markdown",
+		title: "Markdown",
+		group: "Extenders",
+		description: "Renders page.content to HTML — GFM, safe by default, any engine you like.",
+		readme: "packages/sphido-markdown/readme.md",
+	},
+	{
 		name: "sitemap",
 		npm: "@sphido/sitemap",
 		title: "sitemap.xml",

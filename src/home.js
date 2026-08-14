@@ -1,15 +1,15 @@
 import { footer, head, header } from "./chrome.js";
 import { markdown } from "./markdown.js";
 
-const QUICKSTART = `import {getPages, allPages, readFile, writeFile} from '@sphido/core';
-import {marked} from 'marked';
+const QUICKSTART = `import {getPages, allPages, writeFile} from '@sphido/core';
+import {markdown} from '@sphido/markdown';
 
 const pages = await getPages({path: 'content'}, (page) => {
 	page.slug = \`\${page.name}.html\`;
-});
+}, markdown());
 
 for (const page of allPages(pages)) {
-	await writeFile(\`public/\${page.slug}\`, marked(await readFile(page.path)));
+	await writeFile(\`public/\${page.slug}\`, page.content);
 }`;
 
 const FEATURES = [
