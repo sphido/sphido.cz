@@ -18,6 +18,7 @@
 		"@biomejs/biome": "2.4.10",
 		"@sindresorhus/slugify": "^3.0.0",
 		"@sphido/core": "^3.1.0",
+		"@sphido/markdown": "^2.0.0",
 		"@sphido/sitemap": "^4.0.0",
 		"@tailwindcss/cli": "^4.2.2",
 		"@tailwindcss/typography": "^0.5.19",
@@ -25,12 +26,8 @@
 		"globby": "^16.2.0",
 		"got": "^15.0.0",
 		"nodemon": "^3.1.14",
-		"prismjs": "^1.30.0",
-		"remark": "^15.0.1",
-		"remark-gfm": "^4.0.1",
-		"remark-html": "^16.0.1",
 		"serve": "^14.2.6",
-		"tailwindcss": "^4.2.2",
-		"unist-util-visit": "^5.1.0"
+		"shiki": "^4.4.3",
+		"tailwindcss": "^4.2.2"
 	}
 }

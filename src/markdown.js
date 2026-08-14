@@ -1,20 +1,17 @@
-import { remark } from "remark";
-import remarkGfm from "remark-gfm";
-import remarkHtml from "remark-html";
-import github from "./remark/github.js";
-import images from "./remark/images.js";
-import links from "./remark/links.js";
-import prism from "./remark/prism.js";
+import { createRenderer } from "@sphido/markdown";
+import { github } from "./plugins/github.js";
+import { images } from "./plugins/images.js";
+import { links } from "./plugins/links.js";
+import { shiki } from "./plugins/shiki.js";
+
+// The site renders its own readmes, so raw HTML passes through the way it did
+// under remark-html({sanitize: false}).
+const render = createRenderer({
+	allowHtml: true,
+	mdastPlugins: [github, shiki],
+	hastPlugins: [links, images],
+});
 
 export async function markdown(content) {
-	const file = await remark()
-		.use(remarkHtml, { sanitize: false })
-		.use(remarkGfm)
-		.use(github) // github examples
-		.use(links) // external links
-		.use(images) // images
-		.use(prism) // syntax highlighting
-		.process(content);
-
-	return String(file);
+	return render(content);
 }

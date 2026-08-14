@@ -127,86 +127,10 @@
 		@apply border-0 bg-transparent p-0 text-foreground before:content-none after:content-none;
 	}
 
-	/* Dark Plus (VS Code) – syntax highlighting */
-	:is(main, .code-window) pre .token.function {
-		color: #dcdcaa;
-	}
-
-	:is(main, .code-window) pre .token.class-name {
-		color: #4ec9b0;
-	}
-
-	:is(main, .code-window) pre .token.tag {
-		color: #569cd6;
-	}
-
-	:is(main, .code-window) pre .token.selector,
-	:is(main, .code-window) pre .token.selector .class {
-		color: #d7ba7d;
-	}
-
-	:is(main, .code-window) pre .token.keyword,
-	:is(main, .code-window) pre .token.important,
-	:is(main, .code-window) pre .token.rule,
-	:is(main, .code-window) pre .token.module {
-		color: #c586c0;
-	}
-
-	:is(main, .code-window) pre .token.attr-name,
-	:is(main, .code-window) pre .token.property {
-		color: #9cdcfe;
-	}
-
-	:is(main, .code-window) pre .token.operator {
-		color: #d4d4d4;
-	}
-
-	:is(main, .code-window) pre .token.string,
-	:is(main, .code-window) pre .token.attr-value {
-		color: #ce9178;
-	}
-
-	:is(main, .code-window) pre .token.number,
-	:is(main, .code-window) pre .token.unit {
-		color: #b5cea8;
-	}
-
-	:is(main, .code-window) pre .token.boolean,
-	:is(main, .code-window) pre .token.constant {
-		color: #569cd6;
-	}
-
-	:is(main, .code-window) pre .token.class,
-	:is(main, .code-window) pre .token.pseudo-class,
-	:is(main, .code-window) pre .token.color {
-		color: #d7ba7d;
-	}
-
-	:is(main, .code-window) pre .token.punctuation {
-		color: #d4d4d4;
-	}
-
-	:is(main, .code-window) pre .language-css .token.function,
-	:is(main, .code-window) pre .language-shell .token:not(.comment),
-	:is(main, .code-window) pre .token.atapply .token:not(.rule):not(.important) {
-		color: #d4d4d4;
-	}
-
-	:is(main, .code-window) pre .token.doctype,
-	:is(main, .code-window) pre .token.comment {
-		color: #6a9955;
-	}
-
-	:is(main, .code-window) pre .token.important,
-	:is(main, .code-window) pre .token.bold {
-		@apply font-semibold;
-	}
-
-	:is(main, .code-window) pre .token.entity {
-		color: #4ec9b0;
-		@apply cursor-help;
-	}
-
+	/*
+	  Token colours come from Shiki's Dark Plus theme as inline styles on the
+	  spans — see src/plugins/shiki.js. Only the frame stays here.
+	*/
 	:is(main, .code-window) pre .language-bash {
 		@apply before:mr-2 before:inline-block before:content-['$'];
 		&::before {
