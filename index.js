@@ -78,6 +78,14 @@ const PACKAGES = [
 		readme: "packages/sphido-collections/readme.md",
 	},
 	{
+		name: "cache",
+		npm: "@sphido/cache",
+		title: "Incremental builds",
+		group: "Helpers",
+		description: "Skips pages that have not changed — a no-op rebuild of 1 000 pages in 21 ms.",
+		readme: "packages/sphido-cache/readme.md",
+	},
+	{
 		name: "dev",
 		npm: "@sphido/dev",
 		title: "Dev server",
