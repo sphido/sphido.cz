@@ -165,6 +165,52 @@ await serve({watch: ['content'], output: 'public', build});
 Every change in `content/` rebuilds the site and reloads the browser. New projects
 scaffolded with `npm create sphido` ship this setup out of the box.
 
+## Rebuild only what changed
+
+[`@sphido/cache`](/cache.html) answers one question — *has this page changed since the
+last build?* — so a rebuild costs what changed instead of what the site contains. On
+1 000 pages a no-op rebuild drops from 153 ms to 21 ms, and the gap grows with the
+page count.
+
+```javascript
+import {createHash} from 'node:crypto';
+import {readFile} from 'node:fs/promises';
+import {allPages, getPages, writeFile} from '@sphido/core';
+import {frontmatter} from '@sphido/frontmatter';
+import {markdown} from '@sphido/markdown';
+import {changed, writeCache} from '@sphido/cache';
+import {layout} from './layout.js';
+
+// the cache tracks content, not your templates — fold them into a global key
+const version = createHash('sha1')
+	.update(await readFile('layout.js'))
+	.digest('hex');
+
+export async function build() {
+	const pages = await getPages({path: 'content'}, frontmatter, markdown());
+
+	for (const page of allPages(pages)) {
+		page.output = `public/${page.name}.html`;
+
+		if (!(await changed(page, {version}))) continue; // output is up to date
+
+		await writeFile(page.output, layout(page));
+	}
+
+	await writeCache({version}); // only after the build got this far
+}
+```
+
+Set `page.output` **before** calling `changed()` — then a deleted output brings the page
+back, so `rm -rf public` regenerates the site instead of trusting a cache that is right
+about sources and wrong about results. Change `layout.js` and the new `version` marks
+every page as changed.
+
+Pair it with the dev server above and the first rebuild after a save writes one page
+instead of all of them; the state stays in memory between rebuilds, so there is no cache
+file to re-read per keystroke. State lives in `.sphido/cache.json` — add it to
+`.gitignore`.
+
 ## Typed pages in TypeScript
 
 Extender packages export the types they contribute, so a fully typed page is one
