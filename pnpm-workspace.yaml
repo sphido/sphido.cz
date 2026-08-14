@@ -3,3 +3,4 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - '@sphido/core@3.1.0'
   - '@sphido/sitemap@4.0.0'
+  - '@sphido/markdown@2.0.0'
