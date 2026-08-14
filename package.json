@@ -10,8 +10,7 @@
 		"build:html": "node index.js",
 		"build:css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css",
 		"css": "tailwindcss -i ./src/sphido.css -o ./public/sphido.css --watch",
-		"dev": "nodemon --watch content --watch src --ext md,js,css,latte --exec \"pnpm run build\" | serve public",
-		"serve": "serve public",
+		"dev": "node dev.js",
 		"format": "biome format --write",
 		"deploy": "gh-pages -d public"
 	},
@@ -19,6 +18,7 @@
 		"@biomejs/biome": "2.4.10",
 		"@sindresorhus/slugify": "^3.0.0",
 		"@sphido/core": "^3.1.0",
+		"@sphido/dev": "^1.0.0",
 		"@sphido/markdown": "^2.0.0",
 		"@sphido/sitemap": "^4.0.0",
 		"@tailwindcss/cli": "^4.2.2",
@@ -26,8 +26,6 @@
 		"gh-pages": "^6.3.0",
 		"globby": "^16.2.0",
 		"got": "^15.0.0",
-		"nodemon": "^3.1.14",
-		"serve": "^14.2.6",
 		"shiki": "^4.4.3",
 		"tailwindcss": "^4.2.2"
 	}

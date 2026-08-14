@@ -34,16 +34,12 @@ pnpm run build:css    # Tailwind: src/sphido.css → public/sphido.css
 
 **Local development**
 
-Rebuild when `content/` or `src/` change, and serve `public/`:
+Rebuild when `content/`, `src/` or `static/` change, serve `public/` on
+http://localhost:4000 and reload the browser — through
+[`@sphido/dev`](https://sphido.cz/dev.html):
 
 ```bash
 pnpm run dev
-```
-
-Serve an already-built site without watching:
-
-```bash
-pnpm run serve
 ```
 
 **Deploy**
