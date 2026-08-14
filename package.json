@@ -1,9 +1,10 @@
 {
 	"private": true,
-	"author": "Roman Ožana <roman@ozana.cz> (https://ozana.cz)",
+	"author": "Roman O\u017eana <roman@ozana.cz> (https://ozana.cz)",
 	"license": "MIT",
 	"repository": "sphido/sphido.cz",
 	"type": "module",
+	"packageManager": "pnpm@11.21.0",
 	"scripts": {
 		"build": "pnpm run build:html && pnpm run build:css",
 		"build:html": "node index.js",
