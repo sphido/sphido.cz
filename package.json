@@ -1,10 +1,10 @@
 {
 	"private": true,
-	"author": "Roman O\u017eana <roman@ozana.cz> (https://ozana.cz)",
+	"author": "Roman Ožana <roman@ozana.cz> (https://ozana.cz)",
 	"license": "MIT",
 	"repository": "sphido/sphido.cz",
 	"type": "module",
-	"packageManager": "pnpm@11.21.0",
+	"packageManager": "pnpm@12.16.1",
 	"scripts": {
 		"build": "pnpm run build:html && pnpm run build:css",
 		"build:html": "node index.js",
@@ -16,19 +16,19 @@
 		"deploy": "gh-pages -d public"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.10",
-		"@sindresorhus/slugify": "^3.0.0",
-		"@sphido/core": "^3.1.0",
+		"@biomejs/biome": "2.6.4",
+		"@sindresorhus/slugify": "^3.0.1",
+		"@sphido/core": "^3.1.1",
 		"@sphido/markdown": "^2.0.0",
 		"@sphido/sitemap": "^4.0.0",
-		"@tailwindcss/cli": "^4.2.2",
-		"@tailwindcss/typography": "^0.5.19",
+		"@tailwindcss/cli": "^4.3.3",
+		"@tailwindcss/typography": "^0.5.20",
 		"gh-pages": "^6.3.0",
-		"globby": "^16.2.0",
-		"got": "^15.0.0",
+		"globby": "^16.2.4",
+		"got": "^16.2.0",
 		"nodemon": "^3.1.14",
 		"serve": "^14.2.6",
-		"shiki": "^4.4.3",
-		"tailwindcss": "^4.2.2"
+		"shiki": "^4.5.0",
+		"tailwindcss": "^4.3.3"
 	}
 }
