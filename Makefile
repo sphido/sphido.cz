@@ -1,8 +1,8 @@
 .PHONY: $(MAKECMDGOALS)
 
 all:
-	yarn install --production --no-color
-	yarn run build
+	pnpm install --frozen-lockfile
+	pnpm run build
 
 release:
 	git commit --allow-empty -m "Publish at `date +%F-%T`"

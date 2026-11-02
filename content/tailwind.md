@@ -8,7 +8,7 @@ Install Tailwind CSS and the typography plugin:
 
 
 ```bash
-yarn add tailwindcss @tailwindcss/cli @tailwindcss/typography
+pnpm add tailwindcss @tailwindcss/cli @tailwindcss/typography
 ```
 
 ## Create the Entry CSS File
@@ -28,7 +28,7 @@ Then add the following lines to the `package.json` under `"scripts"`:
 ```json
 {
 	"scripts": {
-		"build": "yarn build.css && yarn build.html",
+		"build": "pnpm run build.css && pnpm run build.html",
 		"build.css": "tailwindcss -i ./src/style.css -o ./public/style.css",
 		"build.html": "node index.js"
 	}
@@ -38,7 +38,7 @@ Then add the following lines to the `package.json` under `"scripts"`:
 ## Build the Project
 
 ```bash
-yarn build
+pnpm build
 ```
 
 This will generate the final CSS in the public folder.

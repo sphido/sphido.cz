@@ -3,5 +3,4 @@
 .cache
 public
 node_modules
-yarn-error.log
 .vercel
